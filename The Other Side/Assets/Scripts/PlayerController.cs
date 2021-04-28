@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     public float moveSpeed = 6;
     public float jumpSpeed = 12;
-    public float mass;
     public Transform groundCheck;
-    public float groundCheckRadius;
+    public float groundCheckRadius = 0.1f;
     public LayerMask whatIsGround;
     public bool isGrounded;
     public Sprite Real_Bob;
