@@ -2799,6 +2799,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1274289510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274289511}
+  m_Layer: 6
+  m_Name: WallChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1274289511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274289510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1687356507}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687356503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,22 +2883,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   jumpSpeed: 12
-  groundCheck: {fileID: 430276746}
   groundCheckRadius: 0.1
+  wallCheckRadius: 0.3
+  isGrounded: 0
+  hasWallJumped: 0
+  isAlongWall: 0
+  isRight: 0
+  groundCheck: {fileID: 430276746}
+  wallCheck: {fileID: 1274289511}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  isGrounded: 0
-  hasWallJumped: 0
-  wallCheckRadius: 0.3
   RW_Wall:
     serializedVersion: 2
     m_Bits: 256
   WW_Wall:
     serializedVersion: 2
     m_Bits: 512
-  isAlongWall: 0
-  isRight: 0
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2929,10 +2960,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687356503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.52, y: 0.43, z: 0}
+  m_LocalPosition: {x: -9.21, y: 0.44, z: 0}
   m_LocalScale: {x: 1.55, y: 2.22, z: 1}
   m_Children:
   - {fileID: 430276746}
+  - {fileID: 1274289511}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

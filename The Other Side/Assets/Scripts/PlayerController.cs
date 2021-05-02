@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour {
     public bool isAlongWall;
     public bool isRight;
     public Transform groundCheck;
+    public Transform wallCheck;
+    public Stopwatch stopwatch;
     public LayerMask whatIsGround;
     public LayerMask RW_Wall;
     public LayerMask WW_Wall;
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator>();
         isWallMerged = false;
         isRight = true;
+        stopwatch = new Stopwatch();
         Real_World_Color = GetComponent<SpriteRenderer>().color;
         Wall_World_Color = new Color(0,0,0,1);
     }
@@ -37,7 +41,11 @@ public class PlayerController : MonoBehaviour {
             handleWallMerging();
         }
         SetNearbyParameters();
-        HandleMovement();
+        if (!stopwatch.IsRunning || stopwatch.ElapsedMilliseconds > 200) {
+            hasWallJumped = false;
+            stopwatch.Reset();
+            HandleMovement();
+        }
         if (Input.GetButtonDown("Jump")) {
             HandleJump();
         }
@@ -46,18 +54,21 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void SetNearbyParameters() {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 
+        bool ground = Physics2D.OverlapCircle(groundCheck.position, 
                                             groundCheckRadius, whatIsGround);
-        if (isGrounded) {
-            hasWallJumped = false;
-        }
+        bool wallGround = false;
         if (isWallMerged) {
-            isAlongWall = Physics2D.OverlapCircle(groundCheck.position,
+            isAlongWall = Physics2D.OverlapCircle(wallCheck.position,
                                             wallCheckRadius, WW_Wall);
+            wallGround = Physics2D.OverlapCircle(groundCheck.position,
+                                            groundCheckRadius, WW_Wall);                              
         } else {
-            isAlongWall = Physics2D.OverlapCircle(groundCheck.position,
-                                            wallCheckRadius, RW_Wall);            
+            isAlongWall = Physics2D.OverlapCircle(wallCheck.position,
+                                            wallCheckRadius, RW_Wall);
+            wallGround = Physics2D.OverlapCircle(groundCheck.position,
+                                            groundCheckRadius, RW_Wall);                                   
         }
+        isGrounded = (ground || wallGround);
     }
 
     private void handleWallMerging() {
@@ -90,13 +101,14 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HandleJump() {
-        if (isGrounded && !isAlongWall) {
+        if (isGrounded) {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
-        }
-        if (isAlongWall) {
+        } else if (isAlongWall && !hasWallJumped) {
+            stopwatch.Start();
             hasWallJumped = true;
             float jumpComp = jumpSpeed * (1f / Mathf.Sqrt(2));
-            rb2d.velocity = new Vector2(-jumpComp, jumpComp);
+            float direction = isRight ? -1f : 1f;
+            rb2d.velocity = new Vector2(jumpComp * direction, jumpComp);
             Flip();
         }
     }
