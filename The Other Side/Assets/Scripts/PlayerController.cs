@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
                 Flip();
             }
         } else if (isGrounded) {
-            rb2d.velocity = new Vector2(0, 0);
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         } else if (isAlongWall && !hasWallJumped) {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y * 0.1f);
         }
@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour {
 
     private void HandleJump() {
         if (isGrounded) {
+            UnityEngine.Debug.Log("??");
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
         } else if (isAlongWall && !hasWallJumped) {
             stopwatch.Start();
