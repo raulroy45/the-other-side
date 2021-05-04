@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.J)) {
-            handleWallMerging();
+            HandleWallMerging();
         }
         SetNearbyParameters();
         if (!stopwatch.IsRunning || stopwatch.ElapsedMilliseconds > 200) {
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour {
         isGrounded = (ground || wallGround);
     }
 
-    private void handleWallMerging() {
+    private void HandleWallMerging() {
         isWallMerged = !isWallMerged;
         if (isWallMerged) {
             gameObject.layer = LayerMask.NameToLayer("WW_Bob");
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
                 Flip();
             }
         } else if (isGrounded) {
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(0, 0);
         } else if (isAlongWall && !hasWallJumped) {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y * 0.1f);
         }
