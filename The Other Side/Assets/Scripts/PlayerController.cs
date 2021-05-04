@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     public LayerMask WW_Wall;
     private Color Real_World_Color;
     private Color Wall_World_Color;
+    private Vector3 Scale;
 
     // Start is called before the first frame update
     void Start() {
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour {
         stopwatch = new Stopwatch();
         Real_World_Color = GetComponent<SpriteRenderer>().color;
         Wall_World_Color = new Color(0,0,0,1);
+        Scale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -121,10 +123,12 @@ public class PlayerController : MonoBehaviour {
 
     private void Flip() {
         isRight = !isRight;
+        Scale.x = -Scale.x;
         if (isRight) {
-            transform.localScale = new Vector3(1.55f,2.22f,1f);
+            transform.localScale = Scale;
         } else {
-            transform.localScale = new Vector3(-1.55f,2.22f,1f);
+
+            transform.localScale = Scale;
         }
     }
 
