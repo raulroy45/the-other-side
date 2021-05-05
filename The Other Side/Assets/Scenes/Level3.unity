@@ -3516,7 +3516,7 @@ Transform:
   m_GameObject: {fileID: 505545046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.05, y: 9.46, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 242017343}
   m_RootOrder: 2
@@ -3533,6 +3533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e240407fb104eb84eb01b3c20ec92b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 1195017334}
+  targetSprite: {fileID: 21300004, guid: ae3918a914038694d852d0bb81f62473, type: 3}
 --- !u!61 &505545049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3550,14 +3552,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 16}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &505545050
 SpriteRenderer:
@@ -3599,7 +3601,8 @@ SpriteRenderer:
   m_SortingLayerID: 1169490773
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300054, guid: 51095c0ded273b74cad074f0d7d6b32a, type: 3}
+  m_Sprite: {fileID: 7495320969501026803, guid: 53e4c4d46ed2d074bb89f3ee9886fb82,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9745,7 +9748,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &779505905
@@ -10084,6 +10087,12 @@ Transform:
 --- !u!1 &1195017333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1688881638449150, guid: 5808ca7cfa9bad240b1c2c52003f4817,
+    type: 3}
+  m_PrefabInstance: {fileID: 11471093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1195017334 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 212679375708851594, guid: 5808ca7cfa9bad240b1c2c52003f4817,
     type: 3}
   m_PrefabInstance: {fileID: 11471093}
   m_PrefabAsset: {fileID: 0}
