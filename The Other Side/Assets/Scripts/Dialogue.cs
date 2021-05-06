@@ -29,7 +29,7 @@ public class Dialogue : MonoBehaviour
                 textDisplay.text = sentences[index];
             }
         }
-        if (textDisplay.text == sentences[index]) {
+        if (index <= sentences.Length - 1 && textDisplay.text == sentences[index]) {
             if (index == triggerDialogue) {
                 if(Input.GetKeyDown(triggerKey)) {
                     NextSentence();
@@ -64,6 +64,7 @@ public class Dialogue : MonoBehaviour
             StartCoroutine(Type());
         } else {
             textDisplay.text = "";
+            index++;
             player.GetComponent<PlayerController>().resumeMovement();
         }
     }
