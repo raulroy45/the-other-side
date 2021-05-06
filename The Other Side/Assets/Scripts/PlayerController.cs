@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     public LayerMask whatIsGround;
     public LayerMask RW_Wall;
     public LayerMask WW_Wall;
+    public int wallMergeLimit = -1;  // -1: infinite wall merges 
     private Color Real_World_Color;
     private Color Wall_World_Color;
     private Vector3 Scale;
@@ -74,6 +75,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HandleWallMerging() {
+        if (wallMergeLimit == 0) {
+            // ooh no more merges
+            return;
+        }
+        wallMergeLimit--;
         isWallMerged = !isWallMerged;
         if (isWallMerged) {
             gameObject.layer = LayerMask.NameToLayer("WW_Bob");
