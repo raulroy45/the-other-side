@@ -3706,7 +3706,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 23.676147, y: -70.551254, z: -474.14923, w: 0}
+  m_margin: {x: 83.84903, y: -70.551254, z: -634.6103, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3802,7 +3802,7 @@ MonoBehaviour:
   sentences:
   - 'Bob: I can''t seem to pass this wall...'
   - 'Bob: ...'
-  - 'Bob: Ever since I have woken up.. I have been feeling somewhat'
+  - 'Bob: Ever since I woke up.. I have been feeling somewhat'
   - 'Bob: ...empty.'
   - 'Bob: Maybe if I just...'
   - <PRESS J TO WALL MERGE INTO THE WALL>
@@ -3902,7 +3902,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.623368
+  orthographic size: 4.296812
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4198,7 +4198,9 @@ MonoBehaviour:
   groundCheckRadius: 0.1
   wallCheckRadius: 0.1
   wallJumpTime: 0.2
+  grabTime: 0.2
   wallJumpCount: 0
+  grabCount: 0
   isGrounded: 0
   isGrabbing: 0
   isAlongWall: 0
