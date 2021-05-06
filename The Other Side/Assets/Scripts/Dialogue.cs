@@ -23,6 +23,12 @@ public class Dialogue : MonoBehaviour
         if (index < sentences.Length - 1) {
             player.GetComponent<PlayerController>().pauseMovement();
         }
+        if (Input.GetMouseButtonDown(0)) {
+            StopAllCoroutines();
+            if (index <= sentences.Length - 1) {
+                textDisplay.text = sentences[index];
+            }
+        }
         if (textDisplay.text == sentences[index]) {
             if (index == triggerDialogue) {
                 if(Input.GetKeyDown(triggerKey)) {
