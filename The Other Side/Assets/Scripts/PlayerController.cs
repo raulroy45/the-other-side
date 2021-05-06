@@ -10,14 +10,16 @@ public class PlayerController : MonoBehaviour {
     public float jumpSpeed = 12;
     public float groundCheckRadius = 0.1f;
     public float wallCheckRadius = 0.3f;
+    public float wallJumpTime = 0.2f;
+    public float wallJumpCount;
     private bool isWallMerged;
     public bool isGrounded;
-    public bool hasWallJumped;
+    public bool isGrabbing;
     public bool isAlongWall;
     public bool isRight;
+    public bool isPaused;
     public Transform groundCheck;
     public Transform wallCheck;
-    public Stopwatch stopwatch;
     public LayerMask whatIsGround;
     public LayerMask RW_Wall;
     public LayerMask WW_Wall;
@@ -30,12 +32,12 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        isWallMerged = false;
+        isGrabbing = false;
         isRight = true;
-        stopwatch = new Stopwatch();
         Real_World_Color = GetComponent<SpriteRenderer>().color;
         Wall_World_Color = new Color(0,0,0,1);
         Scale = transform.localScale;
+        isPaused = false;
     }
 
     // Update is called once per frame
@@ -44,19 +46,22 @@ public class PlayerController : MonoBehaviour {
             HandleWallMerging();
         }
         SetNearbyParameters();
-        if (!stopwatch.IsRunning || stopwatch.ElapsedMilliseconds > 200) {
-            hasWallJumped = false;
-            stopwatch.Reset();
-            HandleMovement();
-        }
-        if (Input.GetButtonDown("Jump")) {
-            HandleJump();
+        if (!isPaused) {
+            if (wallJumpCount <= 0) {
+                HandleMovement();
+                if (Input.GetButtonDown("Jump")) {
+                    HandleJump();
+                }
+            } else {
+                wallJumpCount -= Time.deltaTime;
+            }
         }
         SetAnimParameters();
         // ChangeSpeedWForce();
     }
 
     private void SetNearbyParameters() {
+        isGrabbing = false;
         bool ground = Physics2D.OverlapCircle(groundCheck.position, 
                                             groundCheckRadius, whatIsGround);
         bool wallGround = false;
@@ -91,30 +96,37 @@ public class PlayerController : MonoBehaviour {
 }
 
     private void HandleMovement() {
-        if (Input.GetAxisRaw("Horizontal") > 0f) {
+        if (Input.GetAxisRaw("Horizontal") > 0f && !isGrabbing) {
             rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
             if (!isRight) {
                 Flip();
             }
-        } else if (Input.GetAxisRaw("Horizontal") < 0f) {
+        } else if (Input.GetAxisRaw("Horizontal") < 0f && !isGrabbing) {
             rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
             if (isRight) {
                 Flip();
             }
         } else if (isGrounded) {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-        } else if (isAlongWall && !hasWallJumped) {
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y * 0.1f);
+        }
+        
+        if (isAlongWall && !isGrounded) {
+            if ((isRight && Input.GetAxisRaw("Horizontal") > 0) ||
+                (!isRight && Input.GetAxisRaw("Horizontal") < 0)) {
+                isGrabbing = true;
+                rb2d.velocity = new Vector2(0, rb2d.velocity.y * 0.1f);
+            } else {
+                isGrabbing = false;
+            }
         }
     }
 
     private void HandleJump() {
         if (isGrounded) {
-            UnityEngine.Debug.Log("??");
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
-        } else if (isAlongWall && !hasWallJumped) {
-            stopwatch.Start();
-            hasWallJumped = true;
+        } else if (isAlongWall && isGrabbing) {
+            wallJumpCount = wallJumpTime;
+            isGrabbing = false;
             float jumpComp = jumpSpeed * (1f / Mathf.Sqrt(2));
             float direction = isRight ? -1f : 1f;
             rb2d.velocity = new Vector2(jumpComp * direction, jumpComp);
@@ -137,6 +149,14 @@ public class PlayerController : MonoBehaviour {
 
             transform.localScale = Scale;
         }
+    }
+
+    public void pauseMovement() {
+        isPaused = true;
+    }
+
+    public void resumeMovement() {
+        isPaused = false;
     }
 
 
