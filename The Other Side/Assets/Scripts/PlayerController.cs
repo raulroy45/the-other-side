@@ -132,9 +132,9 @@ public class PlayerController : MonoBehaviour {
         } else if (isAlongWall && isGrabbing) {
             wallJumpCount = wallJumpTime;
             isGrabbing = false;
-            // float jumpComp = jumpSpeed * (1f / Mathf.Sqrt(2));
+            float jumpComp = jumpSpeed * (1f / Mathf.Sqrt(2));
             float direction = isRight ? -1f : 1f;
-            rb2d.velocity = new Vector2(moveSpeed * direction, jumpSpeed);
+            rb2d.velocity = new Vector2(jumpComp * direction, jumpComp);
             Flip();
         }
     }
