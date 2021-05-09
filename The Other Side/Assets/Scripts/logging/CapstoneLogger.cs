@@ -81,6 +81,7 @@ namespace cse481.logging {
 			this.versionNumber = 1;
 
 			this.levelActionBuffer = new List<LevelAction>();
+			Debug.Log("Logger ctor");
 		}
 
 		/// <summary>
@@ -130,6 +131,7 @@ namespace cse481.logging {
 		/// <param name="userId">The retrieved user identifer to use for the session.</param>
 		public IEnumerator StartNewSession(string userId)
 		{
+			Debug.Log("starting new session");
 			this.currentUserId = userId;
 			this.currentLevelSeqInSession = 0;
 			this.currentActionSeqInSession = 0;
@@ -150,8 +152,7 @@ namespace cse481.logging {
 			UnityWebRequest sessionRequest = PrepareRequest("loggingpageload/set/", requestParams);
 			yield return sessionRequest.SendWebRequest();
 			// if (!sessionRequest.isNetworkError) {
-			Debug.Log("new session error: " + sessionRequest.error);
-			if (sessionRequest.result != UnityWebRequest.Result.ConnectionError) {
+			if (sessionRequest.result == UnityWebRequest.Result.Success) {
 				// Return data formatted like data={...}
 				Debug.Log(sessionRequest.downloadHandler.text);
 				string text = sessionRequest.downloadHandler.text.Substring (5);
@@ -161,7 +162,7 @@ namespace cse481.logging {
 					this.currentSessionId = parsedResults.r_data.sessionid;
 				}
 			} else {
-				Debug.Log (sessionRequest.error);
+				Debug.Log("new session error: " + sessionRequest.error);
 			}
 		}
 
@@ -230,12 +231,13 @@ namespace cse481.logging {
 			yield return levelStartRequest.SendWebRequest();
 
 			// if (!levelStartRequest.isNetworkError == true) {
-			if (levelStartRequest.result != UnityWebRequest.Result.ConnectionError) {
+			if (levelStartRequest.result == UnityWebRequest.Result.Success) {
+				Debug.Log(levelStartRequest.downloadHandler.text);
 				string text = levelStartRequest.downloadHandler.text.Substring (5);
 				Debug.Log (text);
                 this.currentDqid = JsonUtility.FromJson<LevelStartResponse>(text).dqid;
 			} else {
-				Debug.Log (levelStartRequest.error);
+				Debug.Log ("Error start log lv: " + levelStartRequest.error);
 			}
 		}
 

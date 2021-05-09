@@ -22,15 +22,4 @@ public class LoadingController : MonoBehaviour
         LoadingController.LOGGER = logger;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Play()
-    {
-        LoadingController.LOGGER.LogActionWithNoLevel(199, "press play");
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
-    }
 }
