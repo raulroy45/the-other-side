@@ -3460,50 +3460,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &400972929
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 400972931}
-  - component: {fileID: 400972930}
-  m_Layer: 0
-  m_Name: GameScript
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &400972930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400972929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12771f8d85d438f469bce72900b003f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallMerges: 2
---- !u!4 &400972931
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400972929}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6925924, y: 3.0274193, z: -21.409975}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430276745
 GameObject:
   m_ObjectHideFlags: 0
@@ -13811,6 +13767,7 @@ MonoBehaviour:
   wallCheckRadius: 0.3
   wallJumpTime: 0.2
   grabTime: 0.2
+  wallMergesLeft: 0
   wallJumpCount: 0
   grabCount: 0
   isGrounded: 0
@@ -13835,7 +13792,6 @@ MonoBehaviour:
   WW_WallJump:
     serializedVersion: 2
     m_Bits: 16384
-  wallMergesLeft: 0
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0

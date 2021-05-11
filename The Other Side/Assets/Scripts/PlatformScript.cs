@@ -19,7 +19,7 @@ public class PlatformScript : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider2D>();
         isWallMerged = false;
-        wallMergesLeft = GameScript.wallMergesLimit;
+        wallMergesLeft = PlayerController.wallMergesLimit;
     }
     // Update is called once per frame
     void Update()

@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
     public float wallCheckRadius = 0.3f;
     public float wallJumpTime = 0.2f;
     public float grabTime = 0.2f;
+    public static int wallMergesLimit = -1; // infinite wall merges
+    public int wallMergesLeft;
     public float wallJumpCount;
     public float grabCount;
     private bool isWallMerged;
@@ -27,7 +29,6 @@ public class PlayerController : MonoBehaviour {
     public LayerMask WW_Wall;
     public LayerMask RW_WallJump;
     public LayerMask WW_WallJump;
-    public int wallMergesLeft;
     private Color Real_World_Color;
     private Color Wall_World_Color;
     private Vector3 Scale;
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour {
         Scale = transform.localScale;
         isPaused = false;
         isWallMerged = false;
-        wallMergesLeft = GameScript.wallMergesLimit;
+        wallMergesLeft = wallMergesLimit;
     }
 
     // Update is called once per frame
