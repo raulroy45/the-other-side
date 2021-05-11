@@ -17,10 +17,10 @@ TagManager:
   - Real World
   - Wall World
   - Background
-  - 
-  - 
-  - 
-  - 
+  - RW_Objects
+  - WW_Objects
+  - RW_WallJump
+  - WW_WallJump
   - 
   - 
   - 

@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
     public float wallCheckRadius = 0.3f;
     public float wallJumpTime = 0.2f;
     public float grabTime = 0.2f;
+    public static int wallMergesLimit = -1; // infinite wall merges
+    public int wallMergesLeft;
     public float wallJumpCount;
     public float grabCount;
     private bool isWallMerged;
@@ -25,7 +27,8 @@ public class PlayerController : MonoBehaviour {
     public LayerMask whatIsGround;
     public LayerMask RW_Wall;
     public LayerMask WW_Wall;
-    public int wallMergeLimit = -1;  // -1: infinite wall merges 
+    public LayerMask RW_WallJump;
+    public LayerMask WW_WallJump;
     private Color Real_World_Color;
     private Color Wall_World_Color;
     private Vector3 Scale;
@@ -40,6 +43,8 @@ public class PlayerController : MonoBehaviour {
         Wall_World_Color = new Color(0,0,0,1);
         Scale = transform.localScale;
         isPaused = false;
+        isWallMerged = false;
+        wallMergesLeft = wallMergesLimit;
     }
 
     // Update is called once per frame
@@ -50,14 +55,13 @@ public class PlayerController : MonoBehaviour {
         SetNearbyParameters();
         if (!isPaused) {
             if (grabCount <= 0 && wallJumpCount <= 0) {
-                // isGrabbing = false;
                 HandleMovement();
             } else {
                 grabCount -= Time.deltaTime;
                 wallJumpCount -= Time.deltaTime;
             }
             if (Input.GetButtonDown("Jump")) {
-                    HandleJump();
+                HandleJump();
             }
         }
         SetAnimParameters();
@@ -71,12 +75,12 @@ public class PlayerController : MonoBehaviour {
         bool wallGround = false;
         if (isWallMerged) {
             isAlongWall = Physics2D.OverlapCircle(wallCheck.position,
-                                            wallCheckRadius, WW_Wall);
+                                            wallCheckRadius, WW_WallJump);
             wallGround = Physics2D.OverlapCircle(groundCheck.position,
                                             groundCheckRadius, WW_Wall);                              
         } else {
             isAlongWall = Physics2D.OverlapCircle(wallCheck.position,
-                                            wallCheckRadius, RW_Wall);
+                                            wallCheckRadius, RW_WallJump);
             wallGround = Physics2D.OverlapCircle(groundCheck.position,
                                             groundCheckRadius, RW_Wall);                                   
         }
@@ -84,11 +88,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HandleWallMerging() {
-        if (wallMergeLimit == 0) {
+        if (wallMergesLeft == 0) {
             // ooh no more merges
             return;
         }
-        wallMergeLimit--;
+        wallMergesLeft--;
         isWallMerged = !isWallMerged;
         if (isWallMerged) {
             gameObject.layer = LayerMask.NameToLayer("WW_Bob");
@@ -132,9 +136,9 @@ public class PlayerController : MonoBehaviour {
         } else if (isAlongWall && isGrabbing) {
             wallJumpCount = wallJumpTime;
             isGrabbing = false;
-            // float jumpComp = jumpSpeed * (1f / Mathf.Sqrt(2));
+            float jumpComp = jumpSpeed * (1f / Mathf.Sqrt(2));
             float direction = isRight ? -1f : 1f;
-            rb2d.velocity = new Vector2(moveSpeed * direction, jumpSpeed);
+            rb2d.velocity = new Vector2(jumpComp * direction, jumpComp);
             Flip();
         }
     }

@@ -16,7 +16,11 @@ public class Dialogue : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        StartCoroutine(Type());
+        if (sentences.Length == 0) {
+            continueButton.SetActive(false);
+        } else {
+            StartCoroutine(Type());
+        }
     }
 
     void Update() {
@@ -36,6 +40,10 @@ public class Dialogue : MonoBehaviour
                 }
             } else {
                 continueButton.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.RightArrow) ||
+                    Input.GetKeyDown(KeyCode.Space)) {
+                    NextSentence();
+                }
             }
         }
     }
