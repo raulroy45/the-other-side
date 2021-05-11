@@ -3731,8 +3731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e240407fb104eb84eb01b3c20ec92b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRenderer: {fileID: 1429260051}
-  targetSprite: {fileID: 21300004, guid: ae3918a914038694d852d0bb81f62473, type: 3}
+  doorObject: {fileID: 1429260049}
 --- !u!61 &742322906
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4280,7 +4279,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.5968237
+  orthographic size: 4.88175
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4508,6 +4507,22 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1429260047}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1429260052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429260049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9e357768a865e4696c786a23870651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelName: Level3
+  lockCount: 1
+  targetRenderer: {fileID: 1429260051}
+  targetSprite: {fileID: 21300004, guid: ae3918a914038694d852d0bb81f62473, type: 3}
 --- !u!1 &1663625406
 GameObject:
   m_ObjectHideFlags: 0

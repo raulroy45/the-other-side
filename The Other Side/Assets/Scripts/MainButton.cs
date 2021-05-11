@@ -8,14 +8,11 @@ public class MainButton : MonoBehaviour
 {
     public void GoToLevelSelect()
     {
-        SceneManager.LoadScene("LevelSelect");
+        // SceneManager.LoadScene("LevelSelect");
+        SceneManager.LoadScene("Level1");
     }
 
-    void Start()
-    {
-        // Init logger level
-        Debug.Log(LoadingController.LOGGER);
-        StartCoroutine(LoadingController.LOGGER.LogLevelStart(100, "{}"));
-    }
+
+
 
 }

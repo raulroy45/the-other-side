@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class KeyCollector : MonoBehaviour
 {
-    // renderer of door
-    public SpriteRenderer targetRenderer;
-    // sprite of opened door
-    public Sprite targetSprite;
-    // TODO: support multiple keys
 
+    // obj contains door
+    public GameObject doorObject;
+    
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Bob") {
             Destroy(gameObject);
-            // open the door a bit?
-            targetRenderer.sprite = targetSprite;
+            // set door to openable
+            doorObject.GetComponent<TriggerNextLevel>().lockCount--;
         }
     }
 

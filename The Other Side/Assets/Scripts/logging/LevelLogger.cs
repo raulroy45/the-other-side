@@ -26,6 +26,10 @@ public class LevelLogger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (LoadingController.LOGGER == null) {
+            this.enabled = false;
+            return;
+        }
         StartCoroutine(LoadingController.LOGGER.LogLevelStart(levelID, levelNote));
         stopwatch = new System.Diagnostics.Stopwatch();
         stopwatch.Start();
