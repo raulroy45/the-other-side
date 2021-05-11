@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour {
     public LayerMask whatIsGround;
     public LayerMask RW_Wall;
     public LayerMask WW_Wall;
-    public int wallMergeLimit = -1;  // -1: infinite wall merges 
+    public LayerMask RW_WallJump;
+    public LayerMask WW_WallJump;
+    public int wallMergesLeft;
     private Color Real_World_Color;
     private Color Wall_World_Color;
     private Vector3 Scale;
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour {
         Wall_World_Color = new Color(0,0,0,1);
         Scale = transform.localScale;
         isPaused = false;
+        isWallMerged = false;
+        wallMergesLeft = GameScript.wallMergesLimit;
     }
 
     // Update is called once per frame
@@ -50,14 +54,13 @@ public class PlayerController : MonoBehaviour {
         SetNearbyParameters();
         if (!isPaused) {
             if (grabCount <= 0 && wallJumpCount <= 0) {
-                // isGrabbing = false;
                 HandleMovement();
             } else {
                 grabCount -= Time.deltaTime;
                 wallJumpCount -= Time.deltaTime;
             }
             if (Input.GetButtonDown("Jump")) {
-                    HandleJump();
+                HandleJump();
             }
         }
         SetAnimParameters();
@@ -71,12 +74,12 @@ public class PlayerController : MonoBehaviour {
         bool wallGround = false;
         if (isWallMerged) {
             isAlongWall = Physics2D.OverlapCircle(wallCheck.position,
-                                            wallCheckRadius, WW_Wall);
+                                            wallCheckRadius, WW_WallJump);
             wallGround = Physics2D.OverlapCircle(groundCheck.position,
                                             groundCheckRadius, WW_Wall);                              
         } else {
             isAlongWall = Physics2D.OverlapCircle(wallCheck.position,
-                                            wallCheckRadius, RW_Wall);
+                                            wallCheckRadius, RW_WallJump);
             wallGround = Physics2D.OverlapCircle(groundCheck.position,
                                             groundCheckRadius, RW_Wall);                                   
         }
@@ -84,11 +87,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HandleWallMerging() {
-        if (wallMergeLimit == 0) {
+        if (wallMergesLeft == 0) {
             // ooh no more merges
             return;
         }
-        wallMergeLimit--;
+        wallMergesLeft--;
         isWallMerged = !isWallMerged;
         if (isWallMerged) {
             gameObject.layer = LayerMask.NameToLayer("WW_Bob");
