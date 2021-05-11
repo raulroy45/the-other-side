@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class LevelSelection : MonoBehaviour
             // is greater than the level index the player is currently at
             // aka if the level at this index is greater than the level
             // the player is currently at
+            levelButtons[i].GetComponentInChildren<Text>().text = "Level\n" + (i + 1).ToString();
             if (i + 2 > atLevelIdx)
             {
                 levelButtons[i].interactable = false;
