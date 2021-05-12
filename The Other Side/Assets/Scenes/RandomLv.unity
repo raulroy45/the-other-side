@@ -3442,6 +3442,7 @@ MonoBehaviour:
   wallCheckRadius: 0.1
   wallJumpTime: 0.2
   grabTime: 0.2
+  wallMergesLeft: 0
   wallJumpCount: 0
   grabCount: 0
   isGrounded: 0
@@ -3460,7 +3461,12 @@ MonoBehaviour:
   WW_Wall:
     serializedVersion: 2
     m_Bits: 512
-  wallMergeLimit: -1
+  RW_WallJump:
+    serializedVersion: 2
+    m_Bits: 0
+  WW_WallJump:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &154379633
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4000,8 +4006,8 @@ GameObject:
   - component: {fileID: 505545049}
   - component: {fileID: 505545048}
   m_Layer: 10
-  m_Name: Key
-  m_TagString: Untagged
+  m_Name: Key 1
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11536,8 +11542,8 @@ GameObject:
   - component: {fileID: 701540398}
   - component: {fileID: 701540397}
   m_Layer: 10
-  m_Name: Key (1)
-  m_TagString: Untagged
+  m_Name: Key 2
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
