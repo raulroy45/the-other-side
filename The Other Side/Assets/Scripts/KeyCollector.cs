@@ -13,8 +13,10 @@ public class KeyCollector : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Bob") {
             Destroy(gameObject);
-            // open the door a bit?
-            targetRenderer.sprite = targetSprite;
+            if (TriggerNextLevel.lockCount > 0)
+            {
+                TriggerNextLevel.lockCount--;
+            }
         }
     }
 
