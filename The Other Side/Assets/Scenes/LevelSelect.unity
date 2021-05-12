@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 1285078240}
   - component: {fileID: 1285078239}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: LevelSelectText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -912,10 +912,10 @@ RectTransform:
   m_Father: {fileID: 899501915}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1, y: 212.5}
-  m_SizeDelta: {x: -376.20996, y: -465}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -49.03}
+  m_SizeDelta: {x: 406.47, y: 58.059998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1285078239
 MonoBehaviour:
@@ -965,12 +965,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90
+  m_fontSize: 72.8
   m_fontSizeBase: 90
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 72
+  m_fontSizeMax: 190
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
