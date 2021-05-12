@@ -31,11 +31,18 @@ public class TriggerNextLevel : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // change to pop up pause menu
+            SceneManager.LoadScene(0); // the title screen
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings)
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
+        if (nextLevelIdx == SceneManager.sceneCountInBuildSettings)
         {
             Debug.Log("Display victory screen here or smth idfk");
         } else if (other.tag == "Bob" && lockCount == 0) // add "&& Input.GetKeyDown(KeyCode.W))"?

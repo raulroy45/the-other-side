@@ -13,13 +13,14 @@ public class LevelButtonHandler : MonoBehaviour
         Button[] levelButtons = this.GetComponentsInChildren<Button>();
 
         int atLevelIdx = PlayerPrefs.GetInt("atLevelIdx", 2);
+        Debug.Log(atLevelIdx);
 
         for (int i = 0; i < levelButtons.Length; i++)
         {
             int idx = i; // IMPORTANT: prevents closure problem
 
             // set the names of the levels
-            levelButtons[i].GetComponentInChildren<Text>().text = "Level " + (idx + 1);
+            levelButtons[i].GetComponentInChildren<Text>().text = "Level\n" + (idx + 1);
 
             // set up interactability depending on what levels player has unlocked
             if (idx + 2 > atLevelIdx)
@@ -29,7 +30,6 @@ public class LevelButtonHandler : MonoBehaviour
 
             // set up button listeners to load the correct levels
             levelButtons[i].onClick.AddListener(delegate { LoadScene(idx + 2); });
-            Debug.Log("Iteration " + i + ": Level" + (i + 1));
         }
     }
 
