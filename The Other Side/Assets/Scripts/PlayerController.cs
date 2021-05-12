@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour {
             }
         }
         SetAnimParameters();
-        // ChangeSpeedWForce();
     }
 
     private void SetNearbyParameters() {
@@ -104,20 +103,15 @@ public class PlayerController : MonoBehaviour {
 }
 
     private void HandleMovement() {
-        if (Input.GetAxisRaw("Horizontal") > 0f) {
-            rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
-            if (!isRight) {
-                Flip();
-            }
-        } else if (Input.GetAxisRaw("Horizontal") < 0f) {
-            rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
-            if (isRight) {
-                Flip();
-            }
-        } else if (isGrounded) {
-            isGrabbing = false;
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+        if (!isGrounded) {
+            AirMovement();
+        } else {
+            // on ground
+            GroundMovement();
         }
+        // v is updated, now possibly need to flip sprite
+        OptionalFlipOnXVelocity();
+        
         if (isAlongWall && !isGrounded) {
             if ((isRight && Input.GetAxisRaw("Horizontal") > 0) ||
                 (!isRight && Input.GetAxisRaw("Horizontal") < 0)) {
@@ -160,6 +154,41 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void OptionalFlipOnXVelocity() {
+        if ((rb2d.velocity.x > 0f && !isRight) ||
+            (rb2d.velocity.x < 0f && isRight)) {
+            Flip();
+        }
+    }
+
+    private void GroundMovement() {
+        if (Input.GetAxisRaw("Horizontal") > 0f) {
+            rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
+        } else if (Input.GetAxisRaw("Horizontal") < 0f) {
+            rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
+        } else {
+            // is grounded & no input
+            isGrabbing = false;
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+        }
+    }
+
+    private void AirMovement() {
+        // mid air, TODO add more to v
+        // DONT UPDATE WITH moveSpeed * 0.5f
+        float desiredDeltaSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        float vX = rb2d.velocity.x;
+        float vY = rb2d.velocity.y;
+        vX += desiredDeltaSpeed / 10.0f;
+
+
+        vX = Mathf.Clamp(vX, -moveSpeed, moveSpeed);
+        rb2d.velocity = new Vector2(vX, vY);
+        // air drag
+        float deltaVx = - Mathf.Sign(rb2d.velocity.x) * Mathf.Min(0.1f, Mathf.Abs(rb2d.velocity.x * 0.1f));
+        rb2d.velocity = new Vector2(rb2d.velocity.x + deltaVx , rb2d.velocity.y);
+    }
+
     public void pauseMovement() {
         isPaused = true;
     }
@@ -168,27 +197,4 @@ public class PlayerController : MonoBehaviour {
         isPaused = false;
     }
 
-
-    // one way to control, does not get stuck on wall
-    // change Bob's speed using force
-    // dont not feel very actiony tho, dragging a bit
-    // void ChangeSpeedWForce() {
-    //     if (Input.GetAxisRaw("Horizontal") > 0f) {
-    //         // move right
-    //         rb2d.AddForce(new Vector2(moveSpeed, 0));
-    //         // too fast
-    //         if (rb2d.velocity.x > moveSpeed) {
-    //             rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
-    //         }
-    //     } else if (Input.GetAxisRaw("Horizontal") < 0f) {
-    //         // move left
-    //         rb2d.AddForce(new Vector2(-moveSpeed, 0));
-    //         // too fast
-    //         if (rb2d.velocity.x < -moveSpeed) {
-    //             rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
-    //         }
-    //     } else {
-    //         rb2d.velocity = new Vector2(rb2d.velocity.x / 1.09f, rb2d.velocity.y);
-    //     }
-    // }
 }
