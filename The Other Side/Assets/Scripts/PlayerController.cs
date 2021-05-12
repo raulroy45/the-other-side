@@ -62,6 +62,10 @@ public class PlayerController : MonoBehaviour {
             }
             if (Input.GetButtonDown("Jump")) {
                 HandleJump();
+            } else if (Input.GetButtonUp("Jump")) {
+                // short hop, unrelated to time
+                // cut vY in have when release "space key"
+                rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.y / 2);
             }
         }
         SetAnimParameters();
@@ -174,8 +178,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void AirMovement() {
-        // mid air, TODO add more to v
-        // DONT UPDATE WITH moveSpeed * 0.5f
+        // mid air, TODO: arbitrary divide by 10 (make it a param?)
+        // TODO: arbitrary 0.1f (make it a param?)
         float desiredDeltaSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float vX = rb2d.velocity.x;
         float vY = rb2d.velocity.y;
