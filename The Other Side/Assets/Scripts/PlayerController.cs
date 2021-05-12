@@ -177,19 +177,22 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public float airSpeedDivider = 20;
+    public float airDragMultiplier = 0.15f;
+    public float airDragMax = 0.1f;
     private void AirMovement() {
-        // mid air, TODO: arbitrary divide by 10 (make it a param?)
-        // TODO: arbitrary 0.1f (make it a param?)
+        // mid air, FIXED: arbitrary divide by 10 (make it a param?)
+        // FIXED: arbitrary 0.1f (make it a param?)
         float desiredDeltaSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float vX = rb2d.velocity.x;
         float vY = rb2d.velocity.y;
-        vX += desiredDeltaSpeed / 10.0f;
+        vX += desiredDeltaSpeed / airSpeedDivider;
 
 
         vX = Mathf.Clamp(vX, -moveSpeed, moveSpeed);
         rb2d.velocity = new Vector2(vX, vY);
         // air drag
-        float deltaVx = - Mathf.Sign(rb2d.velocity.x) * Mathf.Min(0.1f, Mathf.Abs(rb2d.velocity.x * 0.1f));
+        float deltaVx = - Mathf.Sign(rb2d.velocity.x) * Mathf.Min(airDragMax, Mathf.Abs(rb2d.velocity.x * airDragMultiplier));
         rb2d.velocity = new Vector2(rb2d.velocity.x + deltaVx , rb2d.velocity.y);
     }
 

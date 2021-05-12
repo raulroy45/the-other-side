@@ -13311,6 +13311,9 @@ MonoBehaviour:
   WW_WallJump:
     serializedVersion: 2
     m_Bits: 16384
+  airSpeedDivider: 20
+  airDragMultiplier: 0.15
+  airDragMax: 0.1
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0
