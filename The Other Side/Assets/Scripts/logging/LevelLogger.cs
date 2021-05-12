@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 using cse481.logging;
 
 // book keeping
-// LogLevelAction(action id, notes)
+// LogLevelAction(action id, note)
 // action id: 
-//  0 - timer      | notes: time since level start
-//  1 - merge
-//  2 - jump
-//  3 - quit level
+//  1 - merge | note: # merges
+//  2 - jump  | note: # jumps
 
 // LogLevelEnd(notes)
+//  notes: total time spent (in seconds)
 // 
 
 
@@ -22,42 +21,60 @@ public class LevelLogger : MonoBehaviour
     public int levelID;
     public string levelNote;
 
-    private System.Diagnostics.Stopwatch stopwatch;
+    // data to keep track for each level
+    private int wallMergeCount;
+    private int jumpCount; // how to get wall jump?
+    private float startTime;
+    private bool gameIsGoing;
+
+    private bool debugging;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LoadingController.LOGGER.LogLevelStart(levelID, levelNote));
-        stopwatch = new System.Diagnostics.Stopwatch();
-        stopwatch.Start();
+        startTime = Time.unscaledTime;
+        gameIsGoing = true;
+
+        debugging = LoadingController.LOGGER == null;
+        if (!debugging) {
+            StartCoroutine(LoadingController.LOGGER.LogLevelStart(levelID, levelNote));
+        }
     }
 
-    void OnApplicationQuit() {
-        // quit level
-        stopwatch.Stop();
-        Debug.Log ("Time taken: "+(stopwatch.Elapsed));
-        LoadingController.LOGGER.LogLevelAction(0, stopwatch.Elapsed.Milliseconds.ToString());
-        LoadingController.LOGGER.LogLevelEnd(stopwatch.Elapsed.Milliseconds.ToString());
-        stopwatch.Reset();
-    }
 
     void Update() {
         if (Input.GetButtonDown("Jump")) {
-            LoadingController.LOGGER.LogLevelAction(2, "jump");
+            jumpCount++;
         }
         if (Input.GetKeyDown(KeyCode.J)) {
-            LoadingController.LOGGER.LogLevelAction(1, "merge");
+            wallMergeCount++;
         }
     }
 
+
+    void endLevel() {
+        if (gameIsGoing) {  // only end once
+            gameIsGoing = false;
+            if (!debugging) {
+                LoadingController.LOGGER.LogLevelEnd("" + (Time.unscaledTime - startTime));
+                // merge
+                LoadingController.LOGGER.LogLevelAction(1, "" + wallMergeCount);
+                // jump
+                LoadingController.LOGGER.LogLevelAction(2, "" + jumpCount);
+            } else {
+                Debug.Log ("Time taken: " + (Time.unscaledTime - startTime));
+            }
+        }
+    }
+
+    
     void OnDisable() {
         // on app quit might have ran
-        if (stopwatch.IsRunning) {
-            stopwatch.Stop();
-            Debug.Log ("Time taken: "+(stopwatch.Elapsed.Milliseconds.ToString()));
-            LoadingController.LOGGER.LogLevelAction(0, stopwatch.Elapsed.Milliseconds.ToString());
-            LoadingController.LOGGER.LogLevelEnd(stopwatch.Elapsed.Milliseconds.ToString());
-            stopwatch.Reset();
-        }
+        endLevel();
+    }
+    
+    void OnApplicationQuit() {
+        endLevel();
     }
 
 }

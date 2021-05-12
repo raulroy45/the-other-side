@@ -15,6 +15,8 @@ public class TriggerNextLevel : MonoBehaviour
     {
         nextLevelIdx = SceneManager.GetActiveScene().buildIndex + 1;
         openDoorSprite = Resources.LoadAll<Sprite>("Medieval_props_free")[2];
+        // count locks
+        lockCount = GameObject.FindGameObjectsWithTag("Key").Length;
     }
 
     // Update is called once per frame

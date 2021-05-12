@@ -14,8 +14,9 @@ public class LoadingController : MonoBehaviour
         string skey = "433bbc3ee8e5cfe4ded20a30b8ba1af8";
         int gameId = 202101;
         string gameName = "theotherside";
-        int cid = 511;  // may 11 testing
-        CapstoneLogger logger = new CapstoneLogger(gameId, gameName, skey, 0);
+        // random category id while dev
+        int cid = 123456789;  // 511 may 11 testing
+        CapstoneLogger logger = new CapstoneLogger(gameId, gameName, skey, cid);
 
         string userId = logger.GenerateUuid();
         StartCoroutine(logger.StartNewSession(userId));
