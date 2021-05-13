@@ -3545,8 +3545,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: -215.6}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 383.72852, y: -177.00554}
+  m_SizeDelta: {x: 676.7551, y: 127.1889}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &918813724
 MonoBehaviour:
@@ -3632,7 +3632,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 83.84903, y: -70.551254, z: -634.6103, w: 0}
+  m_margin: {x: 0.6061827, y: -1.7158546, z: -0.9062823, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3728,7 +3728,7 @@ MonoBehaviour:
   sentences:
   - 'Bob: I can''t seem to pass this wall...'
   - 'Bob: ...'
-  - 'Bob: Ever since I woke up.. I have been feeling somewhat'
+  - 'Bob: Ever since I woke up.. I have been feeling somewhat...'
   - 'Bob: ...empty.'
   - 'Bob: Maybe if I just...'
   - <PRESS J TO WALL MERGE INTO THE WALL>
@@ -3786,6 +3786,7 @@ GameObject:
   - component: {fileID: 1247826828}
   - component: {fileID: 1247826827}
   - component: {fileID: 1247826826}
+  - component: {fileID: 1247826829}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3828,7 +3829,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.579978
+  orthographic size: 5.615
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3852,12 +3853,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247826825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: -10}
+  m_LocalPosition: {x: 0, y: 1.35, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1247826829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247826825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283a2a0c133a9b24c92769122dbd345b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wireColor: {r: 1, g: 1, b: 1, a: 1}
+  UnitsSize: 11.23
+  constraint: 1
+  camera: {fileID: 1247826827}
 --- !u!1 &1274289510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3941,7 +3958,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -4128,6 +4145,7 @@ MonoBehaviour:
   wallMergesLeft: 0
   wallJumpCount: 0
   grabCount: 0
+  isWallMerged: 0
   isGrounded: 0
   isGrabbing: 0
   isAlongWall: 0
@@ -4150,6 +4168,9 @@ MonoBehaviour:
   WW_WallJump:
     serializedVersion: 2
     m_Bits: 0
+  airSpeedDivider: 20
+  airDragMultiplier: 0.15
+  airDragMax: 0.1
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4655,7 +4676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CONTINUE
+  m_text: "CONTINUE\n  (space)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 021f4e7a458f1684fa32150fce05f141, type: 2}
   m_sharedMaterial: {fileID: -2284325176496981849, guid: 021f4e7a458f1684fa32150fce05f141,
@@ -4719,7 +4740,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -28.444946, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.92648345, w: 0.0000071763166}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4749,8 +4770,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 410, y: -201}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 377, y: -206}
+  m_SizeDelta: {x: 136.7449, y: 69.205}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2799997973811427875
 PrefabInstance:

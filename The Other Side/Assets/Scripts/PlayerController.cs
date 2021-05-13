@@ -11,17 +11,19 @@ public class PlayerController : MonoBehaviour {
     public float groundCheckRadius = 0.1f;
     public float wallCheckRadius = 0.3f;
     public float wallJumpTime = 0.2f;
-    public float grabTime = 0.2f;
+    public float grabTime = 0.3f;
     public static int wallMergesLimit = -1; // infinite wall merges
     public int wallMergesLeft;
     public float wallJumpCount;
     public float grabCount;
+    public float gravityScale;
     public bool isWallMerged;  // FreezeWW script depend on this
     public bool isGrounded;
     public bool isGrabbing;
     public bool isAlongWall;
     public bool isRight;
     public bool isPaused;
+    public bool jumpWait;
     public Transform groundCheck;
     public Transform wallCheck;
     public LayerMask whatIsGround;
@@ -45,6 +47,8 @@ public class PlayerController : MonoBehaviour {
         isPaused = false;
         isWallMerged = false;
         wallMergesLeft = wallMergesLimit;
+        gravityScale = rb2d.gravityScale;
+        jumpWait = false;
     }
 
     // Update is called once per frame
@@ -110,6 +114,7 @@ public class PlayerController : MonoBehaviour {
 }
 
     private void HandleMovement() {
+        rb2d.gravityScale = gravityScale;
         if (!isGrounded) {
             AirMovement();
         } else {
@@ -117,16 +122,20 @@ public class PlayerController : MonoBehaviour {
             GroundMovement();
         }
         // v is updated, now possibly need to flip sprite
-        OptionalFlipOnXVelocity();
+        // OptionalFlipOnXVelocity();
         
         if (isAlongWall && !isGrounded) {
             if ((isRight && Input.GetAxisRaw("Horizontal") > 0) ||
                 (!isRight && Input.GetAxisRaw("Horizontal") < 0)) {
                 isGrabbing = true;
-                rb2d.velocity = new Vector2(0, rb2d.velocity.y * 0.1f);
-            } else {
+                jumpWait = true;
+                rb2d.velocity = new Vector2(0f, 0f);
+                rb2d.gravityScale = 0f;
+            } else if (jumpWait) {
                 grabCount = grabTime;
-                rb2d.velocity = new Vector2(0, rb2d.velocity.y * 0.1f);
+                jumpWait = false;
+                rb2d.velocity = new Vector2(0f, 0f);
+                rb2d.gravityScale = 0f;
             }
         }
     }
@@ -137,6 +146,7 @@ public class PlayerController : MonoBehaviour {
         } else if (isAlongWall && isGrabbing) {
             wallJumpCount = wallJumpTime;
             isGrabbing = false;
+            rb2d.gravityScale = gravityScale;
             float jumpComp = jumpSpeed * (1f / Mathf.Sqrt(2));
             float direction = isRight ? -1f : 1f;
             rb2d.velocity = new Vector2(jumpComp * direction, jumpComp);
@@ -153,12 +163,7 @@ public class PlayerController : MonoBehaviour {
     private void Flip() {
         isRight = !isRight;
         Scale.x = -Scale.x;
-        if (isRight) {
-            transform.localScale = Scale;
-        } else {
-
-            transform.localScale = Scale;
-        }
+        transform.localScale = Scale;
     }
 
     private void OptionalFlipOnXVelocity() {
@@ -171,8 +176,14 @@ public class PlayerController : MonoBehaviour {
     private void GroundMovement() {
         if (Input.GetAxisRaw("Horizontal") > 0f) {
             rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
+            if (!isRight) {
+                Flip();
+            }
         } else if (Input.GetAxisRaw("Horizontal") < 0f) {
             rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
+            if (isRight) {
+                Flip();
+            }
         } else {
             // is grounded & no input
             isGrabbing = false;
@@ -187,6 +198,9 @@ public class PlayerController : MonoBehaviour {
         // mid air, FIXED: arbitrary divide by 10 (make it a param?)
         // FIXED: arbitrary 0.1f (make it a param?)
         float desiredDeltaSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        if (isRight && desiredDeltaSpeed < 0f || !isRight && desiredDeltaSpeed > 0f) {
+            Flip();
+        }
         float vX = rb2d.velocity.x;
         float vY = rb2d.velocity.y;
         vX += desiredDeltaSpeed / airSpeedDivider;

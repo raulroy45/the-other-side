@@ -21,17 +21,13 @@ public class Dialogue : MonoBehaviour
         } else {
             StartCoroutine(Type());
         }
+        this.triggerDialogue = -1;
+        this.triggerKey = KeyCode.None;
     }
 
     void Update() {
         if (index < sentences.Length - 1) {
             player.GetComponent<PlayerController>().pauseMovement();
-        }
-        if (Input.GetMouseButtonDown(0)) {
-            StopAllCoroutines();
-            if (index <= sentences.Length - 1) {
-                textDisplay.text = sentences[index];
-            }
         }
         if (index <= sentences.Length - 1 && textDisplay.text == sentences[index]) {
             if (index == triggerDialogue) {
@@ -40,10 +36,14 @@ public class Dialogue : MonoBehaviour
                 }
             } else {
                 continueButton.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.RightArrow) ||
-                    Input.GetKeyDown(KeyCode.Space)) {
+                if (Input.GetKeyDown(KeyCode.Space)) {
                     NextSentence();
                 }
+            }
+        } else if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) {
+            StopAllCoroutines();
+            if (index <= sentences.Length - 1) {
+                textDisplay.text = sentences[index];
             }
         }
     }
