@@ -13,9 +13,13 @@ public class TriggerShiftScript : MonoBehaviour
 
     private bool triggerActive;
     private Vector2 currPos;
+    public Vector3 startingPos;
+    public Vector3 pressedPos;
 
     // Start is called before the first frame update
     void Start() {
+        startingPos = transform.position;
+        pressedPos = new Vector3(startingPos.x, startingPos.y - 0.45f, 0);
         triggerActive = false;
         currPos = new Vector2(0, 0);
     }
@@ -45,10 +49,12 @@ public class TriggerShiftScript : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other) {
         triggerActive = false;
+        transform.position = startingPos;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         triggerActive = true;
+        transform.position = pressedPos;
     }
 
     // helper
