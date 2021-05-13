@@ -59,6 +59,7 @@ public class TriggerShiftScript : MonoBehaviour
                 triggerActive = true;  
             }
         } else {
+            transform.position = pressedPos;
             triggerActive = true;
         }
     }
