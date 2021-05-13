@@ -13607,7 +13607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1113931569295298, guid: dd6c6c0f2cff23a488ed09ad8ab8c2dc, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4111806976974172, guid: dd6c6c0f2cff23a488ed09ad8ab8c2dc, type: 3}
       propertyPath: m_RootOrder
@@ -15258,8 +15258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1557403727}
-  deltaPosition: {x: 0, y: 0}
-  speed: {x: 0, y: 0}
+  deltaPosition: {x: 0, y: 2.5}
+  speed: {x: 0, y: 0.2}
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1929710854

@@ -53,8 +53,14 @@ public class TriggerShiftScript : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        triggerActive = true;
-        transform.position = pressedPos;
+        if (other.GetComponent<PlayerController>()) {
+            if (other.GetComponent<PlayerController>().isWallMerged) {
+                transform.position = pressedPos;
+                triggerActive = true;  
+            }
+        } else {
+            triggerActive = true;
+        }
     }
 
     // helper
