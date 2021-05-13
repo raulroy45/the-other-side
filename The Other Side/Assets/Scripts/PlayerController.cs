@@ -64,8 +64,11 @@ public class PlayerController : MonoBehaviour {
                 HandleJump();
             } else if (Input.GetButtonUp("Jump")) {
                 // short hop, unrelated to time
-                // cut vY in have when release "space key"
-                rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.y / 2);
+                // cut vY in half when release "space key"
+                // dirty fix: not half speed when falling
+                if (rb2d.velocity.y > 0) {
+                    rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.y / 2);
+                }
             }
         }
         SetAnimParameters();
