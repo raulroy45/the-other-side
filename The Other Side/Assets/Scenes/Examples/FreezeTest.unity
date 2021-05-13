@@ -12999,12 +12999,14 @@ MonoBehaviour:
   wallMergesLeft: 0
   wallJumpCount: 0
   grabCount: 0
+  gravityScale: 0
   isWallMerged: 0
   isGrounded: 0
   isGrabbing: 0
   isAlongWall: 0
   isRight: 0
   isPaused: 0
+  jumpWait: 0
   groundCheck: {fileID: 430276746}
   wallCheck: {fileID: 1274289511}
   whatIsGround:
@@ -13690,6 +13692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcScript: {fileID: 1687356505}
+  activeWhenInWall: 1
 --- !u!1 &1884180438
 GameObject:
   m_ObjectHideFlags: 0
