@@ -42,17 +42,20 @@ public class TriggerNextLevel : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(SceneManager.sceneCountInBuildSettings);
-        if (nextLevelIdx == SceneManager.sceneCountInBuildSettings)
+        if (other.tag == "Bob" && lockCount == 0) // add "&& Input.GetKeyDown(KeyCode.W))"?
         {
-            Debug.Log("Display victory screen here or smth idfk");
-        } else if (other.tag == "Bob" && lockCount == 0) // add "&& Input.GetKeyDown(KeyCode.W))"?
-        {
-            SceneManager.LoadScene(nextLevelIdx);
-
-            if (nextLevelIdx > PlayerPrefs.GetInt("atLevelIdx"))
+            if (nextLevelIdx == SceneManager.sceneCountInBuildSettings)
             {
-                PlayerPrefs.SetInt("atLevelIdx", nextLevelIdx);
-            }
+                Debug.Log("Display victory screen here or smth idfk");
+            } else
+            {
+                if (nextLevelIdx > PlayerPrefs.GetInt("atLevelIdx"))
+                {
+                    PlayerPrefs.SetInt("atLevelIdx", nextLevelIdx);
+                }
+
+                SceneManager.LoadScene(nextLevelIdx);
+            }           
         }
     }
 }
