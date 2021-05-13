@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     public float groundCheckRadius = 0.1f;
     public float wallCheckRadius = 0.3f;
     public float wallJumpTime = 0.2f;
-    public float grabTime = 0.3f;
+    public float grabTime = 0.33f;
     public static int wallMergesLimit = -1; // infinite wall merges
     public int wallMergesLeft;
     public float wallJumpCount;
