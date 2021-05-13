@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     public int wallMergesLeft;
     public float wallJumpCount;
     public float grabCount;
-    private bool isWallMerged;
+    public bool isWallMerged;  // FreezeWW script depend on this
     public bool isGrounded;
     public bool isGrabbing;
     public bool isAlongWall;
