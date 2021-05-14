@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class TriggerNextLevel : MonoBehaviour
 {
     public static int lockCount;
+    public GameObject pauseMenuPopup;
     private Sprite openDoorSprite;
     private int nextLevelIdx;
 
@@ -35,7 +36,7 @@ public class TriggerNextLevel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // change to pop up pause menu
-            SceneManager.LoadScene(0); // the title screen
+            pauseMenuPopup.SetActive(true); // the title screen
         }
     }
 

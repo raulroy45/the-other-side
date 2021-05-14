@@ -122,4 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00aff8cc2dc82b439687b452b339920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockCount: 0
+  pauseMenuPopup: {fileID: 7247128408109465882, guid: 149af93a72781c541aca23a64387ba21,
+    type: 3}

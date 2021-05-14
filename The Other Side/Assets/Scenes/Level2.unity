@@ -1649,6 +1649,11 @@ PrefabInstance:
       propertyPath: lockCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2799997972644787676, guid: 5b8c02b90521a7f4e97fde3b124fc700,
+        type: 3}
+      propertyPath: pauseMenuPopup
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2800560935443190258, guid: 5b8c02b90521a7f4e97fde3b124fc700,
         type: 3}
       propertyPath: m_Name
@@ -4776,12 +4781,14 @@ MonoBehaviour:
   wallMergesLeft: -1
   wallJumpCount: 0
   grabCount: 0
+  gravityScale: 0
   isWallMerged: 0
   isGrounded: 0
   isGrabbing: 0
   isAlongWall: 0
   isRight: 0
   isPaused: 0
+  jumpWait: 0
   groundCheck: {fileID: 430276746}
   wallCheck: {fileID: 1274289511}
   whatIsGround:
