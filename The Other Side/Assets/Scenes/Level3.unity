@@ -3631,6 +3631,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1704742001}
     m_Modifications:
+    - target: {fileID: 7247128406473960145, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16.255737
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_text
+      value: "CONTROLS:\nMove left:\tA\nMove right:\tB\nWall merge:\tJ\nJump:\t\tSpace\nGrab
+        wall:\tSpace + A/D\nWall jump:\tGrab wall + Space\nRestart:\tR\nPause\tEsc
+        (Escape)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 021f4e7a458f1684fa32150fce05f141,
+        type: 2}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7247128408109465882, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
       propertyPath: m_Name
@@ -10667,8 +10690,8 @@ MonoBehaviour:
   triggerDialogue: -1
   sentences:
   - Hm, how can I get to that key?
-  - 'To wall jump: JUMP + RIGHT ARROW KEY to grab the wall, then JUMP again to perform
-    the wall jump.'
+  - '<How to wall jump: GRAB WALL + JUMP. To grab a wall, just jump while holding
+    A/D>'
   dialogueManager: {fileID: 1667853399}
 --- !u!1 &1457804449
 GameObject:
@@ -11508,8 +11531,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -58.773834, y: -161.62846}
-  m_SizeDelta: {x: 597.3137, y: 100.7431}
+  m_AnchoredPosition: {x: -119, y: -176.26744}
+  m_SizeDelta: {x: 597.3137, y: 71.4651}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992358246
 MonoBehaviour:

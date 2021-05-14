@@ -12933,6 +12933,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1933462449}
     m_Modifications:
+    - target: {fileID: 7247128406473960145, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16.255737
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_text
+      value: "CONTROLS:\nMove left:\tA\nMove right:\tB\nWall merge:\tJ\nJump:\t\tSpace\nGrab
+        wall:\tSpace + A/D\nWall jump:\tGrab wall + Space\nRestart:\t\tR\nPause\t\tEsc
+        (Escape)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 021f4e7a458f1684fa32150fce05f141,
+        type: 2}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7247128408109465882, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
       propertyPath: m_Name
@@ -15543,12 +15566,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

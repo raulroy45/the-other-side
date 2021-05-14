@@ -2012,7 +2012,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.06}
+  m_Offset: {x: 0, y: -2.1385143}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2023,7 +2023,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20, y: 4}
+  m_Size: {x: 20, y: 3.8429713}
   m_EdgeRadius: 0
 --- !u!114 &64990166
 MonoBehaviour:
@@ -3559,6 +3559,24 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 16.255615
       objectReference: {fileID: 0}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_text
+      value: "CONTROLS:\nMove left:\tA\nMove right:\tB\nWall merge:\tJ\nJump:\t\tSpace\nGrab
+        wall:\tSpace + A/D\nWall jump:\tGrab wall + Space\nRestart:\tR\nPause\tEsc
+        (Escape)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 021f4e7a458f1684fa32150fce05f141,
+        type: 2}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7247128408109465882, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
       propertyPath: m_Name
@@ -3893,8 +3911,8 @@ MonoBehaviour:
   sentences:
   - 'Bob: I can''t seem to pass this wall...'
   - 'Bob: ...'
-  - 'Bob: Ever since I woke up.. I have been feeling somewhat...'
-  - 'Bob: ...empty.'
+  - 'Bob: Ever since I woke up.. I have been feeling weird.'
+  - 'Bob: I can feel this emptiness inside me...'
   - 'Bob: Maybe if I just...'
   - <PRESS J TO WALL MERGE INTO THE WALL>
   - 'Bob: WOAH. I am literally a part of the wall now...'
@@ -3934,7 +3952,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088149845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.03, y: 0.69, z: 0}
+  m_LocalPosition: {x: -3.19, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
