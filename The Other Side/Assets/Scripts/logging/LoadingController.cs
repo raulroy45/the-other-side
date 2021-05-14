@@ -17,7 +17,8 @@ public class LoadingController : MonoBehaviour
         // random category id while dev
         // 511 may 11 testing
         // 513 may 13 testing
-        int cid = 513;  
+        // 1000 may 14 release to Github
+        int cid = 1000;  
         CapstoneLogger logger = new CapstoneLogger(gameId, gameName, skey, cid);
 
         string userId = logger.GenerateUuid();
