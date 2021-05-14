@@ -35,6 +35,8 @@ public class PauseButtonsHandler : MonoBehaviour
         {
             // change to pop up pause menu
             pauseMenu.SetActive(false); // the title screen
+            // unpause game
+            Time.timeScale = 1.0f;
         }
     }
 

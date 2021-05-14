@@ -37,6 +37,8 @@ public class TriggerNextLevel : MonoBehaviour
         {
             // change to pop up pause menu
             pauseMenuPopup.SetActive(true); // the title screen
+            // pause game
+            Time.timeScale = 0.0f;
         }
     }
 
