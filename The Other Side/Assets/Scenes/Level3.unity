@@ -3639,7 +3639,7 @@ PrefabInstance:
     - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
       propertyPath: m_text
-      value: "CONTROLS:\nMove left:\tA\nMove right:\tB\nWall merge:\tJ\nJump:\t\tSpace\nGrab
+      value: "CONTROLS:\nMove left:\tA\nMove right:\tD\nWall merge:\tJ\nJump:\t\tSpace\nGrab
         wall:\tSpace + A/D\nWall jump:\tGrab wall + Space\nRestart:\tR\nPause\tEsc
         (Escape)"
       objectReference: {fileID: 0}
