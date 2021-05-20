@@ -44,7 +44,7 @@ public class TriggerNextLevel : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(SceneManager.sceneCountInBuildSettings);
+        // Debug.Log(SceneManager.sceneCountInBuildSettings);
         if (other.tag == "Bob" && lockCount == 0) // add "&& Input.GetKeyDown(KeyCode.W))"?
         {
             if (nextLevelIdx == SceneManager.sceneCountInBuildSettings)
@@ -56,6 +56,7 @@ public class TriggerNextLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("atLevelIdx", nextLevelIdx);
                 }
+                LoggingController.LevelComplete();
 
                 SceneManager.LoadScene(nextLevelIdx);
             }           

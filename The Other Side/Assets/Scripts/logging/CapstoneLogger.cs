@@ -81,7 +81,7 @@ namespace cse481.logging {
 			this.versionNumber = 1;
 
 			this.levelActionBuffer = new List<LevelAction>();
-			Debug.Log("Logger ctor");
+			// Debug.Log("Logger ctor");
 		}
 
 		/// <summary>
@@ -91,7 +91,7 @@ namespace cse481.logging {
 		public string GenerateUuid()
 		{
             string generatedID = Guid.NewGuid().ToString();
-            Debug.Log("Generated ID: " + generatedID);
+            // Debug.Log("Generated ID: " + generatedID);
 			return generatedID;
 		}
 
@@ -102,7 +102,7 @@ namespace cse481.logging {
 		public string GetSavedUserId()
 		{
             string userID = PlayerPrefs.GetString("UserID", null);
-            Debug.Log("Retrieving User ID: " + userID);
+            // Debug.Log("Retrieving User ID: " + userID);
             return userID;
 		}
 
@@ -112,7 +112,7 @@ namespace cse481.logging {
 		/// <param name="value">Value.</param>
 		public void SetSavedUserId(string value)
 		{
-            Debug.Log("Setting User ID: " + value);
+            // Debug.Log("Setting User ID: " + value);
 			PlayerPrefs.SetString ("UserID", value);
             PlayerPrefs.Save();
 		}

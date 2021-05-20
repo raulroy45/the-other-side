@@ -111,7 +111,8 @@ public class PlayerController : MonoBehaviour {
             gameObject.layer = LayerMask.NameToLayer("RW_Bob");
             gameObject.GetComponent<SpriteRenderer>().color = Real_World_Color;
         }
-}
+        LoggingController.LevelMerge();
+    }
 
     private void HandleMovement() {
         rb2d.gravityScale = gravityScale;
@@ -143,6 +144,8 @@ public class PlayerController : MonoBehaviour {
     private void HandleJump() {
         if (isGrounded) {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+            LoggingController.LevelJump();
+
         } else if (isAlongWall && isGrabbing) {
             wallJumpCount = wallJumpTime;
             isGrabbing = false;
@@ -151,6 +154,7 @@ public class PlayerController : MonoBehaviour {
             float direction = isRight ? -1f : 1f;
             rb2d.velocity = new Vector2(jumpComp * direction, jumpComp);
             Flip();
+            LoggingController.LevelWallJump();
         }
     }
 

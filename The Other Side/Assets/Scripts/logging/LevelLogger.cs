@@ -5,15 +5,7 @@ using UnityEngine.SceneManagement;
 using cse481.logging;
 
 // book keeping
-// LogLevelAction(action id, note)
-// action id: 
-//  1 - merge | note: # merges
-//  2 - jump  | note: # jumps
-
-// LogLevelEnd(notes)
-//  notes: total time spent (in seconds)
-// 
-
+// see shared Google doc
 
 public class LevelLogger : MonoBehaviour
 {
@@ -24,57 +16,86 @@ public class LevelLogger : MonoBehaviour
     // data to keep track for each level
     private int wallMergeCount;
     private int jumpCount; // how to get wall jump?
+    private int wallJumpCount;
     private float startTime;
     private bool gameIsGoing;
 
-    private bool debugging;
 
     // Start is called before the first frame update
     void Start()
     {
-        startTime = Time.unscaledTime;
+        // see if logger is init'ed
+        if (LoggingController.LOGGER == null) {
+            Debug.Log("Creating LOGGER in level");
+            gameObject.AddComponent<LoggingController>();
+            gameObject.GetComponent<LoggingController>().Init();
+        }
+        startTime = Time.time;
         gameIsGoing = true;
-
-        debugging = LoadingController.LOGGER == null;
-        if (!debugging) {
-            StartCoroutine(LoadingController.LOGGER.LogLevelStart(levelID, levelNote));
+        wallMergeCount = 0;
+        jumpCount = 0;
+        wallJumpCount = 0;
+        if (LoggingController.LOGGING_NOT_SEND) {
+            Debug.Log("LogLevelStart(" + levelID + ", " + levelNote + ")");
+        } else {
+            StartCoroutine(LoggingController.LOGGER.LogLevelStart(levelID, levelNote));
         }
     }
 
-
-    void Update() {
-        if (Input.GetButtonDown("Jump")) {
-            jumpCount++;
-        }
-        if (Input.GetKeyDown(KeyCode.J)) {
-            wallMergeCount++;
-        }
+    public void Jump() {
+        jumpCount++;
     }
 
+    public void Merge() {
+        wallMergeCount++;
+    }
 
-    void endLevel() {
-        if (gameIsGoing) {  // only end once
-            gameIsGoing = false;
-            if (!debugging) {
-                LoadingController.LOGGER.LogLevelEnd("" + (Time.unscaledTime - startTime));
-                // merge
-                LoadingController.LOGGER.LogLevelAction(1, "" + wallMergeCount);
-                // jump
-                LoadingController.LOGGER.LogLevelAction(2, "" + jumpCount);
+    public void WallJump() {
+        wallJumpCount++;
+    }
+
+    public void EndLevel(bool won) {
+        if (!gameIsGoing) {  // only end once
+            return;
+        }
+        gameIsGoing = false;
+
+        float total_time = Time.time - startTime;
+        if (!LoggingController.LOGGING_NOT_SEND) {
+            // action stats, see Google Doc for aid
+            LoggingController.LOGGER.LogLevelAction(0, "" + total_time);
+            LoggingController.LOGGER.LogLevelAction(2, "" + wallMergeCount);
+            LoggingController.LOGGER.LogLevelAction(3, "" + jumpCount);
+            LoggingController.LOGGER.LogLevelAction(4, "" + wallJumpCount);
+            if (won) {
+                LoggingController.LOGGER.LogLevelAction(1, "1");
             } else {
-                Debug.Log ("Time taken: " + (Time.unscaledTime - startTime));
+                // lost
+                LoggingController.LOGGER.LogLevelAction(1, "0");
             }
+            // end this level
+            LoggingController.LOGGER.LogLevelEnd("" + total_time);
+        } else {
+            string log = "Level end " + levelID + ": [";
+            log += " Time: " + total_time + "s";
+            log += " Won: " + (won ? 1 : 0);
+            log += " #merges: " + wallMergeCount;
+            log += " #jumps: " + jumpCount;
+            log += " #wall jumps: " + wallJumpCount;
+            log += "]";
+            Debug.Log(log);
         }
     }
 
     
     void OnDisable() {
-        // on app quit might have ran
-        endLevel();
+        // Fixed could be a level reset (key R)
+        // reset will call LoggerController.LevelComplete
+        EndLevel(false);
     }
     
     void OnApplicationQuit() {
-        endLevel();
+        EndLevel(false);
     }
 
 }
