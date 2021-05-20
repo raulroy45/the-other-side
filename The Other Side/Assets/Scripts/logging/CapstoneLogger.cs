@@ -131,7 +131,7 @@ namespace cse481.logging {
 		/// <param name="userId">The retrieved user identifer to use for the session.</param>
 		public IEnumerator StartNewSession(string userId)
 		{
-			Debug.Log("starting new session");
+			Debug.Log("starting new session, id " + userId);
 			this.currentUserId = userId;
 			this.currentLevelSeqInSession = 0;
 			this.currentActionSeqInSession = 0;
@@ -162,9 +162,11 @@ namespace cse481.logging {
 					this.currentSessionId = parsedResults.r_data.sessionid;
 				}
 				// session id 
-				if (this.currentSessionId == null) {
-					Debug.Log("session id is null!!!");
-				}
+				// if (this.currentSessionId == null) {
+				// 	Debug.Log("session id is null!!!");
+				// } else {
+				// 	Debug.Log("session id is " + this.currentSessionId + "!!!");
+				// }
 			} else {
 				Debug.Log("new session error: " + sessionRequest.error);
 			}
@@ -506,7 +508,7 @@ namespace cse481.logging {
 			if (this.currentSessionId != null) {
 				// requestBlob.Add("sessionid", this.currentSessionId);
 			} else {
-				Debug.Log("CLogger sess id is null");
+				// Debug.Log("CLogger sess id is null");
 			}
 
 			return requestBlob;

@@ -88,8 +88,10 @@ public class LoggingController : MonoBehaviour
                 userId = logger.GenerateUuid();
                 logger.SetSavedUserId(userId);
             }
-            // StartCoroutine(logger.StartNewSession(userId))
-            WaitCoroutine(logger.StartNewSession(userId));
+            StartCoroutine(logger.StartNewSession(userId));
+            // this does not work
+            // WaitCoroutine(logger.StartNewSession(userId));
+            // logger.StartNewSession(userId);
             LoggingController.LOGGER = logger;
 
             // start heart beat
@@ -115,7 +117,7 @@ public class LoggingController : MonoBehaviour
         }
     }
 
-    // helper that blocks until a coroutine finishes
+    // helper that blocks until a coroutine finishes, does not work
 	public static void WaitCoroutine(IEnumerator func) {
 		while (func.MoveNext ()) {
 			if (func.Current != null) {
@@ -125,6 +127,7 @@ public class LoggingController : MonoBehaviour
 				} catch (InvalidCastException) {
 					if (func.Current.GetType () == typeof(WaitForSeconds))
 						Debug.LogWarning ("Skipped call to WaitForSeconds. Use WaitForSecondsRealtime instead.");
+					Debug.LogWarning ("Skipping? " + func.Current.GetType());
 					return;  // Skip WaitForSeconds, WaitForEndOfFrame and WaitForFixedUpdate
 				}
 				WaitCoroutine (num);
