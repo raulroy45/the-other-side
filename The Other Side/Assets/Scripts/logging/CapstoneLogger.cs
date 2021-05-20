@@ -156,10 +156,14 @@ namespace cse481.logging {
 				// Return data formatted like data={...}
 				Debug.Log(sessionRequest.downloadHandler.text);
 				string text = sessionRequest.downloadHandler.text.Substring (5);
-				Debug.Log (text);
+				Debug.Log(text);
                 var parsedResults = JsonUtility.FromJson<NewSessionResponse>(text);
 				if (parsedResults.tstatus == "t") {
 					this.currentSessionId = parsedResults.r_data.sessionid;
+				}
+				// session id 
+				if (this.currentSessionId == null) {
+					Debug.Log("session id is null!!!");
 				}
 			} else {
 				Debug.Log("new session error: " + sessionRequest.error);
@@ -498,6 +502,12 @@ namespace cse481.logging {
 				{"data", stringifiedData},
 				{"skey", this.EncodedData(stringifiedData) }
 			};
+
+			if (this.currentSessionId != null) {
+				// requestBlob.Add("sessionid", this.currentSessionId);
+			} else {
+				Debug.Log("CLogger sess id is null");
+			}
 
 			return requestBlob;
 		}

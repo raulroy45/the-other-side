@@ -30,6 +30,7 @@ public class TriggerNextLevel : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            LoggingController.LevelComplete(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
@@ -56,7 +57,7 @@ public class TriggerNextLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("atLevelIdx", nextLevelIdx);
                 }
-                LoggingController.LevelComplete();
+                LoggingController.LevelComplete(true);
 
                 SceneManager.LoadScene(nextLevelIdx);
             }           

@@ -35,10 +35,10 @@ public class LoggingController : MonoBehaviour
 
 
     // functions that interact with loggers at each level
-    public static void LevelComplete() {
+    public static void LevelComplete(bool won) {
         LevelLogger l = curr_logger();
         if (l != null) {
-            l.EndLevel(true);
+            l.EndLevel(won);
         }
     }
 
@@ -69,7 +69,8 @@ public class LoggingController : MonoBehaviour
             Debug.Log("LoggingController: Cannot find logger");
             return null;
         } else {
-            return logger[0];
+            // need to return the last logger
+            return logger[logger.Length - 1];
         }
     }
 
@@ -93,19 +94,24 @@ public class LoggingController : MonoBehaviour
 
             // start heart beat
             if (LoggingController.LOGGING_NOT_SEND) {
-                InvokeRepeating("SendHeartBeat", 1.0f, 5.0f);
+                InvokeRepeating("SendHeartBeat", 1.0f, 10.0f);
             } else {
                 InvokeRepeating("SendHeartBeat", 1.0f, 30.0f);
             }
         }
     }
 
+    // send heart beat across scenes
+    void Awake() {
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void SendHeartBeat() {
         if (LoggingController.LOGGING_NOT_SEND) {
             Debug.Log("" + 12321 + ": " + Time.realtimeSinceStartup.ToString());
         } else {
-            LoggingController.LOGGER.LogActionWithNoLevel(12321, Time.realtimeSinceStartup.ToString());
+            LoggingController.LOGGER.LogActionWithNoLevel(12321, 
+                Time.realtimeSinceStartup.ToString());
         }
     }
 
