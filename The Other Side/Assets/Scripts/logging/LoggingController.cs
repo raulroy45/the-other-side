@@ -25,7 +25,7 @@ public class LoggingController : MonoBehaviour
     int CID = 9000;
     
     // for degbugging logger
-    public static bool LOGGING_NOT_SEND = false;
+    public static bool LOGGING_NOT_SEND = true;
 
     // Start is called before the first frame update
     void Start()
