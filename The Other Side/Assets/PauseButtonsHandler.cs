@@ -31,7 +31,7 @@ public class PauseButtonsHandler : MonoBehaviour
         deactivateIfClickedOutside(controlsPopup);
         deactivateSlider();
 
-        if (Input.GetKeyDown(KeyCode.Escape) && pauseMenu.activeSelf)
+        if (Input.GetKeyDown(KeyCode.P) && pauseMenu.activeSelf)
         {
             // change to pop up pause menu
             pauseMenu.SetActive(false); // the title screen
@@ -64,10 +64,26 @@ public class PauseButtonsHandler : MonoBehaviour
         }
     }
 
-    void resumeGame()
+    public void resumeGame()
     {
-        pauseMenu.SetActive(false);
+        // change to pop up pause menu
+        pauseMenu.SetActive(false); // the title screen
+        // pause game
+        Time.timeScale = 1.0f;
     }
+
+    
+    public bool isGamePaused() {
+        return Time.timeScale == 0.0f;
+    }
+
+    public void pauseGame() {
+        // change to pop up pause menu
+        pauseMenu.SetActive(true); // the title screen
+        // pause game
+        Time.timeScale = 0.0f;
+    }
+
 
     void returnToMainMenu()
     {
