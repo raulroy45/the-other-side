@@ -7,12 +7,13 @@ public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
-    private KeyCode triggerKey;
-    private int triggerDialogue;
     private int index;
     public float typingSpeed;
     public GameObject continueButton;
     public GameObject player;
+    public int currPrompt;
+    public Dictionary<TextMeshProUGUI, string[]> prompts;
+    public Dictionary<int, TextMeshProUGUI> promptNo;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,8 +22,6 @@ public class Dialogue : MonoBehaviour
         } else {
             StartCoroutine(Type());
         }
-        this.triggerDialogue = -1;
-        this.triggerKey = KeyCode.None;
     }
 
     void Update() {
@@ -30,15 +29,9 @@ public class Dialogue : MonoBehaviour
             player.GetComponent<PlayerController>().pauseMovement();
         }
         if (index <= sentences.Length - 1 && textDisplay.text == sentences[index]) {
-            if (index == triggerDialogue) {
-                if(Input.GetKeyDown(triggerKey)) {
-                    NextSentence();
-                }
-            } else {
-                continueButton.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space)) {
-                    NextSentence();
-                }
+            continueButton.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                NextSentence();
             }
         } else if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) {
             StopAllCoroutines();
@@ -55,8 +48,6 @@ public class Dialogue : MonoBehaviour
     }
     public void SetNewDialogues(string[] dialogues, KeyCode triggerKey, int dialogueNo) {
         this.sentences = dialogues;
-        this.triggerKey = triggerKey;
-        this.triggerDialogue = dialogueNo;
         index = -1;
         NextSentence();
     }
@@ -65,6 +56,9 @@ public class Dialogue : MonoBehaviour
     }
 
     public void NextSentence() {
+        if (sentences[index] == "<TRIGGER>") {
+
+        }
         continueButton.SetActive(false);
         if (index < sentences.Length - 1) {
             index++;

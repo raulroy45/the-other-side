@@ -30,8 +30,7 @@ public class TriggerNextLevel : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            LoggingController.LevelComplete(false);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            RestartLevel();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -41,6 +40,11 @@ public class TriggerNextLevel : MonoBehaviour
             // pause game
             Time.timeScale = 0.0f;
         }
+    }
+
+    public void RestartLevel() {
+        LoggingController.LevelComplete(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnTriggerEnter2D(Collider2D other)

@@ -40,6 +40,14 @@ public class PauseButtonsHandler : MonoBehaviour
         }
     }
 
+    public void togglePauseButton() {
+        if (pauseMenu.activeSelf) {
+            pauseMenu.SetActive(false);
+        } else {
+            pauseMenu.SetActive(true);
+        }
+    }
+
     void showAudioSlider()
     {
         audioSlider.SetActive(!audioSlider.activeSelf);
