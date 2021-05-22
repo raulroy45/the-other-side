@@ -47,10 +47,12 @@ public class TriggerShift : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.GetComponent<PlayerController>()) {
-            if (other.GetComponent<PlayerController>().isWallMerged) {
-                transform.position = pressedPos;
-                triggerActive = true;  
-            }
+            // if we make the trigger in wall layer, it won't get triggered by real bob
+            // so
+            // if (other.GetComponent<PlayerController>().isWallMerged) {
+            // }
+            transform.position = pressedPos;
+            triggerActive = true;  
         } else {
             transform.position = pressedPos;
             triggerActive = true;
