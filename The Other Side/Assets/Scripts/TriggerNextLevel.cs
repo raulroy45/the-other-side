@@ -11,6 +11,8 @@ public class TriggerNextLevel : MonoBehaviour
     private Sprite openDoorSprite;
     private int nextLevelIdx;
 
+    private PauseButtonsHandler pauseButtonsHandler;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,11 @@ public class TriggerNextLevel : MonoBehaviour
         openDoorSprite = Resources.LoadAll<Sprite>("Medieval_props_free")[2];
         // count locks
         lockCount = GameObject.FindGameObjectsWithTag("Key").Length;
+        // get ref to pause button handler to call pause/resume
+        pauseButtonsHandler = pauseMenuPopup.GetComponent<PauseButtonsHandler>();
+        if (pauseButtonsHandler == null) {
+            Debug.Log("Trigger Next Level cannot find pauseButtonsHandler");
+        }
     }
 
     // Update is called once per frame
@@ -30,16 +37,22 @@ public class TriggerNextLevel : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            // un pause game if necessary
+            pauseButtonsHandler.resumeGame();
+            // failed this try, log it
             LoggingController.LevelComplete(false);
+            // reload level
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            // change to pop up pause menu
-            pauseMenuPopup.SetActive(true); // the title screen
-            // pause game
-            Time.timeScale = 0.0f;
+            if (pauseButtonsHandler.isGamePaused())
+            {
+                pauseButtonsHandler.resumeGame();
+            } else {
+                pauseButtonsHandler.pauseGame();
+            }
         }
     }
 
@@ -63,4 +76,5 @@ public class TriggerNextLevel : MonoBehaviour
             }           
         }
     }
+
 }

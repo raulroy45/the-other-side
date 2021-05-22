@@ -53,6 +53,12 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        // is game paused? could get reference to PauseButtonsHandler 
+        // to figure out, or something like this check
+        if (Time.timeScale == 0.0f) {
+            return;  // paused
+        }
+        
         if (Input.GetKeyDown(KeyCode.J)) {
             HandleWallMerging();
         }
