@@ -10,6 +10,8 @@ public class FreezeBody : MonoBehaviour
     public bool activeWhenInWall = true;
     
     private List<Rigidbody2D> wallRigidBodies;
+    private Vector2[] oldVelocities;
+    private float[] oldAngularVelocities;
     private bool currentBobState;
 
     // Start is called before the first frame update
@@ -31,14 +33,22 @@ public class FreezeBody : MonoBehaviour
             currentBobState = pcScript.isWallMerged;
         }
 
+        oldVelocities = new Vector2[wallRigidBodies.Count];
+        oldAngularVelocities = new float[wallRigidBodies.Count];
         // first sync
-        foreach (Rigidbody2D b in wallRigidBodies) {
+        for (int i = 0; i < wallRigidBodies.Count; i++) {
+            Rigidbody2D b = wallRigidBodies[i];
             // concise version of Update logic
             if ((currentBobState && activeWhenInWall) || 
                 (!currentBobState && !activeWhenInWall)) {  // in wall
                 b.bodyType = RigidbodyType2D.Dynamic;
             } else {
-                b.bodyType = RigidbodyType2D.Static;
+                b.bodyType = RigidbodyType2D.Kinematic;
+                // save v and w
+                oldVelocities[i] = b.velocity;
+                oldAngularVelocities[i] = b.angularVelocity;
+                b.velocity = new Vector2(0, 0);
+                b.angularVelocity = 0;
             }
         }
     }
@@ -50,21 +60,39 @@ public class FreezeBody : MonoBehaviour
         if (pcScript.isWallMerged != currentBobState) {
             // need to change
             currentBobState = pcScript.isWallMerged; 
-            foreach (Rigidbody2D b in wallRigidBodies) {
+            for (int i = 0; i < wallRigidBodies.Count; i++) {
+                Rigidbody2D b = wallRigidBodies[i];
                 if (b == null) continue;
                 
                 if (currentBobState) {  // in wall
                     if (activeWhenInWall) {
                         b.bodyType = RigidbodyType2D.Dynamic;
+                        // restore v and w
+                        b.velocity = oldVelocities[i];
+                        b.angularVelocity = oldAngularVelocities[i];
                     } else {
-                        b.bodyType = RigidbodyType2D.Static;
+                        b.bodyType = RigidbodyType2D.Kinematic;
+                        // save v and w
+                        oldVelocities[i] = b.velocity;
+                        oldAngularVelocities[i] = b.angularVelocity;
+                        // bug fix: changed from Static to Kinematic, and need to set v to (0,0)
+                        b.velocity = new Vector2(0, 0);
+                        b.angularVelocity = 0;
                     }
                 } else {
                     // out of wall
                     if (activeWhenInWall) {
-                        b.bodyType = RigidbodyType2D.Static;
+                        b.bodyType = RigidbodyType2D.Kinematic;
+                        // save v and w
+                        oldVelocities[i] = b.velocity;
+                        oldAngularVelocities[i] = b.angularVelocity;
+                        b.velocity = new Vector2(0, 0);
+                        b.angularVelocity = 0;
                     } else {
                         b.bodyType = RigidbodyType2D.Dynamic;
+                        // restore v and w
+                        b.velocity = oldVelocities[i];
+                        b.angularVelocity = oldAngularVelocities[i];
                     }
                 }
             }
