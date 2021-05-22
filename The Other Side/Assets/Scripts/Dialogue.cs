@@ -8,13 +8,11 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
     private int index;
+    public bool finish = true;
+    public bool stay = false;
     public float typingSpeed;
     public GameObject continueButton;
     public GameObject player;
-    public int currPrompt;
-    public Dictionary<TextMeshProUGUI, string[]> prompts;
-    public Dictionary<int, TextMeshProUGUI> promptNo;
-
     // Start is called before the first frame update
     void Start() {
         if (sentences.Length == 0) {
@@ -25,7 +23,7 @@ public class Dialogue : MonoBehaviour
     }
 
     void Update() {
-        if (index < sentences.Length - 1) {
+        if (!finish) {
             player.GetComponent<PlayerController>().pauseMovement();
         }
         if (index <= sentences.Length - 1 && textDisplay.text == sentences[index]) {
@@ -51,21 +49,30 @@ public class Dialogue : MonoBehaviour
         index = -1;
         NextSentence();
     }
-    public void SetNewDialogues(string[] dialogues) {
-        SetNewDialogues(dialogues, KeyCode.None, -1);
+    public void SetNewDialogues(TextMeshProUGUI text, string[] dialogues, bool stay) {
+        this.sentences = dialogues;
+        this.textDisplay = text;
+        index = -1;
+        finish = false;
+        this.stay = stay;
+        NextSentence();
+    }
+
+    public void SetNewDialogues(string[] sentences) {
+        SetNewDialogues(textDisplay, sentences, false);
     }
 
     public void NextSentence() {
-        if (sentences[index] == "<TRIGGER>") {
-
-        }
         continueButton.SetActive(false);
         if (index < sentences.Length - 1) {
             index++;
             textDisplay.text = "";
             StartCoroutine(Type());
         } else {
-            textDisplay.text = "";
+            if (!stay) {
+                textDisplay.text = "";
+            }
+            finish = true;
             index++;
             player.GetComponent<PlayerController>().resumeMovement();
         }

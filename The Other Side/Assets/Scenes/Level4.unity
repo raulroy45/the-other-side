@@ -1145,8 +1145,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278253311
+  m_fontColor: {r: 1, g: 0.96470594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2110,8 +2110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e240407fb104eb84eb01b3c20ec92b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRenderer: {fileID: 0}
-  targetSprite: {fileID: 21300004, guid: ae3918a914038694d852d0bb81f62473, type: 3}
 --- !u!61 &1031104828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3872,6 +3870,7 @@ MonoBehaviour:
   wallJumpCount: 0
   grabCount: 0
   gravityScale: 0
+  isDead: 0
   isWallMerged: 0
   isGrounded: 0
   isGrabbing: 0
@@ -5558,8 +5557,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278253311
+  m_fontColor: {r: 1, g: 0.96470594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

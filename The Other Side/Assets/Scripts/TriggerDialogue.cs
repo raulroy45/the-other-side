@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TriggerDialogue : MonoBehaviour
 {
-    public KeyCode triggerKey = KeyCode.None;
-    public int triggerDialogue = -1;
     private bool alreadyTriggered;
     public string[] sentences;
     public GameObject dialogueManager;
+    public GameObject TutorialManager;
+    public int levelNo;
 
     void Start() {
         alreadyTriggered = false;
@@ -16,7 +16,15 @@ public class TriggerDialogue : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (!alreadyTriggered) {
-            dialogueManager.GetComponent<Dialogue>().SetNewDialogues(sentences, triggerKey, triggerDialogue);
+            if (TutorialManager != null) {
+                if (levelNo == 1) {
+                    TutorialManager.GetComponent<Level1Tutorial>().TriggerTutorial();
+                } else {
+                    TutorialManager.GetComponent<Level3Tutorial>().TriggerTutorial();
+                }
+            } else {
+                dialogueManager.GetComponent<Dialogue>().SetNewDialogues(sentences);
+            }
             alreadyTriggered = true;
         }
     }
