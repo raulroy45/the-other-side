@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerShiftScript : MonoBehaviour
+public class TriggerShift : MonoBehaviour
 {
     // the target to move
     public GameObject target;
@@ -28,19 +28,12 @@ public class TriggerShiftScript : MonoBehaviour
         if (triggerActive) {
             // move
             // divide since update calls more often, arbitrary 10
-            // float dx = boundedDelta(currX, deltaX, vX) / 10.0f;
-            // float dy = boundedDelta(currY, deltaY, vY) / 10.0f;
             Vector2 dv = getDeltaVec(deltaPosition) / 10.0f;
             target.transform.Translate(dv.x, dv.y, 0);
             currPos += dv;
         } else {
             // move back
             // divide since update calls more often, arbitrary 10
-            // float dx = boundedDelta(currX, 0, vX) / 10.0f;
-            // float dy = boundedDelta(currY, 0, vY) / 10.0f;
-            // target.transform.Translate(dx, dy, 0);
-            // currX += dx;
-            // currY += dy;
             Vector2 dv = getDeltaVec(new Vector2(0, 0)) / 10.0f;
             target.transform.Translate(dv.x, dv.y, 0);
             currPos += dv;

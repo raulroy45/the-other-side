@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     public float wallJumpCount;
     public float grabCount;
     public float gravityScale;
+    public bool isDead;
     public bool isWallMerged;  // FreezeWW script depend on this
     public bool isGrounded;
     public bool isGrabbing;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        isDead = false;
         isGrabbing = false;
         isRight = true;
         Real_World_Color = GetComponent<SpriteRenderer>().color;
@@ -58,7 +60,12 @@ public class PlayerController : MonoBehaviour {
         if (Time.timeScale == 0.0f) {
             return;  // paused
         }
-        
+        // is dead yet?
+        if (isDead) {
+            SetAnimParameters();
+            return;  // cannot do anything
+        }
+
         if (Input.GetKeyDown(KeyCode.J)) {
             HandleWallMerging();
         }
@@ -168,6 +175,7 @@ public class PlayerController : MonoBehaviour {
         animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
         animator.SetBool("isGrounded", isGrounded);
         animator.SetBool("isWallMerged", isWallMerged);
+        animator.SetBool("isDead", isDead);
     }
 
     private void Flip() {

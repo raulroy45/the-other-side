@@ -4163,8 +4163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e240407fb104eb84eb01b3c20ec92b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRenderer: {fileID: 0}
-  targetSprite: {fileID: 21300004, guid: ae3918a914038694d852d0bb81f62473, type: 3}
 --- !u!61 &742322906
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5325,6 +5323,7 @@ MonoBehaviour:
   wallJumpCount: 0
   grabCount: 0
   gravityScale: 0
+  isDead: 0
   isWallMerged: 0
   isGrounded: 0
   isGrabbing: 0
@@ -5503,6 +5502,7 @@ MonoBehaviour:
   typingSpeed: 0.02
   continueButton: {fileID: 1663625406}
   player: {fileID: 1687356503}
+  currPrompt: 0
 --- !u!4 &1751425985
 Transform:
   m_ObjectHideFlags: 0
@@ -5566,7 +5566,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// does not affect nodes that contain "fixed" in name 
 public class FreezeBody : MonoBehaviour
 {
 
@@ -19,6 +20,9 @@ public class FreezeBody : MonoBehaviour
         wallRigidBodies = new List<Rigidbody2D>();
         // loop through children, find all rb2d
         foreach (Transform child in transform) {
+            if (child.gameObject.name.ToLower().Contains("fixed")) {
+                continue;  // skip nodes that contains fixed
+            }
             foreach (Rigidbody2D b in child.gameObject.GetComponentsInChildren<Rigidbody2D>()) {
                 wallRigidBodies.Add(b);
             }
@@ -47,6 +51,8 @@ public class FreezeBody : MonoBehaviour
             // need to change
             currentBobState = pcScript.isWallMerged; 
             foreach (Rigidbody2D b in wallRigidBodies) {
+                if (b == null) continue;
+                
                 if (currentBobState) {  // in wall
                     if (activeWhenInWall) {
                         b.bodyType = RigidbodyType2D.Dynamic;

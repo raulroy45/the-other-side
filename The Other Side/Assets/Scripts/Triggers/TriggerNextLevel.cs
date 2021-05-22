@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// this file contains some game essential code
 public class TriggerNextLevel : MonoBehaviour
 {
+
+    // anybody can set this to true for a level restart
+    public static bool requestRestartLevel;
     public static int lockCount;
     public GameObject pauseMenuPopup;
     private Sprite openDoorSprite;
@@ -25,6 +29,7 @@ public class TriggerNextLevel : MonoBehaviour
         if (pauseButtonsHandler == null) {
             Debug.Log("Trigger Next Level cannot find pauseButtonsHandler");
         }
+        requestRestartLevel = false;
     }
 
     // Update is called once per frame
@@ -35,7 +40,7 @@ public class TriggerNextLevel : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = openDoorSprite;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) || requestRestartLevel)
         {
             RestartLevel();
         }
@@ -49,14 +54,6 @@ public class TriggerNextLevel : MonoBehaviour
                 pauseButtonsHandler.pauseGame();
             }
         }
-    }
-
-    public void RestartLevel() {
-        pauseButtonsHandler.resumeGame();
-        // failed this try, log it
-        LoggingController.LevelComplete(false);
-        // reload level
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -78,6 +75,15 @@ public class TriggerNextLevel : MonoBehaviour
                 SceneManager.LoadScene(nextLevelIdx);
             }           
         }
+    }
+
+    public void RestartLevel() {
+        requestRestartLevel = false;
+        pauseButtonsHandler.resumeGame();
+        // failed this try, log it
+        LoggingController.LevelComplete(false);
+        // reload level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

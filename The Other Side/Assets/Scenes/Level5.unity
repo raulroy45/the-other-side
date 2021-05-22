@@ -3898,8 +3898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e240407fb104eb84eb01b3c20ec92b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRenderer: {fileID: 0}
-  targetSprite: {fileID: 0}
 --- !u!61 &505545049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11434,8 +11432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e240407fb104eb84eb01b3c20ec92b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRenderer: {fileID: 0}
-  targetSprite: {fileID: 0}
 --- !u!61 &701540398
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11664,7 +11660,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790581051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.02, y: 10.41, z: 0}
+  m_LocalPosition: {x: -3.02, y: 14, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1802561028}
@@ -14346,6 +14342,7 @@ MonoBehaviour:
   wallJumpCount: 0
   grabCount: 0
   gravityScale: 0
+  isDead: 0
   isWallMerged: 0
   isGrounded: 0
   isGrabbing: 0
