@@ -38,7 +38,9 @@ public class FreezeBody : MonoBehaviour
                 (!currentBobState && !activeWhenInWall)) {  // in wall
                 b.bodyType = RigidbodyType2D.Dynamic;
             } else {
-                b.bodyType = RigidbodyType2D.Static;
+                b.bodyType = RigidbodyType2D.Kinematic;
+                b.velocity = new Vector2(0, 0);
+                b.angularVelocity = 0;
             }
         }
     }
@@ -57,12 +59,17 @@ public class FreezeBody : MonoBehaviour
                     if (activeWhenInWall) {
                         b.bodyType = RigidbodyType2D.Dynamic;
                     } else {
-                        b.bodyType = RigidbodyType2D.Static;
+                        b.bodyType = RigidbodyType2D.Kinematic;
+                        // bug fix: changed from Static to Kinematic, and need to set v to (0,0)
+                        b.velocity = new Vector2(0, 0);
+                        b.angularVelocity = 0;
                     }
                 } else {
                     // out of wall
                     if (activeWhenInWall) {
-                        b.bodyType = RigidbodyType2D.Static;
+                        b.bodyType = RigidbodyType2D.Kinematic;
+                        b.velocity = new Vector2(0, 0);
+                        b.angularVelocity = 0;
                     } else {
                         b.bodyType = RigidbodyType2D.Dynamic;
                     }
