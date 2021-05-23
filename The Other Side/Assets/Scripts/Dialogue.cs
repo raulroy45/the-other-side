@@ -8,14 +8,14 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
     private int index;
-    public bool finish = true;
+    public bool finish = false;
     public bool stay = false;
     public float typingSpeed;
     public GameObject continueButton;
     public GameObject player;
     // Start is called before the first frame update
     void Start() {
-        if (sentences.Length == 0) {
+        if (sentences.Length == 0 && !stay) {
             continueButton.SetActive(false);
         } else {
             StartCoroutine(Type());
@@ -27,9 +27,13 @@ public class Dialogue : MonoBehaviour
             player.GetComponent<PlayerController>().pauseMovement();
         }
         if (index <= sentences.Length - 1 && textDisplay.text == sentences[index]) {
-            continueButton.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (stay) {
                 NextSentence();
+            } else {
+                continueButton.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Space)) {
+                    NextSentence();
+                }
             }
         } else if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) {
             StopAllCoroutines();
