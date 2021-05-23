@@ -4635,7 +4635,7 @@ MonoBehaviour:
   sentences: []
   dialogueManager: {fileID: 1997968956}
   TutorialManager: {fileID: 837928621}
-  levelNo: 0
+  levelNo: 1
 --- !u!61 &1088149847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5169,7 +5169,7 @@ MonoBehaviour:
   sentences: []
   dialogueManager: {fileID: 1997968956}
   TutorialManager: {fileID: 837928621}
-  levelNo: 0
+  levelNo: 1
 --- !u!4 &1600893675
 Transform:
   m_ObjectHideFlags: 0
