@@ -19,13 +19,14 @@ public class LoggingController : MonoBehaviour
     // 511 May 11 testing
     // 513 May 13 testing
     // 1000 May 14 release to Github
+    // 2000 May 22 release
 
     // random category id while dev
     // 9000 May 19 Logger dev
-    int CID = 9000;
+    int CID = 2000;
     
     // for degbugging logger
-    public static bool LOGGING_NOT_SEND = true;
+    public static bool LOGGING_NOT_SEND = false;
 
     // Start is called before the first frame update
     void Start()

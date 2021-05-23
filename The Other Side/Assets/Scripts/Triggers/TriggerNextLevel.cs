@@ -11,7 +11,8 @@ public class TriggerNextLevel : MonoBehaviour
     // anybody can set this to true for a level restart
     public static bool requestRestartLevel;
     public static int lockCount;
-    public GameObject pauseMenuPopup;
+
+    private GameObject pauseMenuPopup;   // fetched by script
     private Sprite openDoorSprite;
     private int nextLevelIdx;
 
@@ -20,6 +21,10 @@ public class TriggerNextLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // get pause menu
+        GameObject canvas = GameObject.Find("/Canvas");
+        pauseMenuPopup = canvas.transform.Find("PauseMenu").gameObject;
+        
         nextLevelIdx = SceneManager.GetActiveScene().buildIndex + 1;
         openDoorSprite = Resources.LoadAll<Sprite>("Medieval_props_free")[2];
         // count locks

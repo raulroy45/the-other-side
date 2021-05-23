@@ -2335,6 +2335,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &359895754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247128408080137060, guid: 149af93a72781c541aca23a64387ba21,
+    type: 3}
+  m_PrefabInstance: {fileID: 868806392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &430276745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,6 +4182,7 @@ MonoBehaviour:
   textDisplay: {fileID: 0}
   sentences: []
   finish: 1
+  stay: 0
   typingSpeed: 0
   continueButton: {fileID: 0}
   player: {fileID: 0}
@@ -4194,8 +4207,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "CONTROLS:\nMove left:\tA\nMove right:\tD\nWall merge:\tJ\nJump:\t\tSpace\nGrab
-        wall:\tSpace + A/D\nWall jump:\tGrab wall + Space\nRestart:\tR\nPause\tEsc
-        (Escape)"
+        wall:\tSpace + A/D\nWall jump:\tGrab wall + Space\nRestart:\t\tR\nPause\t\tP"
       objectReference: {fileID: 0}
     - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
@@ -4205,8 +4217,59 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2284325176496981849, guid: 021f4e7a458f1684fa32150fce05f141,
+        type: 2}
+    - target: {fileID: 7247128406505040730, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128407379078569, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1843916808}
+    - target: {fileID: 7247128407379078569, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128407379078569, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128407379078569, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128407379078569, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128407379078569, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128407379078569, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128407942641143, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Name
+      value: Text (TMP) Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128408080137062, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Name
+      value: Text (TMP) Main
       objectReference: {fileID: 0}
     - target: {fileID: 7247128408109465882, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
@@ -4322,6 +4385,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128408120570229, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 359895754}
+    - target: {fileID: 7247128408120570229, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128408120570229, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247128408120570229, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.754717
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149af93a72781c541aca23a64387ba21, type: 3}
@@ -4552,6 +4635,7 @@ MonoBehaviour:
   sentences: []
   dialogueManager: {fileID: 1997968956}
   TutorialManager: {fileID: 837928621}
+  levelNo: 0
 --- !u!61 &1088149847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4761,8 +4845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -366, y: 232}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -271.90262, y: 232}
+  m_SizeDelta: {x: 348.1947, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1164324459
 MonoBehaviour:
@@ -4797,7 +4881,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL - 1
+  m_Text: LEVEL - 1 - The Wall Merge
 --- !u!222 &1164324460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5085,6 +5169,7 @@ MonoBehaviour:
   sentences: []
   dialogueManager: {fileID: 1997968956}
   TutorialManager: {fileID: 837928621}
+  levelNo: 0
 --- !u!4 &1600893675
 Transform:
   m_ObjectHideFlags: 0
@@ -5580,6 +5665,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2799997973811427875}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1843916808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247128407942641141, guid: 149af93a72781c541aca23a64387ba21,
+    type: 3}
+  m_PrefabInstance: {fileID: 868806392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1997968956
 GameObject:
   m_ObjectHideFlags: 0
@@ -5612,6 +5709,7 @@ MonoBehaviour:
   textDisplay: {fileID: 918813724}
   sentences: []
   finish: 1
+  stay: 0
   typingSpeed: 0.02
   continueButton: {fileID: 2140484880}
   player: {fileID: 1687356503}
