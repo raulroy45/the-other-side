@@ -3696,7 +3696,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.5, y: 9.5}
+  m_Offset: {x: 8.72, y: 9.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3707,7 +3707,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3}
+  m_Size: {x: 0.44, y: 3}
   m_EdgeRadius: 0
 --- !u!483693784 &497036000
 TilemapRenderer:
@@ -14564,7 +14564,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1687356503}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4d899ff435451084385bdbccbd7179ef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -14662,6 +14662,7 @@ GameObject:
   - component: {fileID: 1802561033}
   - component: {fileID: 1802561032}
   - component: {fileID: 1802561034}
+  - component: {fileID: 1802561035}
   m_Layer: 9
   m_Name: Tilemap_WW_Walls
   m_TagString: Untagged
@@ -15844,6 +15845,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcScript: {fileID: 1687356505}
   activeWhenInWall: 1
+--- !u!61 &1802561035
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802561027}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 8.51, y: 9.49}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &1884180438
 GameObject:
   m_ObjectHideFlags: 0
