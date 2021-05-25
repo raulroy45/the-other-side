@@ -23,10 +23,10 @@ public class LoggingController : MonoBehaviour
 
     // random category id while dev
     // 9000 May 19 Logger dev
-    int CID = 2000;
+    int CID = 9002;
     
     // for degbugging logger
-    public static bool LOGGING_NOT_SEND = false;
+    public static bool LOGGING_NOT_SEND = true;
 
     // Start is called before the first frame update
     void Start()
