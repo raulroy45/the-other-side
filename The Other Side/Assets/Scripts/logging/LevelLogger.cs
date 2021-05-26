@@ -20,6 +20,11 @@ public class LevelLogger : MonoBehaviour
     private float startTime;
     private bool gameIsGoing;
 
+    // reasons for end level
+    public enum EndLevelReason
+    {
+        NONE, CLOSE_WINDOW, WON, KEY_R, SPIKE_DEATH
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,10 +40,10 @@ public class LevelLogger : MonoBehaviour
         wallMergeCount = 0;
         jumpCount = 0;
         wallJumpCount = 0;
-        if (LoggingController.LOGGING_NOT_SEND) {
-            Debug.Log("LogLevelStart(" + levelID + ", " + levelNote + ")");
-        } else {
+        if (COMMON.LOGGING_ACTIVE) {
             StartCoroutine(LoggingController.LOGGER.LogLevelStart(levelID, levelNote));
+        } else {
+            Debug.Log("LogLevelStart(" + levelID + ", " + levelNote + ")");
         }
     }
 
@@ -54,25 +59,25 @@ public class LevelLogger : MonoBehaviour
         wallJumpCount++;
     }
 
-    public void EndLevel(bool won) {
+    public void EndLevel(EndLevelReason endLevelReason,
+                         float deathLocX, float deathLocY) {
         if (!gameIsGoing) {  // only end once
             return;
         }
         gameIsGoing = false;
 
+        bool won = endLevelReason == EndLevelReason.WON;
         float total_time = Time.time - startTime;
-        if (!LoggingController.LOGGING_NOT_SEND) {
+        
+        if (COMMON.LOGGING_ACTIVE) {
             // action stats, see Google Doc for aid
             LoggingController.LOGGER.LogLevelAction(0, "" + total_time);
+            LoggingController.LOGGER.LogLevelAction(1, won ? "1" : "0");
             LoggingController.LOGGER.LogLevelAction(2, "" + wallMergeCount);
             LoggingController.LOGGER.LogLevelAction(3, "" + jumpCount);
             LoggingController.LOGGER.LogLevelAction(4, "" + wallJumpCount);
-            if (won) {
-                LoggingController.LOGGER.LogLevelAction(1, "1");
-            } else {
-                // lost
-                LoggingController.LOGGER.LogLevelAction(1, "0");
-            }
+            LoggingController.LOGGER.LogLevelAction(5, "" + endLevelReason);
+            LoggingController.LOGGER.LogLevelAction(6, "" + deathLocX + "," + deathLocY);
             // end this level
             LoggingController.LOGGER.LogLevelEnd("" + total_time);
         } else {
@@ -82,6 +87,8 @@ public class LevelLogger : MonoBehaviour
             log += " #merges: " + wallMergeCount;
             log += " #jumps: " + jumpCount;
             log += " #wall jumps: " + wallJumpCount;
+            log += " EndLevelReason " + endLevelReason;
+            log += " DeathLoc " + deathLocX + "," + deathLocY;
             log += "]";
             Debug.Log(log);
         }
@@ -91,11 +98,12 @@ public class LevelLogger : MonoBehaviour
     void OnDisable() {
         // Fixed could be a level reset (key R)
         // reset will call LoggerController.LevelComplete
-        EndLevel(false);
+        // this should not do anything since restart button calls levelcomplete
+        EndLevel(EndLevelReason.KEY_R, 0, 0);
     }
     
     void OnApplicationQuit() {
-        EndLevel(false);
+        EndLevel(EndLevelReason.CLOSE_WINDOW, 0, 0);
     }
 
 }

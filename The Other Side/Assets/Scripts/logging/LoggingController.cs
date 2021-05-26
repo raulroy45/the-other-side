@@ -15,18 +15,8 @@ public class LoggingController : MonoBehaviour
     public const int GAMEID = 202101;
     public const string GAMENAME = "theotherside";
     
-    // prod cids
-    // 511 May 11 testing
-    // 513 May 13 testing
-    // 1000 May 14 release to Github
-    // 2000 May 22 release
-
-    // random category id while dev
-    // 9000 May 19 Logger dev
-    int CID = 9002;
+    int CID;
     
-    // for degbugging logger
-    public static bool LOGGING_NOT_SEND = true;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +26,11 @@ public class LoggingController : MonoBehaviour
 
 
     // functions that interact with loggers at each level
-    public static void LevelComplete(bool won) {
+    public static void LevelComplete(LevelLogger.EndLevelReason endLevelReason=LevelLogger.EndLevelReason.NONE,
+                                     float deathLocX=0, float deathLocY=0) {
         LevelLogger l = curr_logger();
         if (l != null) {
-            l.EndLevel(won);
+            l.EndLevel(endLevelReason, deathLocX, deathLocY);
         }
     }
 
@@ -76,6 +67,7 @@ public class LoggingController : MonoBehaviour
     }
 
     public void Init() {
+        CID = COMMON.LOGGER_CATEGORY_ID;
         lock(LOGGER_LOCK) {
             if (LoggingController.LOGGER != null) {
                 Debug.Log("Logger is already initialized");
@@ -96,7 +88,7 @@ public class LoggingController : MonoBehaviour
             LoggingController.LOGGER = logger;
 
             // start heart beat
-            if (LoggingController.LOGGING_NOT_SEND) {
+            if (COMMON.LOGGING_ACTIVE) {
                 InvokeRepeating("SendHeartBeat", 1.0f, 10.0f);
             } else {
                 InvokeRepeating("SendHeartBeat", 1.0f, 30.0f);
@@ -110,30 +102,12 @@ public class LoggingController : MonoBehaviour
     }
 
     private void SendHeartBeat() {
-        if (LoggingController.LOGGING_NOT_SEND) {
-            Debug.Log("" + 12321 + ": " + Time.realtimeSinceStartup.ToString());
-        } else {
+        if (COMMON.LOGGING_ACTIVE) {
             LoggingController.LOGGER.LogActionWithNoLevel(12321, 
                 Time.realtimeSinceStartup.ToString());
+        } else {
+            // Debug.Log("" + 12321 + ": " + Time.realtimeSinceStartup.ToString());
         }
     }
-
-    // helper that blocks until a coroutine finishes, does not work
-	public static void WaitCoroutine(IEnumerator func) {
-		while (func.MoveNext ()) {
-			if (func.Current != null) {
-				IEnumerator num;
-				try {
-					num = (IEnumerator)func.Current;
-				} catch (InvalidCastException) {
-					if (func.Current.GetType () == typeof(WaitForSeconds))
-						Debug.LogWarning ("Skipped call to WaitForSeconds. Use WaitForSecondsRealtime instead.");
-					Debug.LogWarning ("Skipping? " + func.Current.GetType());
-					return;  // Skip WaitForSeconds, WaitForEndOfFrame and WaitForFixedUpdate
-				}
-				WaitCoroutine (num);
-			}
-		}
-	}
 
 }

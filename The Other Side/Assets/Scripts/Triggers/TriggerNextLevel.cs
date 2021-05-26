@@ -10,31 +10,38 @@ public class TriggerNextLevel : MonoBehaviour
 
     // anybody can set this to true for a level restart
     public static bool requestRestartLevel;
+    // reason for restart see LevelLogger for details
+    public static LevelLogger.EndLevelReason TNL_RestartReason;
+    public static float TNL_deathLocX, TNL_deathLocY;
+    
     public static int lockCount;
 
-    private GameObject pauseMenuPopup;   // fetched by script
     private Sprite openDoorSprite;
     private int nextLevelIdx;
 
+    // fetched by script
     private PauseButtonsHandler pauseButtonsHandler;
+
+    private GameObject bob;
 
     // Start is called before the first frame update
     void Start()
     {
-        // get pause menu
-        GameObject canvas = GameObject.Find("/Canvas");
-        pauseMenuPopup = canvas.transform.Find("PauseMenu").gameObject;
+        // private info
+        requestRestartLevel = false;
+        bob = COMMON.FindMyBob();
+        // get ref to pause button handler to call pause/resume
+        pauseButtonsHandler = COMMON.FindMyPauseButtonHandler();
+        if (pauseButtonsHandler == null) {
+            Debug.Log("Trigger Next Level cannot find pauseButtonsHandler");
+        }
         
         nextLevelIdx = SceneManager.GetActiveScene().buildIndex + 1;
         openDoorSprite = Resources.LoadAll<Sprite>("Medieval_props_free")[2];
         // count locks
         lockCount = GameObject.FindGameObjectsWithTag("Key").Length;
-        // get ref to pause button handler to call pause/resume
-        pauseButtonsHandler = pauseMenuPopup.GetComponent<PauseButtonsHandler>();
-        if (pauseButtonsHandler == null) {
-            Debug.Log("Trigger Next Level cannot find pauseButtonsHandler");
-        }
-        requestRestartLevel = false;
+
+
     }
 
     // Update is called once per frame
@@ -45,7 +52,16 @@ public class TriggerNextLevel : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = openDoorSprite;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) || requestRestartLevel)
+        // or someone 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            TNL_RestartReason = LevelLogger.EndLevelReason.KEY_R;
+            TNL_deathLocX = bob.transform.position.x;
+            TNL_deathLocY = bob.transform.position.y;
+            requestRestartLevel = true;
+        }
+        
+        if (requestRestartLevel)
         {
             RestartLevel();
         }
@@ -75,7 +91,7 @@ public class TriggerNextLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("atLevelIdx", nextLevelIdx);
                 }
-                LoggingController.LevelComplete(true);
+                LoggingController.LevelComplete(LevelLogger.EndLevelReason.WON);
 
                 SceneManager.LoadScene(nextLevelIdx);
             }           
@@ -86,7 +102,7 @@ public class TriggerNextLevel : MonoBehaviour
         requestRestartLevel = false;
         pauseButtonsHandler.resumeGame();
         // failed this try, log it
-        LoggingController.LevelComplete(false);
+        LoggingController.LevelComplete(TNL_RestartReason, TNL_deathLocX, TNL_deathLocY);
         // reload level
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
