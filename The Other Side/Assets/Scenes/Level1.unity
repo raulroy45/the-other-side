@@ -4183,9 +4183,9 @@ MonoBehaviour:
   sentences: []
   finish: 1
   stay: 0
-  typingSpeed: 0
-  continueButton: {fileID: 0}
-  player: {fileID: 0}
+  typingSpeed: 0.02
+  continueButton: {fileID: 2140484880}
+  player: {fileID: 1687356503}
 --- !u!1001 &868806392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4629,11 +4629,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1088149845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca05a76d7f8cb44cad76be43c593f6c, type: 3}
+  m_Script: {fileID: 11500000, guid: f6eb5784edbb58843b668e534ee078e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sentences: []
-  dialogueManager: {fileID: 1997968956}
+  dialogueManager: {fileID: 918813722}
   TutorialManager: {fileID: 837928621}
   levelNo: 1
 --- !u!61 &1088149847
@@ -5163,7 +5163,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1600893673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca05a76d7f8cb44cad76be43c593f6c, type: 3}
+  m_Script: {fileID: 11500000, guid: f6eb5784edbb58843b668e534ee078e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sentences: []
