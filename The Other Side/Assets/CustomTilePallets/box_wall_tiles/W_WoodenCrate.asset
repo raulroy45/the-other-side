@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: W_WoodenCrate
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 62d3af453ed0ecf41b61826c67d1edbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af552ca6ade3dda46a4f2a0668d23c82, type: 3}
   m_Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
   m_Transform:
     e00: 1
