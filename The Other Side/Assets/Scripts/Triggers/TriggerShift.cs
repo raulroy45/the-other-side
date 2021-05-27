@@ -13,6 +13,10 @@ public class TriggerShift : MonoBehaviour
 
     private bool triggerActive;
     private Vector2 currPos;
+
+
+    // can make itself into a translating buttons ez
+    public bool itMoves = true;
     public Vector3 startingPos;
     public Vector3 pressedPos;
 
@@ -42,20 +46,15 @@ public class TriggerShift : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other) {
         triggerActive = false;
-        transform.position = startingPos;
+        if (itMoves) {
+            transform.position = startingPos;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.GetComponent<PlayerController>()) {
-            // if we make the trigger in wall layer, it won't get triggered by real bob
-            // so
-            // if (other.GetComponent<PlayerController>().isWallMerged) {
-            // }
+        triggerActive = true;
+        if (itMoves) {
             transform.position = pressedPos;
-            triggerActive = true;  
-        } else {
-            transform.position = pressedPos;
-            triggerActive = true;
         }
     }
 

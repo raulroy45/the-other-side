@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour {
     public LayerMask WW_Wall;
     public LayerMask RW_WallJump;
     public LayerMask WW_WallJump;
+    public LayerMask RW_OBJECTS, WW_OBJECTS;
     private Color Real_World_Color;
     private Color Wall_World_Color;
     private Vector3 Scale;
@@ -51,6 +52,8 @@ public class PlayerController : MonoBehaviour {
         wallMergesLeft = wallMergesLimit;
         gravityScale = rb2d.gravityScale;
         jumpWait = false;
+        RW_OBJECTS = LayerMask.GetMask("RW_Objects");
+        WW_OBJECTS = LayerMask.GetMask("WW_Objects");
     }
 
     // Update is called once per frame
@@ -100,12 +103,16 @@ public class PlayerController : MonoBehaviour {
             isAlongWall = Physics2D.OverlapCircle(wallCheck.position,
                                             wallCheckRadius, WW_WallJump);
             wallGround = Physics2D.OverlapCircle(groundCheck.position,
-                                            groundCheckRadius, WW_Wall);                              
+                                            groundCheckRadius, WW_Wall) ||
+                         Physics2D.OverlapCircle(groundCheck.position, 
+                                            groundCheckRadius, WW_OBJECTS);
         } else {
             isAlongWall = Physics2D.OverlapCircle(wallCheck.position,
                                             wallCheckRadius, RW_WallJump);
             wallGround = Physics2D.OverlapCircle(groundCheck.position,
-                                            groundCheckRadius, RW_Wall);                                   
+                                            groundCheckRadius, RW_Wall) ||
+                         Physics2D.OverlapCircle(groundCheck.position, 
+                                            groundCheckRadius, RW_OBJECTS);
         }
         isGrounded = (ground || wallGround);
     }

@@ -48,5 +48,13 @@ public class COMMON
     // 9210 May 25 Logger dev
     
     
+    ////////////////////////////////////////
+    // math
+    ////////////////////////////////////////
+
+    public static float Map(float val, float val_min, float val_max, float out_min, float out_max) {
+        return (val - val_min) / (val_max - val_min) * (out_max - out_min) + out_min; 
+    }
+
 
 }
