@@ -9,9 +9,12 @@ using cse481.logging;
 
 public class LevelLogger : MonoBehaviour
 {
-    // public static CapstoneLogger LOGGER;
-    public int levelID;
+
+    // note to send to server
     public string levelNote;
+
+    // ID IS BUILD INDEX
+    private int levelID;
 
     // data to keep track for each level
     private int wallMergeCount;
@@ -29,9 +32,10 @@ public class LevelLogger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelID = SceneManager.GetActiveScene().buildIndex;
         // see if logger is init'ed
         if (LoggingController.LOGGER == null) {
-            Debug.Log("Creating LOGGER in level");
+            // Debug.Log("Creating LOGGER in level");
             gameObject.AddComponent<LoggingController>();
             gameObject.GetComponent<LoggingController>().Init();
         }

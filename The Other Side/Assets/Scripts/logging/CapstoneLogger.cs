@@ -131,7 +131,7 @@ namespace cse481.logging {
 		/// <param name="userId">The retrieved user identifer to use for the session.</param>
 		public IEnumerator StartNewSession(string userId)
 		{
-			Debug.Log("starting new session, id " + userId);
+			// Debug.Log("starting new session, id " + userId);
 			this.currentUserId = userId;
 			this.currentLevelSeqInSession = 0;
 			this.currentActionSeqInSession = 0;
