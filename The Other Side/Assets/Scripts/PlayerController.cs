@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour {
     public LayerMask RW_WallJump;
     public LayerMask WW_WallJump;
     public LayerMask RW_OBJECTS, WW_OBJECTS;
-    private Color Real_World_Color;
-    private Color Wall_World_Color;
     private Vector3 Scale;
 
     // Start is called before the first frame update
@@ -44,8 +42,6 @@ public class PlayerController : MonoBehaviour {
         isDead = false;
         isGrabbing = false;
         isRight = true;
-        Real_World_Color = GetComponent<SpriteRenderer>().color;
-        Wall_World_Color = new Color(0,0,0,1);
         Scale = transform.localScale;
         isPaused = false;
         isWallMerged = false;
@@ -126,10 +122,8 @@ public class PlayerController : MonoBehaviour {
         isWallMerged = !isWallMerged;
         if (isWallMerged) {
             gameObject.layer = LayerMask.NameToLayer("WW_Bob");
-            gameObject.GetComponent<SpriteRenderer>().color = Wall_World_Color;
         } else {
             gameObject.layer = LayerMask.NameToLayer("RW_Bob");
-            gameObject.GetComponent<SpriteRenderer>().color = Real_World_Color;
         }
         LoggingController.LevelMerge();
     }
@@ -183,6 +177,7 @@ public class PlayerController : MonoBehaviour {
         animator.SetBool("isGrounded", isGrounded);
         animator.SetBool("isWallMerged", isWallMerged);
         animator.SetBool("isDead", isDead);
+        animator.SetBool("isGrabbing", isGrabbing);
     }
 
     private void Flip() {
