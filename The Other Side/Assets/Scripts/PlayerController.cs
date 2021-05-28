@@ -25,20 +25,20 @@ public class PlayerController : MonoBehaviour {
     public bool isRight;
     public bool isPaused;
     public bool jumpWait;
-    public Transform groundCheck;
-    public Transform wallCheck;
-    public LayerMask whatIsGround;
-    public LayerMask RW_Wall;
-    public LayerMask WW_Wall;
-    public LayerMask RW_WallJump;
-    public LayerMask WW_WallJump;
-    public LayerMask RW_OBJECTS, WW_OBJECTS;
+    private Transform groundCheck;
+    private Transform wallCheck;
+    private LayerMask whatIsGround;
+    private LayerMask RW_Wall;
+    private LayerMask WW_Wall;
+    private LayerMask RW_WallJump;
+    private LayerMask WW_WallJump;
+    private LayerMask RW_Objects, WW_Objects;
     private Vector3 Scale;
+    private SpriteRenderer bobRenderer;
 
     // Start is called before the first frame update
     void Start() {
-        rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        InitRefsFromCode();
         isDead = false;
         isGrabbing = false;
         isRight = true;
@@ -48,9 +48,32 @@ public class PlayerController : MonoBehaviour {
         wallMergesLeft = wallMergesLimit;
         gravityScale = rb2d.gravityScale;
         jumpWait = false;
-        RW_OBJECTS = LayerMask.GetMask("RW_Objects");
-        WW_OBJECTS = LayerMask.GetMask("WW_Objects");
+        // set layer automatically
+        gameObject.layer = LayerMask.NameToLayer("RW_Bob");
+        bobRenderer.sortingLayerName = "Real_Bob";
     }
+    
+    private void InitRefsFromCode() {
+        rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        
+        groundCheck = transform.Find("GroundChecker");
+        wallCheck = transform.Find("WallChecker");
+
+        whatIsGround = LayerMask.GetMask("Ground");
+        RW_Wall = LayerMask.GetMask("Real World");
+        WW_Wall = LayerMask.GetMask("Wall World");
+
+        RW_WallJump = LayerMask.GetMask("RW_WallJump");
+        WW_WallJump = LayerMask.GetMask("WW_WallJump");
+
+        RW_Objects = LayerMask.GetMask("RW_Objects");
+        WW_Objects = LayerMask.GetMask("WW_Objects");
+
+        bobRenderer = GetComponent<SpriteRenderer>();
+        // FUTURE: other public params that are fixed
+    }
+
 
     // Update is called once per frame
     void Update() {
@@ -101,14 +124,14 @@ public class PlayerController : MonoBehaviour {
             wallGround = Physics2D.OverlapCircle(groundCheck.position,
                                             groundCheckRadius, WW_Wall) ||
                          Physics2D.OverlapCircle(groundCheck.position, 
-                                            groundCheckRadius, WW_OBJECTS);
+                                            groundCheckRadius, WW_Objects);
         } else {
             isAlongWall = Physics2D.OverlapCircle(wallCheck.position,
                                             wallCheckRadius, RW_WallJump);
             wallGround = Physics2D.OverlapCircle(groundCheck.position,
                                             groundCheckRadius, RW_Wall) ||
                          Physics2D.OverlapCircle(groundCheck.position, 
-                                            groundCheckRadius, RW_OBJECTS);
+                                            groundCheckRadius, RW_Objects);
         }
         isGrounded = (ground || wallGround);
     }
@@ -122,8 +145,10 @@ public class PlayerController : MonoBehaviour {
         isWallMerged = !isWallMerged;
         if (isWallMerged) {
             gameObject.layer = LayerMask.NameToLayer("WW_Bob");
+            bobRenderer.sortingLayerName = "Wall_Bob";
         } else {
             gameObject.layer = LayerMask.NameToLayer("RW_Bob");
+            bobRenderer.sortingLayerName = "Real_Bob";
         }
         LoggingController.LevelMerge();
     }
@@ -211,9 +236,9 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public float airSpeedDivider = 20;
-    public float airDragMultiplier = 0.15f;
-    public float airDragMax = 0.1f;
+    private float airSpeedDivider = 20;
+    private float airDragMultiplier = 0.15f;
+    private float airDragMax = 0.1f;
     private void AirMovement() {
         // mid air, FIXED: arbitrary divide by 10 (make it a param?)
         // FIXED: arbitrary 0.1f (make it a param?)
