@@ -3659,7 +3659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 3
   levelNote: tutorial 3
 --- !u!4 &355205099
 Transform:
@@ -11619,6 +11618,12 @@ MonoBehaviour:
   WW_WallJump:
     serializedVersion: 2
     m_Bits: 16384
+  RW_OBJECTS:
+    serializedVersion: 2
+    m_Bits: 0
+  WW_OBJECTS:
+    serializedVersion: 2
+    m_Bits: 0
   airSpeedDivider: 20
   airDragMultiplier: 0.15
   airDragMax: 0.1
