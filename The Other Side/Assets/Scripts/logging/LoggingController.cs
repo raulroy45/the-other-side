@@ -69,6 +69,10 @@ public class LoggingController : MonoBehaviour
     public void Init() {
         CID = COMMON.LOGGER_CATEGORY_ID;
         lock(LOGGER_LOCK) {
+            if (!COMMON.LOGGING_ACTIVE) {
+                Debug.Log("Logger Inactive");
+                return;
+            }
             if (LoggingController.LOGGER != null) {
                 Debug.Log("Logger is already initialized");
                 return;
