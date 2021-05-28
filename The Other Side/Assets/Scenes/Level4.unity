@@ -269,8 +269,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -140048581
-  m_SortingLayer: 2
+  m_SortingLayerID: 1169490773
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3929,26 +3929,6 @@ MonoBehaviour:
   isRight: 0
   isPaused: 0
   jumpWait: 0
-  groundCheck: {fileID: 1202087878}
-  wallCheck: {fileID: 621023768}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  RW_Wall:
-    serializedVersion: 2
-    m_Bits: 256
-  WW_Wall:
-    serializedVersion: 2
-    m_Bits: 512
-  RW_WallJump:
-    serializedVersion: 2
-    m_Bits: 8192
-  WW_WallJump:
-    serializedVersion: 2
-    m_Bits: 16384
-  airSpeedDivider: 20
-  airDragMultiplier: 0.15
-  airDragMax: 0.1
 --- !u!212 &1200382530
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4076,7 +4056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 4
   levelNote: tutorial 4
 --- !u!4 &1344101876
 Transform:

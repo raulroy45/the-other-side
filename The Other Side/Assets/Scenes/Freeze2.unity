@@ -3371,12 +3371,12 @@ PrefabInstance:
     - target: {fileID: 2605334109515432838, guid: 5b8c02b90521a7f4e97fde3b124fc700,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2605334109515432838, guid: 5b8c02b90521a7f4e97fde3b124fc700,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: -106534845
+      value: -140048581
       objectReference: {fileID: 0}
     - target: {fileID: 2795372299370887816, guid: 5b8c02b90521a7f4e97fde3b124fc700,
         type: 3}
@@ -16910,6 +16910,7 @@ MonoBehaviour:
   target: {fileID: 1020292061}
   deltaPosition: {x: 0, y: 3}
   speed: {x: 0, y: 0.15}
+  itMoves: 1
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1310082935
@@ -17461,7 +17462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 8
   levelNote: freeze2
 --- !u!4 &1682610687
 Transform:
@@ -17548,26 +17548,6 @@ MonoBehaviour:
   isRight: 0
   isPaused: 0
   jumpWait: 0
-  groundCheck: {fileID: 430276746}
-  wallCheck: {fileID: 1274289511}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  RW_Wall:
-    serializedVersion: 2
-    m_Bits: 256
-  WW_Wall:
-    serializedVersion: 2
-    m_Bits: 512
-  RW_WallJump:
-    serializedVersion: 2
-    m_Bits: 8192
-  WW_WallJump:
-    serializedVersion: 2
-    m_Bits: 16384
-  airSpeedDivider: 20
-  airDragMultiplier: 0.15
-  airDragMax: 0.1
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19011,6 +18991,7 @@ MonoBehaviour:
   target: {fileID: 0}
   deltaPosition: {x: 0, y: 2.5}
   speed: {x: 0, y: 0.2}
+  itMoves: 1
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1929710854
