@@ -15858,6 +15858,7 @@ MonoBehaviour:
   target: {fileID: 1247826825}
   deltaPosition: {x: -10, y: 0}
   speed: {x: 0.3, y: 0.15}
+  itMoves: 1
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1310082935
@@ -16698,6 +16699,12 @@ MonoBehaviour:
   WW_WallJump:
     serializedVersion: 2
     m_Bits: 16384
+  RW_OBJECTS:
+    serializedVersion: 2
+    m_Bits: 0
+  WW_OBJECTS:
+    serializedVersion: 2
+    m_Bits: 0
   airSpeedDivider: 20
   airDragMultiplier: 0.15
   airDragMax: 0.1
@@ -17936,6 +17943,7 @@ MonoBehaviour:
   target: {fileID: 0}
   deltaPosition: {x: 0, y: 2.5}
   speed: {x: 0, y: 0.2}
+  itMoves: 1
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1929710854

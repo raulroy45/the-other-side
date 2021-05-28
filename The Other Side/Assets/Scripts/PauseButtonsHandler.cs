@@ -88,6 +88,7 @@ public class PauseButtonsHandler : MonoBehaviour
     void returnToMainMenu()
     {
         SceneManager.LoadScene(1); // Level Select Menu Build Index
+        resumeGame();
     }
 
     private void deactivateIfClickedOutside(GameObject uiPanel)
