@@ -20,12 +20,15 @@ public class TriggerShift : MonoBehaviour
     public Vector3 startingPos;
     public Vector3 pressedPos;
 
+    private int objectCount;  // NEED how many triggers there are currently
+
     // Start is called before the first frame update
     void Start() {
         startingPos = transform.position;
         pressedPos = new Vector3(startingPos.x, startingPos.y - 0.45f, 0);
         triggerActive = false;
         currPos = new Vector2(0, 0);
+        objectCount = 0;
     }
 
     void Update() {
@@ -45,14 +48,18 @@ public class TriggerShift : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D other) {
-        triggerActive = false;
-        if (itMoves) {
-            transform.position = startingPos;
+        objectCount--;
+        if (objectCount == 0) {
+            triggerActive = false;
+            if (itMoves) {
+                transform.position = startingPos;
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         triggerActive = true;
+        objectCount++;
         if (itMoves) {
             transform.position = pressedPos;
         }

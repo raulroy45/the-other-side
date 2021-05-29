@@ -11,17 +11,23 @@ public class Trigger2Sprites : MonoBehaviour
     public Sprite sprite1, sprite2;
 
     public bool isToggle;
-    public bool triggerState;  // for others is desired
+    public bool triggerState;  // if others want
+
+    private int objectCount;  // NEED to keep track of this
 
     // Start is called before the first frame update
     void Start() {
         triggerState = false;
+        objectCount = 0;
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (!isToggle) {
             // deactivate
-            triggerState = false;
+            objectCount--;
+            if (objectCount == 0) {
+                triggerState = false;
+            }
         }
         UpdateMySprite();
     }
@@ -30,6 +36,7 @@ public class Trigger2Sprites : MonoBehaviour
         if (isToggle) {
             triggerState = !triggerState;
         } else {
+            objectCount++;
             triggerState = true;
         }
         UpdateMySprite();
