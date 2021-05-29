@@ -16,7 +16,9 @@ public class LevelSelection : MonoBehaviour
         // defaults to level 1, which corresponds to
         // build index 2
         int atLevelIdx = PlayerPrefs.GetInt("atLevelIdx", 2);
-
+        if (COMMON.INTERNAL_PLAY_TEST) {
+            atLevelIdx = levelButtons.Length + 1;
+        }
         for (int i = 0; i < levelButtons.Length; i++)
         {
             // if the build index of this iteration's level (i + 2)

@@ -3617,7 +3617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311853847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.81, y: -3.71, z: 0}
+  m_LocalPosition: {x: 4.18, y: 1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1802561028}
@@ -3887,9 +3887,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1592685163}
         m_TargetAssemblyTypeName: PauseButtonsHandler, Assembly-CSharp
-        m_MethodName: togglePauseButton
+        m_MethodName: pauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4232,7 +4232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526440659}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.43, y: 2.11, z: 0}
+  m_LocalPosition: {x: -2.67, y: -3.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817660516}
@@ -15488,7 +15488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282180783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.08, y: 0.58, z: 0}
+  m_LocalPosition: {x: 12.16, y: -4.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817660516}
@@ -15673,7 +15673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285818458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.2, y: -4.38, z: 0}
+  m_LocalPosition: {x: 11.52, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1802561028}
@@ -15914,7 +15914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419522398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.48, y: -4.81, z: 0}
+  m_LocalPosition: {x: -3.9, y: 1.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1802561028}
@@ -16434,6 +16434,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1592685163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247128408109465887, guid: 149af93a72781c541aca23a64387ba21,
+    type: 3}
+  m_PrefabInstance: {fileID: 1592685159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfefb86eaf0d8414684d84882ccfd747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1604995298
 GameObject:
   m_ObjectHideFlags: 0
@@ -16595,7 +16607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 6
   levelNote: box_button0
 --- !u!4 &1682610687
 Transform:
@@ -16682,32 +16693,6 @@ MonoBehaviour:
   isRight: 0
   isPaused: 0
   jumpWait: 0
-  groundCheck: {fileID: 430276746}
-  wallCheck: {fileID: 1274289511}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  RW_Wall:
-    serializedVersion: 2
-    m_Bits: 256
-  WW_Wall:
-    serializedVersion: 2
-    m_Bits: 512
-  RW_WallJump:
-    serializedVersion: 2
-    m_Bits: 8192
-  WW_WallJump:
-    serializedVersion: 2
-    m_Bits: 16384
-  RW_OBJECTS:
-    serializedVersion: 2
-    m_Bits: 0
-  WW_OBJECTS:
-    serializedVersion: 2
-    m_Bits: 0
-  airSpeedDivider: 20
-  airDragMultiplier: 0.15
-  airDragMax: 0.1
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18181,7 +18166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101595877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.2, y: 1.37, z: 0}
+  m_LocalPosition: {x: 4.48, y: -3.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817660516}

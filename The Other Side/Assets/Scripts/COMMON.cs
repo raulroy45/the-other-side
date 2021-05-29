@@ -7,6 +7,12 @@ using UnityEngine;
 public class COMMON
 {
 
+    ////////////////////////////////////////
+    // Really important dev switches!!!
+    ////////////////////////////////////////
+
+    public static bool INTERNAL_PLAY_TEST = true;
+
 
     ////////////////////////////////////////
     // Getting Unique Game Objects
@@ -43,6 +49,7 @@ public class COMMON
     // 2000 May 22 release
 
     // random category id while dev
+    // 98765 Inernal Test Release
     // 9000 May 19 Logger dev
     // 9200 May 25 Logger dev, give up, it somehow was used
     // 9210 May 25 Logger dev

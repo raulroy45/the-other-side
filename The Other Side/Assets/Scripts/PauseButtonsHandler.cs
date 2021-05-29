@@ -33,10 +33,7 @@ public class PauseButtonsHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P) && pauseMenu.activeSelf)
         {
-            // change to pop up pause menu
-            pauseMenu.SetActive(false); // the title screen
-            // unpause game
-            Time.timeScale = 1.0f;
+            resumeGame();
         }
     }
 

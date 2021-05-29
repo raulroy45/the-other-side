@@ -3704,9 +3704,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 671451672}
         m_TargetAssemblyTypeName: PauseButtonsHandler, Assembly-CSharp
-        m_MethodName: togglePauseButton
+        m_MethodName: pauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4755,6 +4755,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &671451672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247128408109465887, guid: 149af93a72781c541aca23a64387ba21,
+    type: 3}
+  m_PrefabInstance: {fileID: 671451668}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfefb86eaf0d8414684d84882ccfd747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &690905464
@@ -16365,6 +16377,7 @@ MonoBehaviour:
   target: {fileID: 1557403727}
   deltaPosition: {x: 0, y: 3}
   speed: {x: 0, y: 0.15}
+  itMoves: 1
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1310082935
@@ -17246,7 +17259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 7
   levelNote: box_button1
 --- !u!4 &1682610687
 Transform:
@@ -17333,26 +17345,6 @@ MonoBehaviour:
   isRight: 0
   isPaused: 0
   jumpWait: 0
-  groundCheck: {fileID: 430276746}
-  wallCheck: {fileID: 1274289511}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  RW_Wall:
-    serializedVersion: 2
-    m_Bits: 256
-  WW_Wall:
-    serializedVersion: 2
-    m_Bits: 512
-  RW_WallJump:
-    serializedVersion: 2
-    m_Bits: 8192
-  WW_WallJump:
-    serializedVersion: 2
-    m_Bits: 16384
-  airSpeedDivider: 20
-  airDragMultiplier: 0.15
-  airDragMax: 0.1
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18614,6 +18606,7 @@ MonoBehaviour:
   target: {fileID: 1557403727}
   deltaPosition: {x: 0, y: 2.5}
   speed: {x: 0, y: 0.2}
+  itMoves: 1
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1929710854

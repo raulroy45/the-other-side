@@ -7,7 +7,7 @@ public class RandomTiles : MonoBehaviour
 
     // use these tiles
     public TileBase[] tiles;
-    public float probability;
+    public float probability = 0.2f;
     
     
     // Start is called before the first frame update

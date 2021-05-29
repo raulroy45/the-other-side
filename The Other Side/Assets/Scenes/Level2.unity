@@ -1765,9 +1765,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 966324631}
         m_TargetAssemblyTypeName: PauseButtonsHandler, Assembly-CSharp
-        m_MethodName: togglePauseButton
+        m_MethodName: pauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4802,6 +4802,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149af93a72781c541aca23a64387ba21, type: 3}
+--- !u!114 &966324631 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247128408109465887, guid: 149af93a72781c541aca23a64387ba21,
+    type: 3}
+  m_PrefabInstance: {fileID: 966324630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfefb86eaf0d8414684d84882ccfd747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1046441996
 GameObject:
   m_ObjectHideFlags: 0
@@ -5253,7 +5265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 2
   levelNote: tutorial 2
 --- !u!4 &1383106256
 Transform:
@@ -5531,26 +5542,6 @@ MonoBehaviour:
   isRight: 0
   isPaused: 0
   jumpWait: 0
-  groundCheck: {fileID: 430276746}
-  wallCheck: {fileID: 1274289511}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  RW_Wall:
-    serializedVersion: 2
-    m_Bits: 256
-  WW_Wall:
-    serializedVersion: 2
-    m_Bits: 512
-  RW_WallJump:
-    serializedVersion: 2
-    m_Bits: 8192
-  WW_WallJump:
-    serializedVersion: 2
-    m_Bits: 16384
-  airSpeedDivider: 20
-  airDragMultiplier: 0.15
-  airDragMax: 0.1
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0

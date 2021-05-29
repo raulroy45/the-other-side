@@ -14,6 +14,9 @@ public class LevelButtonHandler : MonoBehaviour
 
         int atLevelIdx = PlayerPrefs.GetInt("atLevelIdx", 2);
         Debug.Log(atLevelIdx);
+        if (COMMON.INTERNAL_PLAY_TEST) {
+            atLevelIdx = levelButtons.Length + 1;
+        }
 
         for (int i = 0; i < levelButtons.Length; i++)
         {
