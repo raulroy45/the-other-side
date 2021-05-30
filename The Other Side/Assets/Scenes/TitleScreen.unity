@@ -639,6 +639,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308828131}
   m_CullTransparentMesh: 1
+--- !u!114 &337760633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8888010805421007721, guid: a2152fdc42d8b154592c8f78bc915fe9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8888010805754343952}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e0e63f9880b544b9d7e40645772aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &386121039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,10 +1562,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 337760633}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1911878136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,3 +1777,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a0f9ca82f9e044382d7ebc6355fa00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &8888010805754343952
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8888010805421007718, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a2152fdc42d8b154592c8f78bc915fe9, type: 3}
