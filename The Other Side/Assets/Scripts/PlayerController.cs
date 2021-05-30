@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
     private LayerMask WW_Wall;
     private LayerMask RW_WallJump;
     private LayerMask WW_WallJump;
-    private LayerMask RW_Objects, WW_Objects;
+    private LayerMask RW_Objects, WW_Objects, RW_WW_Object;
     private Vector3 Scale;
     private SpriteRenderer bobRenderer;
 
@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour {
 
         RW_Objects = LayerMask.GetMask("RW_Objects");
         WW_Objects = LayerMask.GetMask("WW_Objects");
+        RW_WW_Object = LayerMask.GetMask("RW_WW_Object");
 
         bobRenderer = GetComponent<SpriteRenderer>();
         // FUTURE: other public params that are fixed
@@ -133,6 +134,10 @@ public class PlayerController : MonoBehaviour {
                          Physics2D.OverlapCircle(groundCheck.position, 
                                             groundCheckRadius, RW_Objects);
         }
+        // also detect standing on RWWWWALLs
+        wallGround = wallGround || Physics2D.OverlapCircle(groundCheck.position,
+                                            groundCheckRadius, RW_WW_Object);
+        
         isGrounded = (ground || wallGround);
     }
 
