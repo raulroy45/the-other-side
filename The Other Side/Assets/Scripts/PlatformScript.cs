@@ -24,7 +24,7 @@ public class PlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) && wallMergesLeft != 0) {
+        if (Input.GetKeyDown(COMMON.WALL_MERGE_KEY) && wallMergesLeft != 0) {
             wallMergesLeft--;
             isWallMerged = !isWallMerged;
             if (isWallMerged) {

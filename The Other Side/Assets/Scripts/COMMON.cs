@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 // a place to share some functions
@@ -11,7 +12,64 @@ public class COMMON
     // Really important dev switches!!!
     ////////////////////////////////////////
 
-    public static bool INTERNAL_PLAY_TEST = true;
+    public static bool INTERNAL_PLAY_TEST = false;
+
+
+
+    ////////////////////////////////////////
+    // A/B testing 
+    ////////////////////////////////////////
+
+    public const int LOGGER_ABTEST_AID = 25;
+
+    // is AB test enabled?
+    public static bool MERGE_KEY_ABTEST = true;
+    public static UnityEngine.KeyCode WALL_MERGE_KEY;
+
+    // called in LoggingController
+    public static void InitABTest() {
+        if (Random.value < 0.5f) {
+            WALL_MERGE_KEY = KeyCode.J;
+        } else {
+            WALL_MERGE_KEY = KeyCode.E;
+        }
+        if (LOGGING_ACTIVE) {
+            LoggingController.LOGGER.LogActionWithNoLevel(
+                LOGGER_ABTEST_AID,
+                WALL_MERGE_KEY == KeyCode.J ? "A" : "B");
+        } else {
+            Debug.Log("Logger AB Test: " + (WALL_MERGE_KEY == KeyCode.J ? "A" : "B"));
+        }
+
+        // set controls popup text
+        if (COMMON.MERGE_KEY_ABTEST) {
+            // get ref to Controls Popup
+            COMMON.UpdateMyControlsPopup();
+        }
+    }
+
+    public static void UpdateMyControlsPopup() {
+
+        GameObject canvas = GameObject.Find("Canvas");
+
+        TextMeshProUGUI tmp = null;
+        if (canvas.transform.Find("ControlsPopup") != null) {
+            tmp = canvas.transform.Find("ControlsPopup")
+                .GetComponentInChildren<TextMeshProUGUI>();
+        } else {
+            tmp = canvas.transform.Find("PauseMenu/ControlsPopup")
+                .GetComponentInChildren<TextMeshProUGUI>();
+        }
+        Debug.Log("TMP " + tmp);
+        // change merge to E or J
+        // get text child
+        if (WALL_MERGE_KEY == KeyCode.J) {
+            tmp.SetText(tmp.text.Replace("Wall merge:	J", "Wall merge:	J"));
+        } else {
+            tmp.SetText(tmp.text.Replace("Wall merge:	J", "Wall merge:	E"));
+        }
+
+    }
 
 
     ////////////////////////////////////////
@@ -39,9 +97,9 @@ public class COMMON
     ////////////////////////////////////////
 
     // WANNA SEND DATA TO SERVER? 
-    public static bool LOGGING_ACTIVE = false;
+    public static bool LOGGING_ACTIVE = true;
     
-    public const int LOGGER_CATEGORY_ID = 9300;
+    public const int LOGGER_CATEGORY_ID = 3000;
     // prod cids
     // 511 May 11 testing
     // 513 May 13 testing
@@ -54,6 +112,7 @@ public class COMMON
     // 9200 May 25 Logger dev, give up, it somehow was used
     // 9210 May 25 Logger dev
     // 9300 May 28 Logger dev
+    // 9301 May 28 A/B test dev
     
     
     ////////////////////////////////////////

@@ -5710,7 +5710,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <PRESS J TO WALL MERGE>
+  m_text: <WALL MERGE ONTO PAINTED WALLS>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 021f4e7a458f1684fa32150fce05f141, type: 2}
   m_sharedMaterial: {fileID: -2284325176496981849, guid: 021f4e7a458f1684fa32150fce05f141,

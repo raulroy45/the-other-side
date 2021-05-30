@@ -23,9 +23,25 @@ public class Level1Tutorial : MonoBehaviour
     public string[] sentences6;
     public string[] sentences7;
     public string[] sentences8;
+
+    void Start() {
+        if (COMMON.MERGE_KEY_ABTEST) {
+            // set up sentencess
+            sentences4 = new string[1];
+            sentences7 = new string[1];
+            if (COMMON.WALL_MERGE_KEY == KeyCode.J) {
+                sentences4[0] = "PRESS J TO MERGE WITH THE WALL";
+                sentences7[0] = "PRESS J TO UNMERGE WITH THE WALL";
+            } else {
+                sentences4[0] = "PRESS E TO MERGE WITH THE WALL";
+                sentences7[0] = "PRESS E TO UNMERGE WITH THE WALL";
+            }
+        }
+    }
+
     void Update() {
         if ((triggerNo == 6 || triggerNo == 11) 
-            && Input.GetKeyDown(KeyCode.J)) {
+            && Input.GetKeyDown(COMMON.WALL_MERGE_KEY)) {
             triggerNo++;
             dialogueManager.GetComponent<Dialogue>().finish = true;
         }

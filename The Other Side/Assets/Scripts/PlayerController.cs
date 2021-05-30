@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour {
             return;  // cannot do anything
         }
 
-        if (Input.GetKeyDown(KeyCode.J)) {
+        if (Input.GetKeyDown(COMMON.WALL_MERGE_KEY)) {
             HandleWallMerging();
         }
         SetNearbyParameters();

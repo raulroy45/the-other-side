@@ -31,6 +31,12 @@ public class FallingPlat : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
+        StartCoroutine(FallAfter(0.3f));
+    }
+
+    IEnumerator FallAfter(float time) {
+        yield return new WaitForSeconds(time);
+        // Code to execute after the delay
         body2D.bodyType = RigidbodyType2D.Dynamic;
     }
     
