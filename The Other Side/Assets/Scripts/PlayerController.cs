@@ -195,7 +195,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Jump") || 
         ((isRight && Input.GetAxisRaw("Horizontal") < 0) ||
         (!isRight && Input.GetAxisRaw("Horizontal") > 0))) {
-            UnityEngine.Debug.Log("hello");
             wallJumpCount = wallJumpTime;
             isGrabbing = false;
             rb2d.gravityScale = gravityScale;
