@@ -45,6 +45,7 @@ public class Trigger2Sprites : MonoBehaviour
     // helper
     private void UpdateMySprite() {
         GetComponent<SpriteRenderer>().sprite = !triggerState ? sprite1 : sprite2;
+        // Debug.Log("col " + GetComponent<SpriteRenderer>().color);
     }
 
 }

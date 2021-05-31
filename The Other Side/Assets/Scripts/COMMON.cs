@@ -97,7 +97,7 @@ public class COMMON
     ////////////////////////////////////////
 
     // WANNA SEND DATA TO SERVER? 
-    public static bool LOGGING_ACTIVE = true;
+    public static bool LOGGING_ACTIVE = false;
     
     public const int LOGGER_CATEGORY_ID = 3000;
     // prod cids

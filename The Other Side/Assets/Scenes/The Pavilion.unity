@@ -6153,7 +6153,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_PressedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -6447,7 +6447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 833243779}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.3}
+  speed: {x: 0, y: 0.5}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -22005,7 +22005,7 @@ Tilemap:
       m_TileIndex: 0
       m_TileSpriteIndex: 2
       m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
@@ -22100,10 +22100,12 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: 0, g: 0, b: 0, a: 0}
+  - m_RefCount: 4
+    m_Data: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
   - m_RefCount: 1
     m_Data: {r: 0, g: 0.8300319, b: 1, a: 1}
-  - m_RefCount: 4
-    m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -22368,7 +22370,7 @@ Tilemap:
       m_TileIndex: 41
       m_TileSpriteIndex: 42
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
@@ -22862,7 +22864,9 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - m_RefCount: 34
-    m_Data: {r: 1, g: 1, b: 1, a: 1}
+    m_Data: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 8.6869e-41, g: 8.6869e-41, b: 8.6869e-41, a: 8.6869e-41}
   - m_RefCount: 1
     m_Data: {r: 0, g: 0, b: 0, a: 1}
   m_TileObjectToInstantiateArray: []
@@ -23472,7 +23476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1073706796}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.2}
+  speed: {x: 0, y: 0.35}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -24361,7 +24365,7 @@ Tilemap:
       m_TileIndex: 2
       m_TileSpriteIndex: 1
       m_TileMatrixIndex: 1
-      m_TileColorIndex: 0
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
@@ -24456,10 +24460,12 @@ Tilemap:
       e32: 3.12e-43
       e33: 1
   m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: 0, g: 0, b: 0, a: 0}
+  - m_RefCount: 4
+    m_Data: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
   - m_RefCount: 1
     m_Data: {r: 0.9528302, g: 0, b: 0, a: 1}
-  - m_RefCount: 4
-    m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -24768,7 +24774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 796531635}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.2}
+  speed: {x: 0, y: 0.35}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -25037,7 +25043,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_PressedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -26169,8 +26175,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -237.35129, y: 232}
-  m_SizeDelta: {x: 417.2974, y: 30}
+  m_AnchoredPosition: {x: -366.70374, y: 232}
+  m_SizeDelta: {x: 158.5925, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086576011
 MonoBehaviour:
@@ -26185,7 +26191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.96470594, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -26205,7 +26211,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL - ? - The Pavilion
+  m_Text: The Pavilion
 --- !u!222 &2086576012
 CanvasRenderer:
   m_ObjectHideFlags: 0

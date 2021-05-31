@@ -6,8 +6,8 @@ using UnityEngine;
 public class FreezeBody : MonoBehaviour
 {
 
-    public PlayerController pcScript;
     public bool activeWhenInWall = true;
+    private PlayerController pcScript;
     
     private List<Rigidbody2D> wallRigidBodies;
     private Vector2[] oldVelocities;
@@ -29,9 +29,8 @@ public class FreezeBody : MonoBehaviour
                 wallRigidBodies.Add(b);
             }
         }
-        if (pcScript != null) {
-            currentBobState = pcScript.isWallMerged;
-        }
+        pcScript = COMMON.FindMyBob().GetComponent<PlayerController>();
+        currentBobState = pcScript.isWallMerged;
 
         oldVelocities = new Vector2[wallRigidBodies.Count];
         oldAngularVelocities = new float[wallRigidBodies.Count];
