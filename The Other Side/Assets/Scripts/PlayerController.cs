@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     public bool isRight;
     public bool isPaused;
     public bool jumpWait;
+    public bool canGrab;
     private Transform groundCheck;
     private Transform wallCheck;
     private LayerMask whatIsGround;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour {
         wallMergesLeft = wallMergesLimit;
         gravityScale = rb2d.gravityScale;
         jumpWait = false;
+        canGrab = false;
         // set layer automatically
         gameObject.layer = LayerMask.NameToLayer("RW_Bob");
         bobRenderer.sortingLayerName = "Real_Bob";
@@ -92,13 +94,16 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(COMMON.WALL_MERGE_KEY)) {
             HandleWallMerging();
         }
-        SetNearbyParameters();
+        SetParameters();
         if (!isPaused) {
-            if (grabCount <= 0 && wallJumpCount <= 0) {
-                HandleMovement();
+            if (isGrabbing) {
+                HandleWallJump();
             } else {
-                grabCount -= Time.deltaTime;
-                wallJumpCount -= Time.deltaTime;
+                if (wallJumpCount <= 0) {
+                    HandleMovement();
+                } else {
+                    wallJumpCount -= Time.deltaTime;
+                }
             }
             if (Input.GetButtonDown("Jump")) {
                 HandleJump();
@@ -114,7 +119,7 @@ public class PlayerController : MonoBehaviour {
         SetAnimParameters();
     }
 
-    private void SetNearbyParameters() {
+    private void SetParameters() {
         // isGrabbing = false;
         bool ground = Physics2D.OverlapCircle(groundCheck.position, 
                                             groundCheckRadius, whatIsGround);
@@ -139,6 +144,22 @@ public class PlayerController : MonoBehaviour {
                                             groundCheckRadius, RW_WW_Object);
         
         isGrounded = (ground || wallGround);
+
+        if (!isGrounded) {
+            if (!isAlongWall) {
+                canGrab = true;
+            }
+        } else {
+            canGrab = false;
+        }
+
+        if (isAlongWall && canGrab) {
+            if ((isRight && Input.GetAxisRaw("Horizontal") > 0) ||
+                (!isRight && Input.GetAxisRaw("Horizontal") < 0)) {
+                isGrabbing = true;
+                jumpWait = true;
+            }
+        }
     }
 
     private void HandleWallMerging() {
@@ -168,19 +189,38 @@ public class PlayerController : MonoBehaviour {
         }
         // v is updated, now possibly need to flip sprite
         // OptionalFlipOnXVelocity();
-        
-        if (isAlongWall && !isGrounded) {
-            if ((isRight && Input.GetAxisRaw("Horizontal") > 0) ||
-                (!isRight && Input.GetAxisRaw("Horizontal") < 0)) {
-                isGrabbing = true;
-                jumpWait = true;
-                rb2d.velocity = new Vector2(0f, 0f);
-                rb2d.gravityScale = 0f;
-            } else if (jumpWait) {
+    }
+
+    private void HandleWallJump() {
+        if (Input.GetButtonDown("Jump") || 
+        ((isRight && Input.GetAxisRaw("Horizontal") < 0) ||
+        (!isRight && Input.GetAxisRaw("Horizontal") > 0))) {
+            UnityEngine.Debug.Log("hello");
+            wallJumpCount = wallJumpTime;
+            isGrabbing = false;
+            rb2d.gravityScale = gravityScale;
+            float jumpComp = jumpSpeed * (1f / Mathf.Sqrt(2));
+            float direction = isRight ? -1f : 1f;
+            rb2d.velocity = new Vector2(jumpComp * direction, jumpComp);
+            Flip();
+            canGrab = true;
+            LoggingController.LevelWallJump();
+        } else if ((isRight && Input.GetAxisRaw("Horizontal") > 0) ||
+        (!isRight && Input.GetAxisRaw("Horizontal") < 0)) {
+            rb2d.velocity = new Vector2(0f, 0f);
+            rb2d.gravityScale = 0f;
+        } else {
+            if (jumpWait) {
                 grabCount = grabTime;
                 jumpWait = false;
                 rb2d.velocity = new Vector2(0f, 0f);
                 rb2d.gravityScale = 0f;
+            } else {
+                if (grabCount <= 0) {
+                    isGrabbing = false;
+                } else {
+                    grabCount -= Time.deltaTime;
+                }
             }
         }
     }
@@ -189,16 +229,6 @@ public class PlayerController : MonoBehaviour {
         if (isGrounded) {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
             LoggingController.LevelJump();
-
-        } else if (isAlongWall && isGrabbing) {
-            wallJumpCount = wallJumpTime;
-            isGrabbing = false;
-            rb2d.gravityScale = gravityScale;
-            float jumpComp = jumpSpeed * (1f / Mathf.Sqrt(2));
-            float direction = isRight ? -1f : 1f;
-            rb2d.velocity = new Vector2(jumpComp * direction, jumpComp);
-            Flip();
-            LoggingController.LevelWallJump();
         }
     }
 
