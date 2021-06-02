@@ -293,6 +293,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void pauseMovement() {
+        rb2d.velocity = new Vector2(0, 0);
         isPaused = true;
     }
 
