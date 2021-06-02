@@ -8,6 +8,7 @@ public class Level1Tutorial : MonoBehaviour
     public int triggerNo = 0;
     public bool dialogueSet = false;
     public GameObject dialogueManager;
+    public GameObject player;
     public TextMeshProUGUI text0;
     public TextMeshProUGUI text1;
     public TextMeshProUGUI text2;
@@ -43,6 +44,7 @@ public class Level1Tutorial : MonoBehaviour
                     break;
                 case 4: // Space to jump
                     SetDialogues(text2, sentences3, false);
+                    player.GetComponent<PlayerController>().EnableJump();
                     break;
                 case 6: // Short Hop
                     SetDialogues(text2, sentences4, false);

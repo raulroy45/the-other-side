@@ -19,13 +19,15 @@ public class PlayerController : MonoBehaviour {
     public float gravityScale;
     public bool isDead;
     public bool isWallMerged;  // FreezeWW script depend on this
-    public bool isGrounded;
-    public bool isGrabbing;
-    public bool isAlongWall;
-    public bool isRight;
+    private bool isGrounded;
+    private bool isGrabbing;
+    private bool isAlongWall;
+    private bool isRight;
     public bool isPaused;
-    public bool jumpWait;
-    public bool canGrab;
+    private bool jumpWait;
+    private bool canGrab;
+    public bool jumpEnabled = true;
+    public bool wallMergeEnabled = true;
     private Transform groundCheck;
     private Transform wallCheck;
     private LayerMask whatIsGround;
@@ -162,8 +164,8 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void HandleWallMerging() {
-        if (wallMergesLeft == 0) {
+    private void HandleWallMerging() {   
+        if (wallMergesLeft == 0 || !wallMergeEnabled) {
             // ooh no more merges
             return;
         }
@@ -225,6 +227,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HandleJump() {
+        if (!jumpEnabled) {
+            return;
+        }
         if (isGrounded) {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
             LoggingController.LevelJump();
@@ -293,12 +298,20 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void pauseMovement() {
-        rb2d.velocity = new Vector2(0, 0);
+        rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         isPaused = true;
     }
 
     public void resumeMovement() {
         isPaused = false;
+    }
+
+    public void EnableJump() {
+        jumpEnabled = true;
+    }
+
+    public void EnableWallMerge() {
+        wallMergeEnabled = true;
     }
 
 }

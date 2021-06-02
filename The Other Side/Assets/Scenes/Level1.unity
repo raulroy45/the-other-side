@@ -8913,6 +8913,7 @@ MonoBehaviour:
   triggerNo: 0
   dialogueSet: 0
   dialogueManager: {fileID: 1997968956}
+  player: {fileID: 1687356503}
   text0: {fileID: 918813724}
   text1: {fileID: 536679712}
   text2: {fileID: 2074344592}
@@ -9155,6 +9156,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346887252}
     m_Modifications:
+    - target: {fileID: 7247128406473960145, guid: 149af93a72781c541aca23a64387ba21,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.6082764
+      objectReference: {fileID: 0}
     - target: {fileID: 7247128408109465882, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
       propertyPath: m_Name
@@ -9248,7 +9254,7 @@ PrefabInstance:
     - target: {fileID: 7247128408109465883, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0025024414
+      value: -0.0024414062
       objectReference: {fileID: 0}
     - target: {fileID: 7247128408109465883, guid: 149af93a72781c541aca23a64387ba21,
         type: 3}
@@ -9418,7 +9424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088149845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.54, y: 0.42, z: 0}
+  m_LocalPosition: {x: -0.11, y: 0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9870,13 +9876,9 @@ MonoBehaviour:
   gravityScale: 0
   isDead: 0
   isWallMerged: 0
-  isGrounded: 0
-  isGrabbing: 0
-  isAlongWall: 0
-  isRight: 0
   isPaused: 0
-  jumpWait: 0
-  canGrab: 0
+  jumpEnabled: 0
+  wallMergeEnabled: 0
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10088,7 +10090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781752443}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.76, y: 0.53, z: -153.39009}
+  m_LocalPosition: {x: 4.51, y: 0.53, z: -153.39009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10122,7 +10124,7 @@ GameObject:
   - component: {fileID: 1901986229}
   - component: {fileID: 1901986231}
   m_Layer: 0
-  m_Name: TriggerDialogue_3 (1)
+  m_Name: TriggerDialogue_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10268,7 +10270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -221, y: 35.835}
+  m_AnchoredPosition: {x: -221, y: 110}
   m_SizeDelta: {x: 175.88, y: 70.4562}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2074344591
