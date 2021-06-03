@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Freeze2.unity
     guid: 2c2eb618e2d564b48abee1cdae190b4f
   - enabled: 1
+    path: Assets/Scenes/The Paint Bucket.unity
+    guid: 64e7dbf84af204945a1392f58580396f
+  - enabled: 1
     path: Assets/Scenes/TBCScene.unity
     guid: 13264efd7ead3da4b8598829ffec621c
   m_configObjects: {}

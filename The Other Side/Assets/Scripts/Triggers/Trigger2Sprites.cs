@@ -11,6 +11,10 @@ public class Trigger2Sprites : MonoBehaviour
     public Sprite sprite1, sprite2;
 
     public bool isToggle;
+
+    public GameObject[] otherT2SToSync;  // also change others'
+
+    
     public bool triggerState;  // if others want
 
     private int objectCount;  // NEED to keep track of this
@@ -29,7 +33,7 @@ public class Trigger2Sprites : MonoBehaviour
                 triggerState = false;
             }
         }
-        UpdateMySprite();
+        UpdateAllSprite();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -39,14 +43,32 @@ public class Trigger2Sprites : MonoBehaviour
             objectCount++;
             triggerState = true;
         }
-        UpdateMySprite();
+        UpdateAllSprite();
     }
 
     // helper
-    private void UpdateMySprite() {
+    private void UpdateAllSprite() {
         Debug.Log("col old " + GetComponent<SpriteRenderer>().color);
-        GetComponent<SpriteRenderer>().sprite = !triggerState ? sprite1 : sprite2;
+        bool useSprite2 = triggerState || otherButtonsPressed();
+        GetComponent<SpriteRenderer>().sprite = useSprite2 ? sprite2 : sprite1;
+        if (otherT2SToSync != null) {
+            foreach (GameObject button in otherT2SToSync) {
+                SpriteRenderer sr = button.GetComponent<SpriteRenderer>();
+                if (sr == null) return;
+                sr.sprite = useSprite2 ? sprite2 : sprite1;
+            }
+        }
         Debug.Log("col " + GetComponent<SpriteRenderer>().color);
+    }
+
+    private bool otherButtonsPressed() {
+        if (otherT2SToSync == null) return false;
+        foreach (GameObject button in otherT2SToSync) {
+            if (button.GetComponent<Trigger2Sprites>().triggerState) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

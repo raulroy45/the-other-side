@@ -156,7 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1411128736}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!19719996 &22684035
 TilemapCollider2D:
@@ -835,7 +835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170344658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.05, y: 0.37, z: 0}
+  m_LocalPosition: {x: -5.2, y: 0.65, z: 0}
   m_LocalScale: {x: 1.55, y: 2.22, z: 1}
   m_Children:
   - {fileID: 1054921224}
@@ -1021,7 +1021,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1411128736}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &497784403
 BoxCollider2D:
@@ -2168,7 +2168,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_Children: []
   m_Father: {fileID: 1411128736}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &523527738
 Rigidbody2D:
@@ -11328,7 +11328,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1411128736}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &711271768
 GameObject:
@@ -11393,7 +11393,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1411128736}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &714416715
 BoxCollider2D:
@@ -11557,6 +11557,7 @@ GameObject:
   - component: {fileID: 1011692138}
   - component: {fileID: 1011692139}
   - component: {fileID: 1011692140}
+  - component: {fileID: 1011692141}
   m_Layer: 15
   m_Name: ButtonOpen
   m_TagString: Untagged
@@ -11572,11 +11573,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011692136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.49, y: 0.52, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 28.51, y: 1.011, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1411128736}
-  m_RootOrder: 4
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1011692138
 SpriteRenderer:
@@ -11618,7 +11619,7 @@ SpriteRenderer:
   m_SortingLayerID: 294135345
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fcf19b28f8ceac4e9ae5b51fc784338, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11642,7 +11643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 22684033}
-  deltaPosition: {x: 0, y: 5}
+  deltaPosition: {x: 0, y: 4}
   openSpeed: {x: 0, y: 2}
   closeSpeed: {x: 0, y: 0.15}
   itMoves: 0
@@ -11674,6 +11675,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.31172493}
   m_EdgeRadius: 0
+--- !u!114 &1011692141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011692136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59d037496a83cf4db7c14298026462d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite1: {fileID: 21300000, guid: 6fcf19b28f8ceac4e9ae5b51fc784338, type: 3}
+  sprite2: {fileID: 21300000, guid: ebe5072383df58948aa2a6cc298c6bb6, type: 3}
+  isToggle: 0
+  otherButtonsToSync:
+  - {fileID: 2053143907}
+  triggerState: 0
 --- !u!1 &1054921223
 GameObject:
   m_ObjectHideFlags: 0
@@ -14651,7 +14670,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_Children: []
   m_Father: {fileID: 1411128736}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1325206704
 Rigidbody2D:
@@ -14807,7 +14826,6 @@ Transform:
   - {fileID: 629750061}
   - {fileID: 2122970862}
   - {fileID: 505320345}
-  - {fileID: 1011692137}
   - {fileID: 497784402}
   - {fileID: 714416714}
   - {fileID: 22684034}
@@ -14815,6 +14833,7 @@ Transform:
   - {fileID: 659793854}
   - {fileID: 1635745096}
   - {fileID: 1325206703}
+  - {fileID: 1011692137}
   - {fileID: 2053143908}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -14850,7 +14869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1411128736}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1635745097
 TilemapRenderer:
@@ -15486,6 +15505,7 @@ GameObject:
   - component: {fileID: 2053143911}
   - component: {fileID: 2053143910}
   - component: {fileID: 2053143909}
+  - component: {fileID: 2053143912}
   m_Layer: 15
   m_Name: ButtonOpen (1)
   m_TagString: Untagged
@@ -15501,8 +15521,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053143907}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.97, y: 0.52, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 40, y: 0.95, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1411128736}
   m_RootOrder: 12
@@ -15546,7 +15566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 22684033}
-  deltaPosition: {x: 0, y: 5}
+  deltaPosition: {x: 0, y: 4}
   openSpeed: {x: 0, y: 2}
   closeSpeed: {x: 0, y: 0.15}
   itMoves: 0
@@ -15592,7 +15612,7 @@ SpriteRenderer:
   m_SortingLayerID: 294135345
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fcf19b28f8ceac4e9ae5b51fc784338, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15603,6 +15623,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2053143912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053143907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59d037496a83cf4db7c14298026462d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite1: {fileID: 21300000, guid: 6fcf19b28f8ceac4e9ae5b51fc784338, type: 3}
+  sprite2: {fileID: 21300000, guid: ebe5072383df58948aa2a6cc298c6bb6, type: 3}
+  isToggle: 0
+  otherButtonsToSync:
+  - {fileID: 1011692136}
+  triggerState: 0
 --- !u!1001 &2076953462
 PrefabInstance:
   m_ObjectHideFlags: 0
