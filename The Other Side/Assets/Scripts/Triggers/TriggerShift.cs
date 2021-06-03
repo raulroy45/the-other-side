@@ -13,8 +13,6 @@ public class TriggerShift : MonoBehaviour
 
     private bool triggerActive;
     private Vector2 currPos;
-
-
     // can make itself into a translating buttons ez
     public bool itMoves = true;
     public Vector3 startingPos;
@@ -76,5 +74,4 @@ public class TriggerShift : MonoBehaviour
         return new Vector2(boundedDelta(currPos.x, target.x, speed.x),
                            boundedDelta(currPos.y, target.y, speed.y));
     }
-
 }
