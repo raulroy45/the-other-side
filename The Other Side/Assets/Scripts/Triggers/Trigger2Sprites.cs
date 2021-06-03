@@ -61,7 +61,7 @@ public class Trigger2Sprites : MonoBehaviour
         Debug.Log("col " + GetComponent<SpriteRenderer>().color);
     }
 
-    private bool otherButtonsPressed() {
+    public bool otherButtonsPressed() {
         if (otherT2SToSync == null) return false;
         foreach (GameObject button in otherT2SToSync) {
             if (button.GetComponent<Trigger2Sprites>().triggerState) {

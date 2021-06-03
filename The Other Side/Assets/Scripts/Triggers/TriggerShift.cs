@@ -49,7 +49,7 @@ public class TriggerShift : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other) {
         if (GetComponent<Trigger2Sprites>()) {
-            if (!GetComponent<Trigger2Sprites>().triggerState) {
+            if (GetComponent<Trigger2Sprites>().otherButtonsPressed()) {
                 return;
             }
         }
@@ -64,7 +64,7 @@ public class TriggerShift : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (GetComponent<Trigger2Sprites>()) {
-            if (!GetComponent<Trigger2Sprites>().triggerState) {
+            if (GetComponent<Trigger2Sprites>().otherButtonsPressed()) {
                 return;
             }
         }
