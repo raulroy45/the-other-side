@@ -9,7 +9,9 @@ public class TriggerShift : MonoBehaviour
     // the final delta position
     public Vector2 deltaPosition;
     // move speed
-    public Vector2 speed;
+    public Vector2 openSpeed;
+
+    public Vector2 closeSpeed;
 
     private bool triggerActive;
     private Vector2 currPos;
@@ -33,13 +35,13 @@ public class TriggerShift : MonoBehaviour
         if (triggerActive) {
             // move
             // divide since update calls more often, arbitrary 10
-            Vector2 dv = getDeltaVec(deltaPosition) / 10.0f;
+            Vector2 dv = getDeltaVec(deltaPosition, openSpeed) / 10.0f;
             target.transform.Translate(dv.x, dv.y, 0);
             currPos += dv;
         } else {
             // move back
             // divide since update calls more often, arbitrary 10
-            Vector2 dv = getDeltaVec(new Vector2(0, 0)) / 10.0f;
+            Vector2 dv = getDeltaVec(new Vector2(0, 0), closeSpeed) / 10.0f;
             target.transform.Translate(dv.x, dv.y, 0);
             currPos += dv;
         }
@@ -70,7 +72,7 @@ public class TriggerShift : MonoBehaviour
         return Mathf.Sign(dist_to_target) * Mathf.Min(delta, Mathf.Abs(dist_to_target));
     }
 
-    Vector2 getDeltaVec(Vector2 target) {
+    Vector2 getDeltaVec(Vector2 target, Vector2 speed) {
         return new Vector2(boundedDelta(currPos.x, target.x, speed.x),
                            boundedDelta(currPos.y, target.y, speed.y));
     }
