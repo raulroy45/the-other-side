@@ -17,14 +17,6 @@ public class TriggerTwoButtonShift: MonoBehaviour
         endPos = target.transform.position + delta;
     }
 
-    void Update() {
-        if (!isPressed) {
-            target.transform.position = Vector3.Lerp(target.transform.position, startPos, 2 * Time.deltaTime);
-        } else {
-            target.transform.position = Vector3.Lerp(target.transform.position, endPos, 2 * Time.deltaTime);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D other) {
         if (isUndo && isPressed) {
             isPressed = false;

@@ -48,6 +48,11 @@ public class TriggerShift : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D other) {
+        if (GetComponent<Trigger2Sprites>()) {
+            if (!GetComponent<Trigger2Sprites>().triggerState) {
+                return;
+            }
+        }
         objectCount--;
         if (objectCount == 0) {
             triggerActive = false;
@@ -58,6 +63,11 @@ public class TriggerShift : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
+        if (GetComponent<Trigger2Sprites>()) {
+            if (!GetComponent<Trigger2Sprites>().triggerState) {
+                return;
+            }
+        }
         triggerActive = true;
         objectCount++;
         if (itMoves) {
