@@ -11642,7 +11642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 22684033}
-  deltaPosition: {x: 0, y: 4}
+  deltaPosition: {x: 0, y: 5}
   openSpeed: {x: 0, y: 2}
   closeSpeed: {x: 0, y: 0.15}
   itMoves: 0
@@ -15546,7 +15546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 22684033}
-  deltaPosition: {x: 0, y: 4}
+  deltaPosition: {x: 0, y: 5}
   openSpeed: {x: 0, y: 2}
   closeSpeed: {x: 0, y: 0.15}
   itMoves: 0
