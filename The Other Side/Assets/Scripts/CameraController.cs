@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
     public float minDist;
     public float maxDist;
     public float delta;
+    public bool manualMinMax = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,17 +24,19 @@ public class CameraController : MonoBehaviour
 
         // automatic ref getters
         player = COMMON.FindMyBob();
-        // consider all tilemaps
-        Tilemap[] allTileMaps = GameObject.FindObjectsOfType<Tilemap>();
-        bool first = true;
-        foreach (Tilemap tm in allTileMaps) {
-            if (first) {
-                minDist = (tm.localBounds.min.x / 2f) + delta;
-                maxDist = (tm.localBounds.max.x / 2f) - delta;
-                first = false;
+        if (!manualMinMax) {
+            // consider all tilemaps
+            Tilemap[] allTileMaps = GameObject.FindObjectsOfType<Tilemap>();
+            bool first = true;
+            foreach (Tilemap tm in allTileMaps) {
+                if (first) {
+                    minDist = (tm.localBounds.min.x / 2f) + delta;
+                    maxDist = (tm.localBounds.max.x / 2f) - delta;
+                    first = false;
+                }
+                minDist = Mathf.Min(minDist, (tm.localBounds.min.x / 2f) + delta);
+                maxDist = Mathf.Max(maxDist, (tm.localBounds.max.x / 2f) - delta);
             }
-            minDist = Mathf.Min(minDist, (tm.localBounds.min.x / 2f) + delta);
-            maxDist = Mathf.Max(maxDist, (tm.localBounds.max.x / 2f) - delta);
         }
     }
 

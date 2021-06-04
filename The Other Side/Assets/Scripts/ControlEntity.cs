@@ -48,4 +48,8 @@ public class ControlEntity : MonoBehaviour
     public void wallMergeBob() {
         player.GetComponent<PlayerController>().HandleWallMerging();
     }
+
+    public void toggleWallMerge() {
+        player.GetComponent<PlayerController>().toggleWallMerge();
+    }
 }
