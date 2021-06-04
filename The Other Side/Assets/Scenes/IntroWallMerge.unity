@@ -5109,6 +5109,7 @@ MonoBehaviour:
   isDead: 0
   isWallMerged: 0
   isGrabbing: 0
+  isRight: 0
   isPaused: 0
   jumpEnabled: 1
   wallMergeEnabled: 0
@@ -6294,41 +6295,40 @@ MonoBehaviour:
   sentences0:
   - 'Bob: ...'
   - 'Bob: Dead end? Already? But I just got here!'
-  - 'Bob: Nothing useful around here.. though this painting of a fairy is neat..'
+  - 'Bob: Nothing useful around here... though that painting of a magical fairy is
+    pretty neat...'
   sentences1:
-  - 'Bob: WOAH!! WHAT THE HELL!!'
-  - 'Fairy: hi'
+  - 'Bob: WOAH!! WHAT THE...'
+  - 'Fairy: Hi'
   - 'Bob: Who are you??'
-  - 'Fairy: Our only chance out of here :)'
-  - 'Bob: What did you do to me?'
-  - 'Fairy: I merged you one with the wall. You''re a painting now, obstacles from
-    the real world don''t bother you now...'
-  - 'Fairy: Weren''t you the one who was complaining about this wall?'
-  - 'Bob: WAIT! TURN ME BACK!'
-  - 'Fairy: Suit yourself, but that wall is not rolling a red carpet for you anytime
+  - 'Fairy: You said it yourself, a painting of a magical fairy'
+  - 'Fairy: I''m your only chance out of here'
+  - 'Bob: What did you do to me??'
+  - 'Fairy: I merged you into the wall. You''re a painting now, objects and obstacles
+    from the real world won''t bother you here'
+  - 'Fairy: Besides, weren''t you the one who was complaining about this wall?'
+  - 'Bob: I DON''T CARE, TURN ME BACK!'
+  - 'Fairy: Suit yourself, but that wall isn''t rolling a red carpet out anytime
     soon'
   sentences2:
-  - 'Bob: But.. I do not need to cross this wall...'
-  - 'Fairy: The only way out is to accept your new gifts bob'
-  - 'Bob: Um, okay let me try..'
+  - 'Bob: But.. I do need to cross this wall...'
+  - 'Bob: *Sigh* Alright, I''ll give it a shot'
   sentences3:
-  - PRESS J TO WALL MERGE
+  - PRESS J TO MERGE INTO THE WALL AS A PAINTING
   sentences4:
   - 'Bob: Wait, now this wall is in my way..?'
-  - 'Fairy: Well, the wall is a painting and so are you...'
-  - 'Fairy: so why should it not block you?'
-  - 'Bob: Oh.'
+  - 'Fairy: Well, it''s a painting of a wall, and you''re a painting of a person'
+  - 'Fairy: why wouldn''t it block you?'
   sentences5:
-  - PRESS J TO UN-MERGE WITH THE WALL
+  - PRESS J TO RE-EMERGE INTO THE REAL WORLD
   sentences6:
-  - 'Bob: Woah, this is really useful!'
-  - 'Fairy: Now what did I tell you!'
+  - 'Bob: Okay, I think I can get used to this...'
   sentences7:
   - 'Bob: Why can''t I cross this wall now...'
-  - 'Fairy: There are some walls that cannot be passed at all..'
-  - 'Bob: What am I supposed to do then???'
+  - 'Fairy: Hm... there doesn''t seem like any way around these black walls'
+  - 'Bob: What am I supposed to do then??'
   sentences8:
-  - 'Fairy: Don''t get used to this..'
+  - 'Fairy: Don''t get used to this...'
 --- !u!4 &1262524957
 Transform:
   m_ObjectHideFlags: 0
