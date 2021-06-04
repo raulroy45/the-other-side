@@ -6296,8 +6296,6 @@ MonoBehaviour:
   - 'Bob: Dead end? Already? But I just got here!'
   - 'Bob: Nothing useful around here.. though this painting of a fairy is neat..'
   sentences1:
-  - 'Bob: SWEET MOTHER OF JESUS'
-  sentences2:
   - 'Bob: WOAH!! WHAT THE HELL!!'
   - 'Fairy: hi'
   - 'Bob: Who are you??'
@@ -6309,11 +6307,10 @@ MonoBehaviour:
   - 'Bob: WAIT! TURN ME BACK!'
   - 'Fairy: Suit yourself, but that wall is not rolling a red carpet for you anytime
     soon'
-  sentences2v1:
-  - 'Bob: ...'
-  - 'Bob: I mean I do have to cross this...'
-  - 'Fairy: The only way out of here is if you use your new powers'
-  - 'Bob: Okay, let me try...'
+  sentences2:
+  - 'Bob: But.. I do not need to cross this wall...'
+  - 'Fairy: The only way out is to accept your new gifts bob'
+  - 'Bob: Um, okay let me try..'
   sentences3:
   - PRESS J TO WALL MERGE
   sentences4:
