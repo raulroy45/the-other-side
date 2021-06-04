@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
     public bool isDead;
     public bool isWallMerged;  // FreezeWW script depend on this
     private bool isGrounded;
-    private bool isGrabbing;
+    public bool isGrabbing;
     private bool isAlongWall;
     private bool isRight;
     public bool isPaused;

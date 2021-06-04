@@ -19,12 +19,11 @@ public class TriggerDialogue : MonoBehaviour
             return;
         }
         if (!alreadyTriggered) {
-            Debug.Log(other.gameObject.tag);
             if (TutorialManager != null) {
                 if (levelNo == 1) {
                     TutorialManager.GetComponent<Level1Tutorial>().TriggerTutorial();
-                } else if (levelNo == 3){
-                    TutorialManager.GetComponent<Level3Tutorial>().TriggerTutorial();
+                } else if (levelNo == 10) {
+                    TutorialManager.GetComponent<Level10Tutorial>().TriggerTutorial();
                 } else if (levelNo == 5) {
                     TutorialManager.GetComponent<Level5Tutorial>().TriggerTutorial();
                 }

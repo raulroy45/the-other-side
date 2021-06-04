@@ -74,8 +74,12 @@ public class Dialogue : MonoBehaviour
         continueButton.SetActive(false);
         if (index < sentences.Length - 1) {
             index++;
-            textDisplay.text = "";
-            StartCoroutine(Type());
+            if (stay) {
+                textDisplay.text = sentences[index];
+            } else {
+                textDisplay.text = "";
+                StartCoroutine(Type());
+            }
         } else {
             if (!stay) {
                 textDisplay.text = "";
