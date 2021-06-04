@@ -27,16 +27,17 @@ public class CameraController : MonoBehaviour
         if (!manualMinMax) {
             // consider all tilemaps
             Tilemap[] allTileMaps = GameObject.FindObjectsOfType<Tilemap>();
-            bool first = true;
+            // old calc. why divide by 2?
+            // minDist = (tm.localBounds.min.x / 2f) + delta;
+            // maxDist = (tm.localBounds.max.x / 2f) - delta;
+            minDist = maxDist = transform.position.x;
             foreach (Tilemap tm in allTileMaps) {
-                if (first) {
-                    minDist = (tm.localBounds.min.x / 2f) + delta;
-                    maxDist = (tm.localBounds.max.x / 2f) - delta;
-                    first = false;
-                }
-                minDist = Mathf.Min(minDist, (tm.localBounds.min.x / 2f) + delta);
-                maxDist = Mathf.Max(maxDist, (tm.localBounds.max.x / 2f) - delta);
+                tm.CompressBounds();
+                minDist = Mathf.Min(minDist, tm.localBounds.min.x);
+                maxDist = Mathf.Max(maxDist, tm.localBounds.max.x);
             }
+            minDist += delta;
+            maxDist -= delta;
         }
     }
 
