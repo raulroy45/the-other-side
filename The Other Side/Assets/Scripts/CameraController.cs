@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
     public float minDist;
     public float maxDist;
     public float delta;
+    public bool manualMinMax = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,34 +24,26 @@ public class CameraController : MonoBehaviour
         // automatic ref getters
         player = COMMON.FindMyBob();
         // consider all tilemaps
-        Tilemap[] allTileMaps = GameObject.FindObjectsOfType<Tilemap>();
-        // old calc. why divide by 2?
-        // minDist = (tm.localBounds.min.x / 2f) + delta;
-        // maxDist = (tm.localBounds.max.x / 2f) - delta;
-        minDist = 999f;
-        maxDist = -999f;
-        foreach (Tilemap tm in allTileMaps) {
-            tm.CompressBounds();
-            Vector3 minP = tm.CellToWorld(tm.cellBounds.min);
-            Vector3 maxP = tm.CellToWorld(tm.cellBounds.max);
-            // minDist = Mathf.Min(minDist, tm.cellBounds.min.x / 2f);
-            // maxDist = Mathf.Max(maxDist, tm.cellBounds.max.x / 2f);
-            minDist = Mathf.Min(minDist, minP.x);
-            maxDist = Mathf.Max(maxDist, maxP.x);
+        if (!manualMinMax) {
+            Tilemap[] allTileMaps = GameObject.FindObjectsOfType<Tilemap>();
+            // old calc. why divide by 2?
+            // minDist = (tm.localBounds.min.x / 2f) + delta;
+            // maxDist = (tm.localBounds.max.x / 2f) - delta;
+            minDist = 999f;
+            maxDist = -999f;
+            foreach (Tilemap tm in allTileMaps) {
+                tm.CompressBounds();
+                Vector3 minP = tm.CellToWorld(tm.cellBounds.min);
+                Vector3 maxP = tm.CellToWorld(tm.cellBounds.max);
+                // minDist = Mathf.Min(minDist, tm.cellBounds.min.x / 2f);
+                // maxDist = Mathf.Max(maxDist, tm.cellBounds.max.x / 2f);
+                minDist = Mathf.Min(minDist, minP.x);
+                maxDist = Mathf.Max(maxDist, maxP.x);
+            }
+            minDist += delta;
+            maxDist -= delta;
         }
-        minDist += delta;
-        maxDist -= delta;
     }
-
-//     Cam 1.777778 | 5.604164 | 1920
-// UnityEngine.Debug:Log (object)
-// CameraController:Start () (at Assets/Scripts/CameraController.cs:23)
-// Cam 1.777778 | 3.247474 | 1920
-// UnityEngine.Debug:Log (object)
-// CameraController:Start () (at Assets/Scripts/CameraController.cs:23)
-
-
-
 
     // Update is called once per frame
     void Update()

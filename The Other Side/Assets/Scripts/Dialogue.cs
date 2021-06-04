@@ -84,4 +84,8 @@ public class Dialogue : MonoBehaviour
             index++;
         }
     }
+
+    public void clear() {
+        textDisplay.text = "";
+    }
 }

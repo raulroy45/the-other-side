@@ -310,8 +310,12 @@ public class PlayerController : MonoBehaviour {
         jumpEnabled = true;
     }
 
-    public void EnableWallMerge() {
+    public void enableWallMerge() {
         wallMergeEnabled = true;
+    }
+
+    public void toggleWallMerge() {
+        wallMergeEnabled = !wallMergeEnabled;
     }
 
 }
