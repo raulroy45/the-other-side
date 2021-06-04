@@ -20,8 +20,10 @@ public class CameraController : MonoBehaviour
         float screenAspect = (float) Screen.width / (float) Screen.height;
         float camHalfHeight = GetComponent<Camera>().orthographicSize;
         delta = screenAspect * camHalfHeight;
-        minDist = (tilemap.localBounds.min.x / 2f) + delta;
-        maxDist = (tilemap.localBounds.max.x / 2f) - delta;
+        if (tilemap.localBounds.min.x / 2f + delta < 0) {
+            minDist = (tilemap.localBounds.min.x / 2f) + delta;
+            maxDist = (tilemap.localBounds.max.x / 2f) - delta;
+        }
         
     }
 

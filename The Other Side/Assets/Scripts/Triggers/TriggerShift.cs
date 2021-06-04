@@ -86,4 +86,8 @@ public class TriggerShift : MonoBehaviour
         return new Vector2(boundedDelta(currPos.x, target.x, speed.x),
                            boundedDelta(currPos.y, target.y, speed.y));
     }
+
+    public void setTriggerActive() {
+        triggerActive = true;
+    }
 }

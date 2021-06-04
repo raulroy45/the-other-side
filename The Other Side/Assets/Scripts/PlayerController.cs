@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
             return;  // cannot do anything
         }
 
-        if (Input.GetKeyDown(COMMON.WALL_MERGE_KEY)) {
+        if (Input.GetKeyDown(KeyCode.J)) {
             HandleWallMerging();
         }
         SetParameters();
@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void HandleWallMerging() {   
+    public void HandleWallMerging() {   
         if (wallMergesLeft == 0 || !wallMergeEnabled) {
             // ooh no more merges
             return;

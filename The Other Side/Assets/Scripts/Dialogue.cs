@@ -25,6 +25,8 @@ public class Dialogue : MonoBehaviour
     void Update() {
         if (!finish) {
             player.GetComponent<PlayerController>().pauseMovement();
+        } else {
+            player.GetComponent<PlayerController>().resumeMovement();
         }
         if (index <= sentences.Length - 1 && textDisplay.text == sentences[index]) {
             if (stay) {
@@ -78,7 +80,6 @@ public class Dialogue : MonoBehaviour
             }
             finish = true;
             index++;
-            player.GetComponent<PlayerController>().resumeMovement();
         }
     }
 }

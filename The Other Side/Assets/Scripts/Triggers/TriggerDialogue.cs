@@ -15,12 +15,18 @@ public class TriggerDialogue : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
+        if (!other.gameObject.tag.Equals("Bob")) {
+            return;
+        }
         if (!alreadyTriggered) {
+            Debug.Log(other.gameObject.tag);
             if (TutorialManager != null) {
                 if (levelNo == 1) {
                     TutorialManager.GetComponent<Level1Tutorial>().TriggerTutorial();
-                } else {
+                } else if (levelNo == 3){
                     TutorialManager.GetComponent<Level3Tutorial>().TriggerTutorial();
+                } else if (levelNo == 5) {
+                    TutorialManager.GetComponent<Level5Tutorial>().TriggerTutorial();
                 }
             } else {
                 dialogueManager.GetComponent<Dialogue>().SetNewDialogues(sentences);
