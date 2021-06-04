@@ -12,7 +12,7 @@ public class Dialogue : MonoBehaviour
     public bool stay = false;
     public float typingSpeed;
     public GameObject continueButton;
-    public GameObject player;
+    private GameObject player;
     // Start is called before the first frame update
     void Start() {
         if (sentences.Length == 0 && !stay) {
@@ -20,6 +20,8 @@ public class Dialogue : MonoBehaviour
         } else {
             StartCoroutine(Type());
         }
+
+        player = COMMON.FindMyBob();
     }
 
     void Update() {
