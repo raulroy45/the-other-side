@@ -15,6 +15,7 @@ public class RandomTiles : MonoBehaviour
     {
         if (tiles == null) return;
         Tilemap tilemap = GetComponent<Tilemap>();
+        tilemap.CompressBounds();
         int x, y;
         for(x = tilemap.cellBounds.min.x; x< tilemap.cellBounds.max.x;x++){
             for(y= tilemap.cellBounds.min.y; y< tilemap.cellBounds.max.y;y++){

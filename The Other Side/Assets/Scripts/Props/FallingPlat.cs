@@ -8,6 +8,7 @@ public class FallingPlat : MonoBehaviour
 {
 
     // switches
+    public float fallDelay = 0.3f;
     public bool onlyBobCanTrigger = false;
 
     private Rigidbody2D body2D;
@@ -42,11 +43,12 @@ public class FallingPlat : MonoBehaviour
     // magic param
     private float a = 25;
     private float b = 10;
-    private float c = 15;
+    private float c = 25;
     private float maxG = 1;
     private float shakeGain = 0f;
     // Update is called once per frame
 
+    private float prev_angle = 0;
     void Update()
     {
         
@@ -57,12 +59,16 @@ public class FallingPlat : MonoBehaviour
             // go!
             Vector3 dp = new Vector3(
                 shakeGain * Mathf.Sin(Time.time * a) / b,
-                shakeGain * (Random.value - 0.5f) / c, 0);
-            Debug.Log(transform.position + " | " + originRotation);
+                0, 0);
+                // shakeGain * (Random.value - 0.5f) / c, 0);
+            Debug.Log(dp);
             transform.position = originPosition + dp;
 
-            transform.RotateAround((maxP + minP) / 2, Vector3.forward, (Random.value - 0.5f) * 1f);
-            shakeGain += Time.deltaTime * 2;
+            float curr_angle = (Random.value - 0.5f) * 0.5f;
+            transform.RotateAround((maxP + minP) / 2, Vector3.forward, 
+                curr_angle - prev_angle);
+            prev_angle = curr_angle;
+            shakeGain += Time.deltaTime * 1f;
             shakeGain = Mathf.Min(maxG, shakeGain);
             
         }
@@ -76,7 +82,7 @@ public class FallingPlat : MonoBehaviour
         one_shot = true;
         // shart shaking
         isShaking = true;
-        StartCoroutine(FallAfter(0.3f));
+        StartCoroutine(FallAfter(fallDelay));
     }
 
     IEnumerator FallAfter(float time) {
