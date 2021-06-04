@@ -37,7 +37,6 @@ public class FallingPlat : MonoBehaviour
         originRotation = transform.rotation;
         tilemap = GetComponent<Tilemap>();
         tilemap.CompressBounds();
-        Debug.Log(tilemap.localBounds.center);
     }
 
     // magic param
@@ -59,9 +58,8 @@ public class FallingPlat : MonoBehaviour
             // go!
             Vector3 dp = new Vector3(
                 shakeGain * Mathf.Sin(Time.time * a) / b,
-                0, 0);
+                0 / c, 0);
                 // shakeGain * (Random.value - 0.5f) / c, 0);
-            Debug.Log(dp);
             transform.position = originPosition + dp;
 
             float curr_angle = (Random.value - 0.5f) * 0.5f;
