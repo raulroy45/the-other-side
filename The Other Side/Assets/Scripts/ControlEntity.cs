@@ -18,16 +18,16 @@ public class ControlEntity : MonoBehaviour
             Vector3 endPos = new Vector3(player.transform.position.x - 2, startPos.y, startPos.z);
             moveEntity(currPos, endPos);
         } else if (trigger2) {
-            moveEntity(GetComponent<SpriteRenderer>().transform.position, player.transform.position);
+            moveEntity(transform.position, player.transform.position);
         }
     }
 
     public void Trigger1() {
-        GetComponent<Animation>().Play();
+        GetComponentInChildren<Animation>().Play();
     }
 
     public void Trigger2() {
-        startPos = GetComponent<SpriteRenderer>().transform.position;
+        startPos = transform.position;
         trigger2 = true;
     }
 
@@ -40,10 +40,9 @@ public class ControlEntity : MonoBehaviour
     }
 
     private void moveEntity(Vector3 sPos, Vector3 ePos) {
-        GetComponent<SpriteRenderer>().
-                transform.position = Vector3.Lerp(sPos, 
-                                                ePos,
-                                                3 * Time.deltaTime);
+            transform.position = Vector3.Lerp(sPos, 
+                                            ePos,
+                                            3 * Time.deltaTime);
     }
     public void wallMergeBob() {
         player.GetComponent<PlayerController>().HandleWallMerging();
@@ -51,5 +50,10 @@ public class ControlEntity : MonoBehaviour
 
     public void toggleWallMerge() {
         player.GetComponent<PlayerController>().toggleWallMerge();
+    }
+
+    public void toggleEntity(bool value) {
+        GetComponentInChildren<SpriteRenderer>().enabled = value;
+        GetComponentInChildren<Animation>().enabled = value;
     }
 }

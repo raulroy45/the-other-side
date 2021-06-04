@@ -55,7 +55,7 @@ public class Level5Tutorial : MonoBehaviour
                     if (waitTime >= 1.5f) {
                         wait = false;
                         waitTime = 0f;
-                        Entity.GetComponent<SpriteRenderer>().enabled = false;
+                        Entity.GetComponent<ControlEntity>().toggleEntity(false);
                         Entity.GetComponent<ControlEntity>().toggleWallMerge();
                         Entity.GetComponent<ControlEntity>().wallMergeBob();
                         dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences2, false);
@@ -67,7 +67,7 @@ public class Level5Tutorial : MonoBehaviour
                     Entity.GetComponent<ControlEntity>().Trigger3();
                     break;
                 case 7:
-                    Entity.GetComponent<SpriteRenderer>().enabled = true;
+                    Entity.GetComponent<ControlEntity>().toggleEntity(true);
                     Entity.GetComponent<ControlEntity>().wallMergeBob();
                     dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences2v1, false);
                     break;
