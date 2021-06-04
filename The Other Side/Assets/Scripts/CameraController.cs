@@ -6,8 +6,8 @@ using UnityEngine.Tilemaps;
 public class CameraController : MonoBehaviour
 {
 
-    public GameObject player;
-    public Tilemap tilemap;
+    private GameObject player;
+    // private Tilemap tilemap;
     public Vector3 position;
     public float smoothing = 2;
     public float shift = 2;
@@ -20,11 +20,21 @@ public class CameraController : MonoBehaviour
         float screenAspect = (float) Screen.width / (float) Screen.height;
         float camHalfHeight = GetComponent<Camera>().orthographicSize;
         delta = screenAspect * camHalfHeight;
-        if (tilemap.localBounds.min.x / 2f + delta < 0) {
-            minDist = (tilemap.localBounds.min.x / 2f) + delta;
-            maxDist = (tilemap.localBounds.max.x / 2f) - delta;
+
+        // automatic ref getters
+        player = COMMON.FindMyBob();
+        // consider all tilemaps
+        Tilemap[] allTileMaps = GameObject.FindObjectsOfType<Tilemap>();
+        bool first = true;
+        foreach (Tilemap tm in allTileMaps) {
+            if (first) {
+                minDist = (tm.localBounds.min.x / 2f) + delta;
+                maxDist = (tm.localBounds.max.x / 2f) - delta;
+                first = false;
+            }
+            minDist = Mathf.Min(minDist, (tm.localBounds.min.x / 2f) + delta);
+            maxDist = Mathf.Max(maxDist, (tm.localBounds.max.x / 2f) - delta);
         }
-        
     }
 
     // Update is called once per frame
