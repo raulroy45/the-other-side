@@ -23,8 +23,8 @@ public class COMMON
     public const int LOGGER_ABTEST_AID = 25;
 
     // is AB test enabled?
-    public static bool MERGE_KEY_ABTEST = true;
-    public static UnityEngine.KeyCode WALL_MERGE_KEY;
+    public static bool MERGE_KEY_ABTEST = false;
+    public static UnityEngine.KeyCode WALL_MERGE_KEY = KeyCode.J;
 
     // called in LoggingController
     public static void InitABTest() {
@@ -97,7 +97,7 @@ public class COMMON
     ////////////////////////////////////////
 
     // WANNA SEND DATA TO SERVER? 
-    public static bool LOGGING_ACTIVE = true;
+    public static bool LOGGING_ACTIVE = false;
     
     public const int LOGGER_CATEGORY_ID = 9300;
     // prod cids

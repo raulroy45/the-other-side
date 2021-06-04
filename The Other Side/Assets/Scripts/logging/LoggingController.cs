@@ -98,7 +98,9 @@ public class LoggingController : MonoBehaviour
                 InvokeRepeating("SendHeartBeat", 1.0f, 30.0f);
             }
             // start AB Test
-            COMMON.InitABTest();
+            if (COMMON.MERGE_KEY_ABTEST) {
+                COMMON.InitABTest();
+            }
         }
     }
 
