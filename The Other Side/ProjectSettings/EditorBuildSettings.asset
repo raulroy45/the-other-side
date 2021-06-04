@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BoxButton0.unity
     guid: a2bd6f10b58211d4d85ac563e57cef3f
   - enabled: 1
-    path: Assets/Scenes/BoxButton1.unity
+    path: Assets/Scenes/Level9.unity
     guid: 2ce11450d72c4364597f36dcb669840c
   - enabled: 1
     path: Assets/Scenes/Freeze2.unity
