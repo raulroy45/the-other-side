@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     private bool isGrounded;
     public bool isGrabbing;
     private bool isAlongWall;
-    private bool isRight;
+    public bool isRight;
     public bool isPaused;
     private bool jumpWait;
     private bool canGrab;

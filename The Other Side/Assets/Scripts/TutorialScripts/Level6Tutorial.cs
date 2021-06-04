@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Level2Tutorial : MonoBehaviour
+public class Level6Tutorial : MonoBehaviour
 {
     public int triggerNo = 0;
     public GameObject dialogueManager;

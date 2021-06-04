@@ -17,7 +17,6 @@ public class Level5Tutorial : MonoBehaviour
     public string[] sentences0;
     public string[] sentences1;
     public string[] sentences2;
-    public string[] sentences2v1;
     public string[] sentences3;
     public string[] sentences4;
     public string[] sentences5;
@@ -42,12 +41,13 @@ public class Level5Tutorial : MonoBehaviour
                     dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences0, false);
                     break;
                 case 2: // ENTITY MOVE
-                    Entity.GetComponent<ControlEntity>().Trigger1();
+                    // Entity.GetComponent<ControlEntity>().Trigger1();
                     break;
                 case 3: // ENTITY DIALOGUE W BOB 1
-                    dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences1, false);
+                    // dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences1, false);
                     break;
                 case 4: // ENTITY x BOB + BOB WALL MERGES
+                    Entity.GetComponent<ControlEntity>().Trigger1();
                     Entity.GetComponent<ControlEntity>().Trigger2();
                     wait = true;
                     break;
@@ -58,7 +58,7 @@ public class Level5Tutorial : MonoBehaviour
                         Entity.GetComponent<ControlEntity>().toggleEntity(false);
                         Entity.GetComponent<ControlEntity>().toggleWallMerge();
                         Entity.GetComponent<ControlEntity>().wallMergeBob();
-                        dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences2, false);
+                        dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences1, false);
                     } else {
                         triggerNo--;
                     }
@@ -69,7 +69,7 @@ public class Level5Tutorial : MonoBehaviour
                 case 7:
                     Entity.GetComponent<ControlEntity>().toggleEntity(true);
                     Entity.GetComponent<ControlEntity>().wallMergeBob();
-                    dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences2v1, false);
+                    dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences2, false);
                     break;
                 case 8: // PRESS J TO WALL MERGE
                     dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text1, sentences3, true);

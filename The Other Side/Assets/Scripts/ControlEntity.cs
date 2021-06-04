@@ -9,14 +9,23 @@ public class ControlEntity : MonoBehaviour
     public bool trigger3 = false;
     public GameObject player;
     public Vector3 startPos;
+    
+    void Start() {
+        startPos = transform.position;
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (follows) {
             Vector3 currPos = transform.position;
-            Vector3 endPos = new Vector3(player.transform.position.x - 2, startPos.y, startPos.z);
-            moveEntity(currPos, endPos);
+            if (player.GetComponent<PlayerController>().isRight) {
+                Vector3 endPos = new Vector3(player.transform.position.x - 2, startPos.y, startPos.z);
+                moveEntity(currPos, endPos);
+            } else {
+                Vector3 endPos = new Vector3(player.transform.position.x + 2, startPos.y, startPos.z);
+                moveEntity(currPos, endPos);
+            }
         } else if (trigger2) {
             moveEntity(transform.position, player.transform.position);
         }
