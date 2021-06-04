@@ -14,6 +14,10 @@ public class TriggerShift : MonoBehaviour
     public Vector2 closeSpeed;
 
     private bool triggerActive;
+    public bool manualMode = false;
+    public Vector3 objectStart;
+    public Vector3 objectEnd;
+
     private Vector2 currPos;
     // can make itself into a translating buttons ez
     public bool itMoves = true;
@@ -34,16 +38,24 @@ public class TriggerShift : MonoBehaviour
     void Update() {
         if (triggerActive) {
             // move
-            // divide since update calls more often, arbitrary 10
-            Vector2 dv = getDeltaVec(deltaPosition, openSpeed) / 10.0f;
-            target.transform.Translate(dv.x, dv.y, 0);
-            currPos += dv;
+            if (manualMode) {
+                target.transform.position = Vector3.MoveTowards(target.transform.position, objectEnd, 3 * Time.deltaTime);
+            } else {
+                // divide since update calls more often, arbitrary 10
+                Vector2 dv = getDeltaVec(deltaPosition, openSpeed) / 10.0f;
+                target.transform.Translate(dv.x, dv.y, 0);
+                currPos += dv;
+            }
         } else {
             // move back
-            // divide since update calls more often, arbitrary 10
-            Vector2 dv = getDeltaVec(new Vector2(0, 0), closeSpeed) / 10.0f;
-            target.transform.Translate(dv.x, dv.y, 0);
-            currPos += dv;
+            if (manualMode) {
+                target.transform.position = Vector3.MoveTowards(target.transform.position, objectStart, Time.deltaTime);
+            } else {
+                // divide since update calls more often, arbitrary 10
+                Vector2 dv = getDeltaVec(new Vector2(0, 0), closeSpeed) / 10.0f;
+                target.transform.Translate(dv.x, dv.y, 0);
+                currPos += dv;
+            }
         }
     }
 

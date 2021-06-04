@@ -5108,6 +5108,7 @@ MonoBehaviour:
   gravityScale: 0
   isDead: 0
   isWallMerged: 0
+  isGrabbing: 0
   isPaused: 0
   jumpEnabled: 1
   wallMergeEnabled: 0
@@ -5310,7 +5311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547109761}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9, y: 0, z: 0}
+  m_LocalPosition: {x: 1.9, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 584003722}
@@ -5469,23 +5470,13 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 5, z: 0}
+  - first: {x: -4, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 1
+      m_TileIndex: 6
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 1
-      m_TileColorIndex: 5
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 9, y: 5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 1
-      m_TileColorIndex: 5
+      m_TileColorIndex: 6
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
@@ -5521,16 +5512,16 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 4
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: dadbc9aff96a6b641bfe91c46b88749c, type: 2}
-  - m_RefCount: 8
+  - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: 258293b3e610b274bafb3e5b525824f0, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 4
+  - m_RefCount: 2
     m_Data: {fileID: -12312462216336047, guid: 6b4612c31012c11438da93e601d1eeb4, type: 3}
-  - m_RefCount: 8
+  - m_RefCount: 9
     m_Data: {fileID: 21300000, guid: 98309251dc4c075459c6296d3effc50a, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 0
@@ -5551,7 +5542,7 @@ Tilemap:
       e31: 6.42e-43
       e32: 6.4e-43
       e33: 6.42e-43
-  - m_RefCount: 12
+  - m_RefCount: 11
     m_Data:
       e00: 1
       e01: 0
@@ -5580,9 +5571,9 @@ Tilemap:
     m_Data: {r: 9.148229e-28, g: 9.148229e-28, b: 9.148229e-28, a: 9.148229e-28}
   - m_RefCount: 0
     m_Data: {r: 9.148229e-28, g: 9.148229e-28, b: 9.148229e-28, a: 9.148229e-28}
-  - m_RefCount: 4
+  - m_RefCount: 2
     m_Data: {r: 1, g: 1, b: 1, a: 1}
-  - m_RefCount: 8
+  - m_RefCount: 9
     m_Data: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -5743,6 +5734,9 @@ MonoBehaviour:
   deltaPosition: {x: 3, y: 0}
   openSpeed: {x: 3, y: 0}
   closeSpeed: {x: 3, y: 0}
+  manualMode: 0
+  objectStart: {x: 0, y: 0, z: 0}
+  objectEnd: {x: 0, y: 0, z: 0}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -6117,7 +6111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137512565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 584003722}
@@ -6384,6 +6378,11 @@ MonoBehaviour:
   - 'Bob: WAIT! TURN ME BACK!'
   - 'Fairy: Suit yourself, but that wall is not rolling a red carpet for you anytime
     soon'
+  sentences2v1:
+  - 'Bob: ...'
+  - 'Bob: I mean I do have to cross this...'
+  - 'Fairy: The only way out of here is if you use your new powers'
+  - 'Bob: Okay, let me try...'
   sentences3:
   - PRESS J TO WALL MERGE
   sentences4:

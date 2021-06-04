@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour {
         }
         // is dead yet?
         if (isDead) {
+            rb2d.Sleep();
             SetAnimParameters();
             return;  // cannot do anything
         }
