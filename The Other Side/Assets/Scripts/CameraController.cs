@@ -20,7 +20,6 @@ public class CameraController : MonoBehaviour
         float screenAspect = (float) Screen.width / (float) Screen.height;
         float camHalfHeight = GetComponent<Camera>().orthographicSize;
         delta = screenAspect * camHalfHeight;
-
         // automatic ref getters
         player = COMMON.FindMyBob();
         // consider all tilemaps
@@ -28,15 +27,30 @@ public class CameraController : MonoBehaviour
         // old calc. why divide by 2?
         // minDist = (tm.localBounds.min.x / 2f) + delta;
         // maxDist = (tm.localBounds.max.x / 2f) - delta;
-        minDist = maxDist = transform.position.x;
+        minDist = 999f;
+        maxDist = -999f;
         foreach (Tilemap tm in allTileMaps) {
             tm.CompressBounds();
-            minDist = Mathf.Min(minDist, tm.localBounds.min.x);
-            maxDist = Mathf.Max(maxDist, tm.localBounds.max.x);
+            Vector3 minP = tm.CellToWorld(tm.cellBounds.min);
+            Vector3 maxP = tm.CellToWorld(tm.cellBounds.max);
+            // minDist = Mathf.Min(minDist, tm.cellBounds.min.x / 2f);
+            // maxDist = Mathf.Max(maxDist, tm.cellBounds.max.x / 2f);
+            minDist = Mathf.Min(minDist, minP.x);
+            maxDist = Mathf.Max(maxDist, maxP.x);
         }
         minDist += delta;
         maxDist -= delta;
     }
+
+//     Cam 1.777778 | 5.604164 | 1920
+// UnityEngine.Debug:Log (object)
+// CameraController:Start () (at Assets/Scripts/CameraController.cs:23)
+// Cam 1.777778 | 3.247474 | 1920
+// UnityEngine.Debug:Log (object)
+// CameraController:Start () (at Assets/Scripts/CameraController.cs:23)
+
+
+
 
     // Update is called once per frame
     void Update()
