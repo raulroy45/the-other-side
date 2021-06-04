@@ -7,6 +7,9 @@ public class Level5Tutorial : MonoBehaviour
 {
     public int triggerNo = 0;
     public bool start = false;
+    public bool wait = false;
+    public float waitTime = 0.2f;
+    public float startTime = 0f;
     public GameObject dialogueManager;
     public GameObject Entity;
     public TextMeshProUGUI text0;
@@ -22,7 +25,10 @@ public class Level5Tutorial : MonoBehaviour
     public string[] sentences8;
 
     void Update() {
-        if ((triggerNo == 11 || triggerNo == 14) && Input.GetKeyDown(KeyCode.J)) {
+        if (wait) {
+            waitTime += Time.deltaTime;
+        }
+        if (triggerNo == 11 && Input.GetKeyDown(KeyCode.J)) {
             triggerNo++;
         }
         handleDialogues();
@@ -42,18 +48,24 @@ public class Level5Tutorial : MonoBehaviour
                     break;
                 case 4: // ENTITY x BOB + BOB WALL MERGES
                     Entity.GetComponent<ControlEntity>().Trigger2();
+                    wait = true;
                     break;
                 case 5: // ENTITY DIALOGUE W BOB 2
-                    // while (Entity.GetComponent<ControlEntity>().inPlace()) {
-                    //     continue;
-                    // }                    
-                    Entity.GetComponent<ControlEntity>().wallMergeBob();
-                    dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences2, false);
+                    if (waitTime >= 1.5f) {
+                        wait = false;
+                        waitTime = 0f;
+                        Entity.GetComponent<SpriteRenderer>().enabled = false;
+                        Entity.GetComponent<ControlEntity>().wallMergeBob();
+                        dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences2, false);
+                    } else {
+                        triggerNo--;
+                    }
                     break;
                 case 6: // ENTITY LEAVES / BOB UN-MERGES FROM WALL
                     Entity.GetComponent<ControlEntity>().Trigger3();
                     break;
                 case 7: // PRESS J TO WALL MERGE
+                Entity.GetComponent<SpriteRenderer>().enabled = true;
                     Entity.GetComponent<ControlEntity>().wallMergeBob();
                     dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text1, sentences3, true);
                     break;
@@ -66,8 +78,17 @@ public class Level5Tutorial : MonoBehaviour
                 case 12: // BOB ACKNOWLEDGES ENTITY
                     dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences6, false);
                     break;
-                case 15: // BOB STUCK AT BLACK WALL
-                    dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences7, false);
+                case 14: // BOB STUCK AT BLACK WALL
+                    wait = true;
+                    break;
+                case 15:
+                    if (waitTime >= 1.3f) {
+                        wait = false;
+                        waitTime = 0f;
+                        dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences7, false);
+                    } else {
+                        triggerNo--;
+                    }
                     break;
                 case 16: // DROP THE BOX!!
                     Entity.GetComponent<ControlEntity>().Trigger4();  
@@ -86,9 +107,5 @@ public class Level5Tutorial : MonoBehaviour
     public void TriggerTutorial() {
         start = true;
         triggerNo++;
-    }
-
-    IEnumerator wait() {
-        yield return new WaitForSecondsRealtime(5f);
     }
 }

@@ -8,13 +8,14 @@ public class ControlEntity : MonoBehaviour
     public bool trigger2 = false;
     public bool trigger3 = false;
     public GameObject player;
+    public Vector3 startPos;
 
     // Update is called once per frame
     void Update()
     {
         if (follows) {
-            Vector3 currPos = GetComponent<SpriteRenderer>().transform.position;
-            Vector3 endPos = new Vector3(player.transform.position.x - 2, currPos.y, currPos.z);
+            Vector3 currPos = transform.position;
+            Vector3 endPos = new Vector3(player.transform.position.x - 2, startPos.y, startPos.z);
             moveEntity(currPos, endPos);
         } else if (trigger2) {
             moveEntity(GetComponent<SpriteRenderer>().transform.position, player.transform.position);
@@ -26,6 +27,7 @@ public class ControlEntity : MonoBehaviour
     }
 
     public void Trigger2() {
+        startPos = GetComponent<SpriteRenderer>().transform.position;
         trigger2 = true;
     }
 
@@ -41,17 +43,9 @@ public class ControlEntity : MonoBehaviour
         GetComponent<SpriteRenderer>().
                 transform.position = Vector3.Lerp(sPos, 
                                                 ePos,
-                                                Time.deltaTime);
+                                                3 * Time.deltaTime);
     }
     public void wallMergeBob() {
         player.GetComponent<PlayerController>().HandleWallMerging();
-    }
-
-    public bool inPlace() {
-        if (GetComponent<SpriteRenderer>().transform.position != player.transform.position) {
-            return false;
-        } else {
-            return true;
-        }
     }
 }
