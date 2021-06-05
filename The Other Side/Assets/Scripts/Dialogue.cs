@@ -83,7 +83,6 @@ public class Dialogue : MonoBehaviour
             if (!stay) {
                 textDisplay.text = "";
             }
-            Debug.Log("hi");
             finish = true;
             index++;
         }

@@ -99,15 +99,6 @@ public class PlayerController : MonoBehaviour {
         }
         SetParameters();
         if (!isPaused) {
-            if (isGrabbing) {
-                HandleWallJump();
-            } else {
-                if (wallJumpCount <= 0) {
-                    HandleMovement();
-                } else {
-                    wallJumpCount -= Time.deltaTime;
-                }
-            }
             if (Input.GetButtonDown("Jump")) {
                 HandleJump();
             } else if (Input.GetButtonUp("Jump")) {
@@ -116,6 +107,15 @@ public class PlayerController : MonoBehaviour {
                 // dirty fix: not half speed when falling
                 if (rb2d.velocity.y > 0) {
                     rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.y / 2);
+                }
+            }
+            if (isGrabbing) {
+                HandleWallJump();
+            } else {
+                if (wallJumpCount <= 0) {
+                    HandleMovement();
+                } else {
+                    wallJumpCount -= Time.deltaTime;
                 }
             }
         }

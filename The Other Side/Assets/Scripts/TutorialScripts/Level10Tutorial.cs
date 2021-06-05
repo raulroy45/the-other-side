@@ -16,6 +16,7 @@ public class Level10Tutorial : MonoBehaviour
     public string[] sentences0;
     public string[] sentences1;
     public string[] sentences2;
+    public string[] sentences3;
 
     void Update() {
         if (wait) {
@@ -46,17 +47,7 @@ public class Level10Tutorial : MonoBehaviour
                     dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text1, sentences2, true);
                     break;
                 case 6:
-                    wait = true;
-                    if (waitTime > 0.7f) {
-                        wait = false;
-                        waitTime = 0f;
-                        triggerNo = 1;
-                    } else {
-                        triggerNo--;
-                    }
-                    break;
-                case 7:
-                    dialogueManager.GetComponent<Dialogue>().clear();
+                    dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text1, sentences3, true);
                     break;
                 default:
                     triggerNo--;
