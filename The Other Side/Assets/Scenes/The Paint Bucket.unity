@@ -3544,8 +3544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59d037496a83cf4db7c14298026462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite1: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
-  sprite2: {fileID: 21300000, guid: de7e43a7ea972a44fabd4ecd1e7d331e, type: 3}
+  sprite1: {fileID: 21300000, guid: 6fcf19b28f8ceac4e9ae5b51fc784338, type: 3}
+  sprite2: {fileID: 21300000, guid: ebe5072383df58948aa2a6cc298c6bb6, type: 3}
   isToggle: 0
   otherT2SToSync: []
   triggerState: 0
@@ -12466,8 +12466,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -106534845
-  m_SortingLayer: 4
+  m_SortingLayerID: 294135345
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6fcf19b28f8ceac4e9ae5b51fc784338, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -12492,8 +12492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59d037496a83cf4db7c14298026462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite1: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
-  sprite2: {fileID: 21300000, guid: de7e43a7ea972a44fabd4ecd1e7d331e, type: 3}
+  sprite1: {fileID: 21300000, guid: 6fcf19b28f8ceac4e9ae5b51fc784338, type: 3}
+  sprite2: {fileID: 21300000, guid: ebe5072383df58948aa2a6cc298c6bb6, type: 3}
   isToggle: 0
   otherT2SToSync: []
   triggerState: 0
@@ -14641,8 +14641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59d037496a83cf4db7c14298026462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite1: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
-  sprite2: {fileID: 21300000, guid: de7e43a7ea972a44fabd4ecd1e7d331e, type: 3}
+  sprite1: {fileID: 21300000, guid: 6fcf19b28f8ceac4e9ae5b51fc784338, type: 3}
+  sprite2: {fileID: 21300000, guid: ebe5072383df58948aa2a6cc298c6bb6, type: 3}
   isToggle: 0
   otherT2SToSync: []
   triggerState: 0
@@ -15160,8 +15160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59d037496a83cf4db7c14298026462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite1: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
-  sprite2: {fileID: 21300000, guid: de7e43a7ea972a44fabd4ecd1e7d331e, type: 3}
+  sprite1: {fileID: 21300000, guid: 6fcf19b28f8ceac4e9ae5b51fc784338, type: 3}
+  sprite2: {fileID: 21300000, guid: ebe5072383df58948aa2a6cc298c6bb6, type: 3}
   isToggle: 0
   otherT2SToSync: []
   triggerState: 0
