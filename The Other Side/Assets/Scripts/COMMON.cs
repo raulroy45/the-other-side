@@ -12,7 +12,7 @@ public class COMMON
     // Really important dev switches!!!
     ////////////////////////////////////////
 
-    public static bool INTERNAL_PLAY_TEST = true;
+    public static bool INTERNAL_PLAY_TEST = false;
 
 
 
@@ -97,14 +97,16 @@ public class COMMON
     ////////////////////////////////////////
 
     // WANNA SEND DATA TO SERVER? 
-    public static bool LOGGING_ACTIVE = false;
+    public static bool LOGGING_ACTIVE = true;
     
-    public const int LOGGER_CATEGORY_ID = 9300;
+    public const int LOGGER_CATEGORY_ID = 4000;
     // prod cids
     // 511 May 11 testing
     // 513 May 13 testing
     // 1000 May 14 release to Github
     // 2000 May 22 release
+    // 3000 Iteration #3
+    // 4000 June 4 release
 
     // random category id while dev
     // 98765 Inernal Test Release

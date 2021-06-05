@@ -52,7 +52,7 @@ public class TriggerShift : MonoBehaviour
                 target.transform.position = Vector3.MoveTowards(target.transform.position, objectStart, Time.deltaTime);
             } else {
                 // divide since update calls more often, arbitrary 10
-                Vector2 dv = getDeltaVec(new Vector2(0, 0), closeSpeed) / 10.0f;
+                Vector2 dv = getDeltaVec(new Vector2(0, 0), closeSpeed) * Time.deltaTime * 10.0f;
                 target.transform.Translate(dv.x, dv.y, 0);
                 currPos += dv;
             }

@@ -7086,9 +7086,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 549853919}
-  deltaPosition: {x: 0, y: 7}
+  deltaPosition: {x: 0, y: 3}
   openSpeed: {x: 0, y: 0.3}
-  closeSpeed: {x: 0, y: 1}
+  closeSpeed: {x: 0, y: 1.6}
   manualMode: 0
   objectStart: {x: 0, y: 0, z: 0}
   objectEnd: {x: 0, y: 0, z: 0}
