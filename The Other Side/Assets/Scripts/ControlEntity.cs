@@ -37,6 +37,7 @@ public class ControlEntity : MonoBehaviour
     }
 
     public void Trigger2() {
+        follows = false;
         startPos = transform.position;
         trigger2 = true;
     }
@@ -65,5 +66,13 @@ public class ControlEntity : MonoBehaviour
     public void toggleEntity(bool value) {
         GetComponentInChildren<SpriteRenderer>().enabled = value;
         GetComponentInChildren<Animation>().enabled = value;
+    }
+
+    public void pauseBob() {
+        player.GetComponent<PlayerController>().pauseMovement();
+    }
+
+    public void resumeBob() {
+        player.GetComponent<PlayerController>().resumeMovement();
     }
 }

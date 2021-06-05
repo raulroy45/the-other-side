@@ -20,12 +20,19 @@ public class TriggerDialogue : MonoBehaviour
         }
         if (!alreadyTriggered) {
             if (TutorialManager != null) {
-                if (levelNo == 1) {
-                    TutorialManager.GetComponent<Level1Tutorial>().TriggerTutorial();
-                } else if (levelNo == 10) {
-                    TutorialManager.GetComponent<Level10Tutorial>().TriggerTutorial();
-                } else if (levelNo == 5) {
-                    TutorialManager.GetComponent<Level5Tutorial>().TriggerTutorial();
+                switch(levelNo) {
+                    case 1:
+                        TutorialManager.GetComponent<Level1Tutorial>().TriggerTutorial();
+                        break;
+                    case 10:
+                        TutorialManager.GetComponent<Level10Tutorial>().TriggerTutorial();
+                        break;
+                    case 5:
+                        TutorialManager.GetComponent<Level5Tutorial>().TriggerTutorial();
+                        break;
+                    case 7:
+                        TutorialManager.GetComponent<Level7Tutorial>().TriggerTutorial();
+                        break;
                 }
             } else {
                 dialogueManager.GetComponent<Dialogue>().SetNewDialogues(sentences);
