@@ -18,16 +18,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2.unity
     guid: 00da7c9a1711cb84b8dc2c670e5925cb
   - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: d7eda8108fc386943a3534dc2c42fe38
+  - enabled: 1
     path: Assets/Scenes/Level10.unity
     guid: 268691d6d7c99d7409b5ef88ec47bd4d
   - enabled: 1
     path: Assets/Scenes/Level11.unity
     guid: 2fc288fa71ee8624fae3e57a568d3d25
   - enabled: 1
-    path: Assets/Scenes/Level5.unity
+    path: Assets/Scenes/OldLucid.unity
     guid: 25badc1ef5aa8af4ea53be6c03ccf8b9
   - enabled: 1
-    path: Assets/Scenes/The Pavilion.unity
+    path: Assets/Scenes/Level8.unity
     guid: 3cd00941a5c8b5140821623169ab5960
   - enabled: 1
     path: Assets/Scenes/BoxButton0.unity

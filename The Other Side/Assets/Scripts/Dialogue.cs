@@ -25,7 +25,7 @@ public class Dialogue : MonoBehaviour
     }
 
     void Update() {
-        if (!finish) {
+        if (!finish && !stay) {
             player.GetComponent<PlayerController>().pauseMovement();
         }
         if (index <= sentences.Length - 1 && textDisplay.text == sentences[index]) {

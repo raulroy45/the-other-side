@@ -48,7 +48,6 @@ public class Trigger2Sprites : MonoBehaviour
 
     // helper
     private void UpdateAllSprite() {
-        Debug.Log("col old " + GetComponent<SpriteRenderer>().color);
         bool useSprite2 = triggerState || otherButtonsPressed();
         GetComponent<SpriteRenderer>().sprite = useSprite2 ? sprite2 : sprite1;
         if (otherT2SToSync != null) {
@@ -58,7 +57,6 @@ public class Trigger2Sprites : MonoBehaviour
                 sr.sprite = useSprite2 ? sprite2 : sprite1;
             }
         }
-        Debug.Log("col " + GetComponent<SpriteRenderer>().color);
     }
 
     public bool otherButtonsPressed() {
