@@ -1348,8 +1348,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -366, y: 232}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -268.59784, y: 232}
+  m_SizeDelta: {x: 354.8043, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &677776615
 MonoBehaviour:
@@ -1384,7 +1384,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL - 4
+  m_Text: LEVEL 10 - THE WALL JUMP
 --- !u!222 &677776616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4481,6 +4481,7 @@ MonoBehaviour:
   isDead: 0
   isWallMerged: 0
   isGrabbing: 0
+  isRight: 0
   isPaused: 0
   jumpEnabled: 1
   wallMergeEnabled: 1
@@ -4611,7 +4612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNote: tutorial 4
+  levelNote: lv10
 --- !u!4 &1344101876
 Transform:
   m_ObjectHideFlags: 0
