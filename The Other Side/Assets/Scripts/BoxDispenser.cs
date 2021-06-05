@@ -17,7 +17,7 @@ public class BoxDispenser : MonoBehaviour
     void Update() {
         if (dispense) {
             if (!killBox) {
-                box.GetComponent<SpriteRenderer>().enabled = true;
+                box.SetActive(true);
                 killBox = true;
                 dispense = false;
                 box.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
