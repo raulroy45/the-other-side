@@ -6,21 +6,20 @@ using TMPro;
 public class Level2Tutorial : MonoBehaviour
 {
     public int triggerNo = 0;
+    public bool start = false;
     public GameObject dialogueManager;
     public TextMeshProUGUI text0;
-    public TextMeshProUGUI text1;
     public string[] sentences0;
-    public string[] sentences1;
     // Update is called once per frame
     void Update()
     {
-        if (dialogueManager.GetComponent<Dialogue>().finish) {
+        if (dialogueManager.GetComponent<Dialogue>().finish && start) {
             switch (triggerNo) {
-                case 0: // Bob intro dialogue
+                case 1: // Bob intro dialogue
                     SetDialogues(text0, sentences0, false);
                     break;
-                case 1: // A/D move
-                    SetDialogues(text1, sentences1, true);
+                default:
+                    triggerNo--;
                     break;
             }
             triggerNo++;
@@ -29,5 +28,10 @@ public class Level2Tutorial : MonoBehaviour
 
     void SetDialogues(TextMeshProUGUI text, string[] sentences, bool stay) {
         dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text, sentences, stay);
+    }
+
+    public void TriggerTutorial() {
+        start = true;
+        triggerNo++;
     }
 }
