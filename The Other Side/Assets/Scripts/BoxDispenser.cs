@@ -19,6 +19,7 @@ public class BoxDispenser : MonoBehaviour
             if (!killBox) {
                 box.GetComponent<SpriteRenderer>().enabled = true;
                 killBox = true;
+                dispense = false;
                 box.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             } else {
                 if (!box.GetComponent<Animation>().isPlaying) {
@@ -26,6 +27,7 @@ public class BoxDispenser : MonoBehaviour
                         box.GetComponent<Animation>().Play();
                     } else {
                         box.GetComponent<SpriteRenderer>().transform.position = startPos;
+                        dispense = false;
                     }
                     hasPlayed = !hasPlayed;
                 }
