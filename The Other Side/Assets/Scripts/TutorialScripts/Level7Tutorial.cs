@@ -14,7 +14,6 @@ public class Level7Tutorial : MonoBehaviour
     public TextMeshProUGUI text0;
     public string[] sentences0;
     public string[] sentences1;
-    public string[] sentences2;
     // Update is called once per frame
     void Update()
     {
@@ -44,7 +43,6 @@ public class Level7Tutorial : MonoBehaviour
                         waitTime = 0f;
                         Entity.GetComponent<ControlEntity>().toggleEntity(false);
                         Entity.GetComponent<ControlEntity>().resumeBob();
-                        dialogueManager.GetComponent<Dialogue>().SetNewDialogues(text0, sentences2, false);
                     } else {
                         triggerNo--;
                     }

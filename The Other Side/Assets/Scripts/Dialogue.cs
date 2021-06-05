@@ -72,12 +72,8 @@ public class Dialogue : MonoBehaviour
         continueButton.SetActive(false);
         if (index < sentences.Length - 1) {
             index++;
-            if (stay) {
-                textDisplay.text = sentences[index];
-            } else {
-                textDisplay.text = "";
-                StartCoroutine(Type());
-            }
+            textDisplay.text = "";
+            StartCoroutine(Type());
         } else {
             player.GetComponent<PlayerController>().resumeMovement();
             if (!stay) {

@@ -6008,14 +6008,8 @@ MonoBehaviour:
   sentences0:
   - 'Fairy: Sometimes you need to use the wall world to pave a path in the real world...'
   sentences1:
-  - 'Fairy: You have passed the tests'
-  - 'Bob: What tests?'
-  - 'Fairy: I was testing you throughout so that you can take me out of this dungeon,'
-  - 'Fairy: Even with my powers, I can''t do it alone.'
-  - 'Bob: Oh.. sure come w lol idk help someone w dialogue'
-  - 'Fairy: yay'
-  sentences2:
-  - 'Bob: Lets set forth on our journey (i really need help w dialogues)'
+  - 'Fairy: You''ve done well.'
+  - 'Fairy: It seems that you can carry on without me now'
 --- !u!4 &351409552
 Transform:
   m_ObjectHideFlags: 0
