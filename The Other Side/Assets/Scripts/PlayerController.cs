@@ -175,9 +175,11 @@ public class PlayerController : MonoBehaviour {
         if (isWallMerged) {
             gameObject.layer = LayerMask.NameToLayer("WW_Bob");
             bobRenderer.sortingLayerName = "Wall_Bob";
+            bobRenderer.color -= new Color(0, 0, 0, 0.25f);
         } else {
             gameObject.layer = LayerMask.NameToLayer("RW_Bob");
             bobRenderer.sortingLayerName = "Real_Bob";
+            bobRenderer.color += new Color(0, 0, 0, 0.25f);
         }
         LoggingController.LevelMerge();
     }
