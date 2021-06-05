@@ -6006,8 +6006,7 @@ MonoBehaviour:
   start: 1
   text0: {fileID: 1232541348}
   sentences0:
-  - 'Fairy: Sometimes you need to use things in the wall world to pave a path in
-    the real world...'
+  - 'Fairy: Sometimes you need to use the wall world to pave a path in the real world...'
   sentences1:
   - 'Fairy: You have passed the tests'
   - 'Bob: What tests?'
