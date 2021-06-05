@@ -21,29 +21,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Level3.unity
     guid: d7eda8108fc386943a3534dc2c42fe38
   - enabled: 1
-    path: Assets/Scenes/Level10.unity
-    guid: 268691d6d7c99d7409b5ef88ec47bd4d
+    path: Assets/Scenes/Level4.unity
+    guid: da1f24c07164ce449b41375d164d76a9
   - enabled: 1
-    path: Assets/Scenes/Level11.unity
-    guid: 2fc288fa71ee8624fae3e57a568d3d25
+    path: Assets/Scenes/Level5.unity
+    guid: cfdee3ba8ccbde44698cb9e58c00b86c
   - enabled: 1
-    path: Assets/Scenes/Level13.unity
-    guid: 25badc1ef5aa8af4ea53be6c03ccf8b9
+    path: Assets/Scenes/Level6.unity
+    guid: 0611def90c108674480e76cfaa5b6125
   - enabled: 1
-    path: Assets/Scenes/Level8.unity
+    path: Assets/Scenes/Level7.unity
     guid: 3cd00941a5c8b5140821623169ab5960
   - enabled: 1
-    path: Assets/Scenes/Level12.unity
-    guid: a2bd6f10b58211d4d85ac563e57cef3f
-  - enabled: 1
-    path: Assets/Scenes/Level9.unity
+    path: Assets/Scenes/Level8.unity
     guid: 2ce11450d72c4364597f36dcb669840c
   - enabled: 1
-    path: Assets/Scenes/Freeze2.unity
-    guid: 2c2eb618e2d564b48abee1cdae190b4f
+    path: Assets/Scenes/Level9.unity
+    guid: 268691d6d7c99d7409b5ef88ec47bd4d
   - enabled: 1
-    path: Assets/Scenes/The Paint Bucket.unity
-    guid: 64e7dbf84af204945a1392f58580396f
+    path: Assets/Scenes/Level10.unity
+    guid: 2fc288fa71ee8624fae3e57a568d3d25
+  - enabled: 1
+    path: Assets/Scenes/Level11.unity
+    guid: a2bd6f10b58211d4d85ac563e57cef3f
+  - enabled: 1
+    path: Assets/Scenes/Level12.unity
+    guid: 25badc1ef5aa8af4ea53be6c03ccf8b9
   - enabled: 1
     path: Assets/Scenes/TBCScene.unity
     guid: 13264efd7ead3da4b8598829ffec621c
