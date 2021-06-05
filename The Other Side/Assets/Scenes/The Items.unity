@@ -10437,7 +10437,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_PressedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -41532,6 +41532,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1461848449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2799997972644787676, guid: 5b8c02b90521a7f4e97fde3b124fc700,
+    type: 3}
+  m_PrefabInstance: {fileID: 835826355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00aff8cc2dc82b439687b452b339920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1479971276
 GameObject:
   m_ObjectHideFlags: 0
@@ -41713,7 +41725,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_PressedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -41736,7 +41748,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1461848449}
         m_TargetAssemblyTypeName: TriggerNextLevel, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
@@ -41815,7 +41827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNote: The Cells
+  levelNote: The Items
 --- !u!4 &1682610687
 Transform:
   m_ObjectHideFlags: 0
@@ -46682,8 +46694,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -366.70374, y: 232}
-  m_SizeDelta: {x: 158.5925, y: 30}
+  m_AnchoredPosition: {x: -349.63657, y: 232}
+  m_SizeDelta: {x: 192.7267, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086576011
 MonoBehaviour:
@@ -46698,7 +46710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9686275, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -46718,7 +46730,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The Pavilion
+  m_Text: The Items
 --- !u!222 &2086576012
 CanvasRenderer:
   m_ObjectHideFlags: 0
