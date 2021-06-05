@@ -17,6 +17,8 @@ public class LoggingController : MonoBehaviour
     
     int CID;
     
+    // count restarts in the same level
+    static int num_restart_in_level = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +27,40 @@ public class LoggingController : MonoBehaviour
     }
 
 
+    private static double prev_complete_time = 0;
     // functions that interact with loggers at each level
     public static void LevelComplete(LevelLogger.EndLevelReason endLevelReason=LevelLogger.EndLevelReason.NONE,
                                      float deathLocX=0, float deathLocY=0) {
         LevelLogger l = curr_logger();
         if (l != null) {
             l.EndLevel(endLevelReason, deathLocX, deathLocY);
+        }
+        if (endLevelReason == LevelLogger.EndLevelReason.SPIKE_DEATH) {    
+            num_restart_in_level++;
+        } else if (endLevelReason == LevelLogger.EndLevelReason.KEY_R) {
+            // spamming key r?
+            if (Time.timeAsDouble - prev_complete_time < 2) {
+                // spammed 
+                Debug.Log("LC Spamming R");
+            } else {
+                // real-ish restart
+                num_restart_in_level++;
+            }
+        } else {
+            // passed the level
+            num_restart_in_level = 0;
+        }
+        prev_complete_time = Time.timeAsDouble;
+
+        Debug.Log("LC num restart " + num_restart_in_level + " @ " + l.levelNote);
+        if (COMMON.ADAPTIVE_AB_TEST) {
+            // make some decision here
+            if (l.levelNote == "lv3" && num_restart_in_level > 2) {
+                // make it easier now
+                COMMON.AdaptiveState = COMMON.ADAPTIVE_STATE.DIFFICULTY_REDUCED;
+            } else {
+                COMMON.AdaptiveState = COMMON.ADAPTIVE_STATE.DIFFICULTY_SAME;
+            }
         }
     }
 
@@ -98,7 +128,7 @@ public class LoggingController : MonoBehaviour
                 InvokeRepeating("SendHeartBeat", 1.0f, 30.0f);
             }
             // start AB Test
-            if (COMMON.MERGE_KEY_ABTEST) {
+            if (COMMON.ADAPTIVE_AB_TEST) {
                 COMMON.InitABTest();
             }
         }

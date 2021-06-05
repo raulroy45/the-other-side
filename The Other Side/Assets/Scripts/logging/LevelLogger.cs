@@ -49,6 +49,10 @@ public class LevelLogger : MonoBehaviour
         } else {
             Debug.Log("LogLevelStart(" + levelID + ", " + levelNote + ")");
         }
+
+        if (COMMON.ADAPTIVE_AB_TEST) {
+            COMMON.AdaptiveChangeLv(this);
+        }
     }
 
     public void Jump() {
@@ -109,5 +113,12 @@ public class LevelLogger : MonoBehaviour
     void OnApplicationQuit() {
         EndLevel(EndLevelReason.CLOSE_WINDOW, 0, 0);
     }
+
+    ///////////////////////
+    // set difficulty ?
+    ///////////////////////
+
+
+
 
 }

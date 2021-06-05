@@ -5,7 +5,7 @@ using TMPro;
 
 
 // a place to share some functions
-public class COMMON
+public class COMMON : MonoBehaviour
 {
 
     ////////////////////////////////////////
@@ -26,25 +26,63 @@ public class COMMON
     public static bool MERGE_KEY_ABTEST = false;
     public static UnityEngine.KeyCode WALL_MERGE_KEY = KeyCode.J;
 
-    // called in LoggingController
-    public static void InitABTest() {
-        if (Random.value < 0.5f) {
-            WALL_MERGE_KEY = KeyCode.J;
-        } else {
-            WALL_MERGE_KEY = KeyCode.E;
-        }
-        if (LOGGING_ACTIVE) {
-            LoggingController.LOGGER.LogActionWithNoLevel(
-                LOGGER_ABTEST_AID,
-                WALL_MERGE_KEY == KeyCode.J ? "A" : "B");
-        } else {
-            Debug.Log("Logger AB Test: " + (WALL_MERGE_KEY == KeyCode.J ? "A" : "B"));
-        }
+    // adaptive levels
+    public static bool ADAPTIVE_AB_TEST = true;
+    public static ADAPTIVE_STATE AdaptiveState;
+    public enum ADAPTIVE_STATE
+    {
+        UNDECIDED, DIFFICULTY_SAME, DIFFICULTY_REDUCED
+    }
 
-        // set controls popup text
-        if (COMMON.MERGE_KEY_ABTEST) {
-            // get ref to Controls Popup
-            COMMON.UpdateMyControlsPopup();
+    // called in LoggingController once to init
+    public static void InitABTest() {
+        Debug.Log("Logger AB Test: started");
+        AdaptiveState = ADAPTIVE_STATE.UNDECIDED;
+    }
+
+    public static void SetAdaptiveState(ADAPTIVE_STATE newState) {
+        AdaptiveState = newState;
+        LogAdaptiveABTestState();
+    }
+
+    private static void LogAdaptiveABTestState() {
+        if (LOGGING_ACTIVE) {
+            if (AdaptiveState == ADAPTIVE_STATE.DIFFICULTY_SAME) {
+                // SAME => "A"
+                LoggingController.LOGGER.LogActionWithNoLevel(LOGGER_ABTEST_AID, "A");
+            } else if (AdaptiveState == ADAPTIVE_STATE.DIFFICULTY_REDUCED) {
+                // Easier => "B"
+                LoggingController.LOGGER.LogActionWithNoLevel(LOGGER_ABTEST_AID, "B");
+            } else {
+                Debug.Log("Adaptive: undecided - " + AdaptiveState);
+            }
+        } else {
+            Debug.Log("Adaptive Test detail: " + AdaptiveState);
+        }
+    }
+
+    public static void AdaptiveChangeLv(LevelLogger lv_logger) {
+        if (AdaptiveState == ADAPTIVE_STATE.UNDECIDED) {
+            Debug.Log("ADAPTIVE: have not decide @ " + lv_logger.levelNote);
+            return;
+        }
+        Debug.Log("Adapting lv");
+        if (AdaptiveState == ADAPTIVE_STATE.DIFFICULTY_REDUCED) {
+            lv_logger.StartCoroutine(AdaptiveChangeLvEasier());
+        }
+    }
+
+    // make level easier
+    private static IEnumerator AdaptiveChangeLvEasier() {
+        // wait till all gameobjects are loaded
+        yield return new WaitForSeconds(0.2f);
+        FallingPlat[] platScripts = GameObject.FindObjectsOfType<FallingPlat>();
+        Debug.Log("COMMON platscripts # " + platScripts.Length);
+        if (platScripts != null) {
+            Debug.Log("Fixing platform delay");
+            foreach (FallingPlat fallScript in platScripts) {
+                fallScript.fallDelay *= 2;
+            }
         }
     }
 

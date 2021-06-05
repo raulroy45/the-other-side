@@ -154,9 +154,9 @@ namespace cse481.logging {
 			// if (!sessionRequest.isNetworkError) {
 			if (sessionRequest.result == UnityWebRequest.Result.Success) {
 				// Return data formatted like data={...}
-				Debug.Log(sessionRequest.downloadHandler.text);
+				// Debug.Log(sessionRequest.downloadHandler.text);
 				string text = sessionRequest.downloadHandler.text.Substring (5);
-				Debug.Log(text);
+				// Debug.Log(text);
                 var parsedResults = JsonUtility.FromJson<NewSessionResponse>(text);
 				if (parsedResults.tstatus == "t") {
 					this.currentSessionId = parsedResults.r_data.sessionid;
