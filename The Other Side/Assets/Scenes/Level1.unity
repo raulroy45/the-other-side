@@ -9467,7 +9467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL - 1 - The Wall Merge
+  m_Text: LEVEL 1 - THHE WALL MERGE
 --- !u!222 &1164324460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10032,7 +10032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNote: tutorial 1
+  levelNote: lv1
 --- !u!4 &1690037344
 Transform:
   m_ObjectHideFlags: 0

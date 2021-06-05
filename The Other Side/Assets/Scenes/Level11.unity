@@ -16987,7 +16987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd17e4a5fa0c1af4ab3bd65277d712b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNote: box_button0
+  levelNote: lv11
 --- !u!4 &1682610687
 Transform:
   m_ObjectHideFlags: 0
@@ -17000,7 +17000,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687356503
 GameObject:
@@ -17267,7 +17267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1802561027
 GameObject:
@@ -17672,7 +17672,7 @@ RectTransform:
   - {fileID: 1592685160}
   - {fileID: 2086576010}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17713,8 +17713,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -245.35226, y: 232}
-  m_SizeDelta: {x: 401.2954, y: 30}
+  m_AnchoredPosition: {x: -203.82135, y: 232}
+  m_SizeDelta: {x: 484.3572, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086576011
 MonoBehaviour:
@@ -17749,7 +17749,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL - 6 - The Falling Platforms
+  m_Text: LEVEL 11 - THE FALLING PLATFORMS
 --- !u!222 &2086576012
 CanvasRenderer:
   m_ObjectHideFlags: 0
