@@ -7,11 +7,12 @@ public class ControlEntity : MonoBehaviour
     public bool follows = false;
     public bool trigger2 = false;
     public bool trigger3 = false;
-    public GameObject player;
+    private GameObject player;
     public Vector3 startPos;
     
     void Start() {
         startPos = transform.position;
+        player = COMMON.FindMyBob();
     }
 
     // Update is called once per frame

@@ -2017,6 +2017,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2795372299370887816, guid: 5b8c02b90521a7f4e97fde3b124fc700,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795372299370887816, guid: 5b8c02b90521a7f4e97fde3b124fc700,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795372299370887816, guid: 5b8c02b90521a7f4e97fde3b124fc700,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.41
       objectReference: {fileID: 0}
@@ -2069,6 +2079,16 @@ PrefabInstance:
         type: 3}
       propertyPath: pauseMenuPopup
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799997972644787677, guid: 5b8c02b90521a7f4e97fde3b124fc700,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799997972644787677, guid: 5b8c02b90521a7f4e97fde3b124fc700,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 2800560935443190258, guid: 5b8c02b90521a7f4e97fde3b124fc700,
         type: 3}
@@ -3453,7 +3473,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1408857343}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.5}
+  openSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0}
+  manualMode: 0
+  objectStart: {x: 0, y: 0, z: 0}
+  objectEnd: {x: 0, y: 0, z: 0}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -3523,6 +3547,7 @@ MonoBehaviour:
   sprite1: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
   sprite2: {fileID: 21300000, guid: de7e43a7ea972a44fabd4ecd1e7d331e, type: 3}
   isToggle: 0
+  otherT2SToSync: []
   triggerState: 0
 --- !u!61 &533402847
 BoxCollider2D:
@@ -3564,7 +3589,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1592087600}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.5}
+  openSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0}
+  manualMode: 0
+  objectStart: {x: 0, y: 0, z: 0}
+  objectEnd: {x: 0, y: 0, z: 0}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -12392,7 +12421,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 833243779}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.35}
+  openSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0}
+  manualMode: 0
+  objectStart: {x: 0, y: 0, z: 0}
+  objectEnd: {x: 0, y: 0, z: 0}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -12462,6 +12495,7 @@ MonoBehaviour:
   sprite1: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
   sprite2: {fileID: 21300000, guid: de7e43a7ea972a44fabd4ecd1e7d331e, type: 3}
   isToggle: 0
+  otherT2SToSync: []
   triggerState: 0
 --- !u!61 &961858876
 BoxCollider2D:
@@ -12503,7 +12537,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 177306495}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.35}
+  openSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0}
+  manualMode: 0
+  objectStart: {x: 0, y: 0, z: 0}
+  objectEnd: {x: 0, y: 0, z: 0}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -14532,7 +14570,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1836987333}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.35}
+  openSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0}
+  manualMode: 0
+  objectStart: {x: 0, y: 0, z: 0}
+  objectEnd: {x: 0, y: 0, z: 0}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -14602,6 +14644,7 @@ MonoBehaviour:
   sprite1: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
   sprite2: {fileID: 21300000, guid: de7e43a7ea972a44fabd4ecd1e7d331e, type: 3}
   isToggle: 0
+  otherT2SToSync: []
   triggerState: 0
 --- !u!61 &1232287060
 BoxCollider2D:
@@ -14643,7 +14686,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1604499493}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.35}
+  openSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0}
+  manualMode: 0
+  objectStart: {x: 0, y: 0, z: 0}
+  objectEnd: {x: 0, y: 0, z: 0}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -15116,6 +15163,7 @@ MonoBehaviour:
   sprite1: {fileID: 21300000, guid: 15e5e8f90b0765548bcc342cb016b019, type: 3}
   sprite2: {fileID: 21300000, guid: de7e43a7ea972a44fabd4ecd1e7d331e, type: 3}
   isToggle: 0
+  otherT2SToSync: []
   triggerState: 0
 --- !u!114 &1527314761
 MonoBehaviour:
@@ -15131,7 +15179,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1909158624}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.5}
+  openSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0}
+  manualMode: 0
+  objectStart: {x: 0, y: 0, z: 0}
+  objectEnd: {x: 0, y: 0, z: 0}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -15149,7 +15201,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 525304336}
   deltaPosition: {x: 0, y: 2}
-  speed: {x: 0, y: 0.5}
+  openSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0}
+  manualMode: 0
+  objectStart: {x: 0, y: 0, z: 0}
+  objectEnd: {x: 0, y: 0, z: 0}
   itMoves: 0
   startingPos: {x: 0, y: 0, z: 0}
   pressedPos: {x: 0, y: 0, z: 0}
@@ -16148,12 +16204,11 @@ MonoBehaviour:
   gravityScale: 0
   isDead: 0
   isWallMerged: 0
-  isGrounded: 0
   isGrabbing: 0
-  isAlongWall: 0
   isRight: 0
   isPaused: 0
-  jumpWait: 0
+  jumpEnabled: 1
+  wallMergeEnabled: 1
 --- !u!212 &1687356506
 SpriteRenderer:
   m_ObjectHideFlags: 0
