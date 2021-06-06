@@ -14,8 +14,7 @@ public class TriggerDeath : MonoBehaviour
                 StartCoroutine(DelayedDeath(pc,
                     other.transform.position.x,
                     other.transform.position.y));
-            }
-            
+            } 
         }
     }
 
