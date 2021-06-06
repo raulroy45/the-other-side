@@ -20,7 +20,7 @@ public class BoxDispenser : MonoBehaviour
                 box.SetActive(true);
                 killBox = true;
                 dispense = false;
-                box.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                // box.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             } else {
                 if (!box.GetComponent<Animation>().isPlaying) {
                     if (!hasPlayed) {
