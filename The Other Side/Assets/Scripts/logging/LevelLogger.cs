@@ -50,9 +50,7 @@ public class LevelLogger : MonoBehaviour
             Debug.Log("LogLevelStart(" + levelID + ", " + levelNote + ")");
         }
 
-        Debug.Log("about to call adaptation " + COMMON.ADAPTIVE_AB_TEST);
         if (COMMON.ADAPTIVE_AB_TEST) {
-        Debug.Log("calling adaptation");
             COMMON.AdaptiveChangeLv(this);
         }
     }

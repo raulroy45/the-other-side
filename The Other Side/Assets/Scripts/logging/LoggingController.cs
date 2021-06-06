@@ -57,7 +57,7 @@ public class LoggingController : MonoBehaviour
             // make some decision here
             if (l.levelNote == "lv3") {
                 // make it easier now
-                if (num_restart_in_level > 1) {
+                if (num_restart_in_level > 2 && endLevelReason != LevelLogger.EndLevelReason.WON) {
                     COMMON.SetAdaptiveState(COMMON.ADAPTIVE_STATE.DIFFICULTY_REDUCED);
                 } else if (num_restart_in_level < 2 && endLevelReason == LevelLogger.EndLevelReason.WON) {
                     COMMON.SetAdaptiveState(COMMON.ADAPTIVE_STATE.DIFFICULTY_SAME);
@@ -94,21 +94,17 @@ public class LoggingController : MonoBehaviour
             return null;
         } else {
             // need to return the last logger
-            // return logger[logger.Length - 1];
-            foreach (LevelLogger l in logger) {
-                Debug.Log(l + " " + l.levelNote + " | " + l.GetInstanceID());
-            }
-            return logger[0];
+            return logger[logger.Length - 1];
+            // foreach (LevelLogger l in logger) {
+            //     Debug.Log(l + " " + l.levelNote + " | " + l.GetInstanceID());
+            // }
+            // return logger[0];
         }
     }
 
     public void Init() {
         CID = COMMON.LOGGER_CATEGORY_ID;
         lock(LOGGER_LOCK) {
-            // if (!COMMON.LOGGING_ACTIVE) {
-            //     Debug.Log("Logger Inactive");
-            //     return;
-            // }
             if (LoggingController.LOGGER != null) {
                 Debug.Log("Logger is already initialized");
                 return;

@@ -22,6 +22,8 @@ public class COMMON : MonoBehaviour
 
     public const int LOGGER_ABTEST_AID = 25;
 
+    public const int ADAPTIVE_TYPE_AID = 99;
+
     // is AB test enabled?
     public static bool MERGE_KEY_ABTEST = false;
     public static UnityEngine.KeyCode WALL_MERGE_KEY = KeyCode.J;
@@ -38,6 +40,15 @@ public class COMMON : MonoBehaviour
     public static void InitABTest() {
         Debug.Log("Logger AB Test: started");
         AdaptiveState = ADAPTIVE_STATE.UNDECIDED;
+        if (Random.value < 0.5f) {
+            // A, no adaptiveness
+            ADAPTIVE_AB_TEST = false;
+            LoggingController.LOGGER.LogActionWithNoLevel(LOGGER_ABTEST_AID, "A");
+        } else {
+            // B, adaptive
+            ADAPTIVE_AB_TEST = true;
+            LoggingController.LOGGER.LogActionWithNoLevel(LOGGER_ABTEST_AID, "B");
+        }
     }
 
     // can only set once
@@ -54,10 +65,10 @@ public class COMMON : MonoBehaviour
         if (LOGGING_ACTIVE) {
             if (AdaptiveState == ADAPTIVE_STATE.DIFFICULTY_SAME) {
                 // SAME => "A"
-                LoggingController.LOGGER.LogActionWithNoLevel(LOGGER_ABTEST_AID, "A");
+                LoggingController.LOGGER.LogActionWithNoLevel(ADAPTIVE_TYPE_AID, "SAME");
             } else if (AdaptiveState == ADAPTIVE_STATE.DIFFICULTY_REDUCED) {
                 // Easier => "B"
-                LoggingController.LOGGER.LogActionWithNoLevel(LOGGER_ABTEST_AID, "B");
+                LoggingController.LOGGER.LogActionWithNoLevel(ADAPTIVE_TYPE_AID, "EASY");
             } else {
                 Debug.Log("Adaptive: undecided - " + AdaptiveState);
             }
@@ -73,6 +84,8 @@ public class COMMON : MonoBehaviour
         }
         if (AdaptiveState == ADAPTIVE_STATE.DIFFICULTY_REDUCED) {
             lv_logger.StartCoroutine(AdaptiveChangeLvEasier());
+        } else {
+            Debug.Log("Adaptive curr state " + AdaptiveState);
         }
     }
 
