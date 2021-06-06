@@ -14892,8 +14892,7 @@ SpriteRenderer:
   m_SortingLayerID: 1169490773
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7495320969501026803, guid: 53e4c4d46ed2d074bb89f3ee9886fb82,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 080475ecec14a0643806f5eb49a27a25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -18300,8 +18299,7 @@ SpriteRenderer:
   m_SortingLayerID: 1169490773
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7495320969501026803, guid: 53e4c4d46ed2d074bb89f3ee9886fb82,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 080475ecec14a0643806f5eb49a27a25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20401,8 +20399,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -324.3, y: 213.8}
-  m_SizeDelta: {x: 158.5925, y: 30}
+  m_AnchoredPosition: {x: -246.08469, y: 213.8}
+  m_SizeDelta: {x: 315.0231, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086576011
 MonoBehaviour:
@@ -20437,7 +20435,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The Pavilion
+  m_Text: THE END - THE PAVILION
 --- !u!222 &2086576012
 CanvasRenderer:
   m_ObjectHideFlags: 0

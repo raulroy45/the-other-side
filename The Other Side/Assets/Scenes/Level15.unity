@@ -3783,9 +3783,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1325133508}
         m_TargetAssemblyTypeName: PauseButtonsHandler, Assembly-CSharp
-        m_MethodName: togglePauseButton
+        m_MethodName: pauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14843,26 +14843,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -12, y: 17, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -11, y: 17, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 17, y: 17, z: 0}
     second:
       serializedVersion: 2
@@ -14874,26 +14854,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: -18, y: 18, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -12, y: 18, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -11, y: 18, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -15275,19 +15235,19 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 92
+  - m_RefCount: 88
     m_Data: {fileID: 11400000, guid: ed1127a8116e54040b859583359b5383, type: 2}
   - m_RefCount: 13
     m_Data: {fileID: 11400000, guid: 8fb11ac3f842eae43bcdf1c0a3b3f8e9, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 105
+  - m_RefCount: 101
     m_Data: {fileID: 21300000, guid: 2f43eccf1e61a564889f65f322ab44ea, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 105
+  - m_RefCount: 101
     m_Data:
       e00: 1
       e01: 0
@@ -15324,7 +15284,7 @@ Tilemap:
       e32: 7.97e-43
       e33: 7.99e-43
   m_TileColorArray:
-  - m_RefCount: 92
+  - m_RefCount: 88
     m_Data: {r: 0, g: 0, b: 0, a: 1}
   - m_RefCount: 13
     m_Data: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
@@ -15399,13 +15359,13 @@ CompositeCollider2D:
       - X: -60000100
         Y: 95000000
       - X: -60000100
-        Y: 84999959
+        Y: 95000041
       - X: -60000041
-        Y: 84999900
+        Y: 95000100
       - X: -49999959
-        Y: 84999900
+        Y: 95000100
       - X: -49999900
-        Y: 84999959
+        Y: 95000041
       - X: -49999900
         Y: 95000000
       - X: 85000000
@@ -15480,10 +15440,6 @@ CompositeCollider2D:
       - {x: -4.500034, y: 5.00001}
       - {x: -8.5, y: 5.000039}
       - {x: -8.49997, y: 9.5}
-      - {x: -6.00001, y: 9.49997}
-      - {x: -5.9999747, y: 8.49999}
-      - {x: -4.99999, y: 8.500026}
-      - {x: -4.999961, y: 9.5}
       - {x: 8.5, y: 9.49997}
       - {x: 8.50003, y: 0}
       - {x: 9, y: 0.000029300001}
@@ -16834,6 +16790,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1325133508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247128408109465887, guid: 149af93a72781c541aca23a64387ba21,
+    type: 3}
+  m_PrefabInstance: {fileID: 1325133504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfefb86eaf0d8414684d84882ccfd747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1604995298
 GameObject:
   m_ObjectHideFlags: 0
@@ -17958,7 +17926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -272.30487, y: 232}
+  m_AnchoredPosition: {x: -261.3, y: 231.2}
   m_SizeDelta: {x: 347.3902, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086576011
@@ -17994,7 +17962,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL - 8 - The Time Freeze
+  m_Text: LEVEL 15 - THE TIME FREEZE
 --- !u!222 &2086576012
 CanvasRenderer:
   m_ObjectHideFlags: 0

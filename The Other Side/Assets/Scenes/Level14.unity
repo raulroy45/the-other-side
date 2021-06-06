@@ -1199,8 +1199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -273.30563, y: 232}
-  m_SizeDelta: {x: 345.3887, y: 30}
+  m_AnchoredPosition: {x: -257.39746, y: 232}
+  m_SizeDelta: {x: 377.205, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411928918
 MonoBehaviour:
@@ -1235,7 +1235,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL 2 - THE WALL WORLD
+  m_Text: LEVEL 14 - THE WALL WORLD
 --- !u!222 &411928919
 CanvasRenderer:
   m_ObjectHideFlags: 0
