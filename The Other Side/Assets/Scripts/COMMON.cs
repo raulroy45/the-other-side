@@ -49,6 +49,7 @@ public class COMMON : MonoBehaviour
             ADAPTIVE_AB_TEST = true;
             LoggingController.LOGGER.LogActionWithNoLevel(LOGGER_ABTEST_AID, "B");
         }
+        Debug.Log("ADAPTIV: " + ADAPTIVE_AB_TEST);
     }
 
     // can only set once
@@ -154,7 +155,7 @@ public class COMMON : MonoBehaviour
     // WANNA SEND DATA TO SERVER? 
     public static bool LOGGING_ACTIVE = false;
     
-    public const int LOGGER_CATEGORY_ID = 9400;
+    public const int LOGGER_CATEGORY_ID = 4000;
     // prod cids
     // 511 May 11 testing
     // 513 May 13 testing
@@ -162,6 +163,7 @@ public class COMMON : MonoBehaviour
     // 2000 May 22 release
     // 3000 Iteration #3
     // 4000 June 4 release
+    // 4000 June 5 release
 
     // random category id while dev
     // 98765 Inernal Test Release
@@ -170,6 +172,7 @@ public class COMMON : MonoBehaviour
     // 9210 May 25 Logger dev
     // 9300 May 28 Logger dev
     // 9301 May 28 A/B test dev
+    // 9400 June 5 dev
     
     
     ////////////////////////////////////////
