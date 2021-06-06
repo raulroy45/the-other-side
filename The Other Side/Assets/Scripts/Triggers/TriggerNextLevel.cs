@@ -2,6 +2,7 @@ using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // this file contains some game essential code
@@ -40,8 +41,6 @@ public class TriggerNextLevel : MonoBehaviour
         openDoorSprite = Resources.LoadAll<Sprite>("opendoor")[0];
         // count locks
         lockCount = GameObject.FindGameObjectsWithTag("Key").Length;
-
-
     }
 
     // Update is called once per frame
@@ -55,10 +54,7 @@ public class TriggerNextLevel : MonoBehaviour
         // or someone 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            TNL_RestartReason = LevelLogger.EndLevelReason.KEY_R;
-            TNL_deathLocX = bob.transform.position.x;
-            TNL_deathLocY = bob.transform.position.y;
-            requestRestartLevel = true;
+            setupRestart();
         }
         
         if (requestRestartLevel)
@@ -107,4 +103,11 @@ public class TriggerNextLevel : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void setupRestart()
+    {
+        TNL_RestartReason = LevelLogger.EndLevelReason.KEY_R;
+        TNL_deathLocX = bob.transform.position.x;
+        TNL_deathLocY = bob.transform.position.y;
+        requestRestartLevel = true;
+    }
 }

@@ -16918,7 +16918,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 159491851}
         m_TargetAssemblyTypeName: TriggerNextLevel, Assembly-CSharp
-        m_MethodName: RestartLevel
+        m_MethodName: setupRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
