@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
     private int index;
+    public bool endCredits = false;
     public bool finish = false;
     public bool stay = false;
     public float typingSpeed;
@@ -25,7 +26,7 @@ public class Dialogue : MonoBehaviour
     }
 
     void Update() {
-        if (!finish && !stay) {
+        if (!finish && !stay && !endCredits) {
             player.GetComponent<PlayerController>().pauseMovement();
         }
         if (index <= sentences.Length - 1 && textDisplay.text == sentences[index]) {
@@ -75,7 +76,9 @@ public class Dialogue : MonoBehaviour
             textDisplay.text = "";
             StartCoroutine(Type());
         } else {
-            player.GetComponent<PlayerController>().resumeMovement();
+            if (!endCredits) {
+                player.GetComponent<PlayerController>().resumeMovement();
+            }
             if (!stay) {
                 textDisplay.text = "";
             }
