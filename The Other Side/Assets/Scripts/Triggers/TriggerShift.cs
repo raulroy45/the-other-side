@@ -13,7 +13,7 @@ public class TriggerShift : MonoBehaviour
 
     public Vector2 closeSpeed;
 
-    private bool triggerActive;
+    private bool triggerActiveButton;
     public bool manualMode = false;
     public Vector3 objectStart;
     public Vector3 objectEnd;
@@ -30,13 +30,13 @@ public class TriggerShift : MonoBehaviour
     void Start() {
         startingPos = transform.position;
         pressedPos = new Vector3(startingPos.x, startingPos.y - 0.45f, 0);
-        triggerActive = false;
+        triggerActiveButton = false;
         currPos = new Vector2(0, 0);
         objectCount = 0;
     }
 
     void Update() {
-        if (triggerActive) {
+        if (triggerActiveButton) {
             // move
             if (manualMode) {
                 target.transform.position = Vector3.MoveTowards(target.transform.position, objectEnd, 3 * Time.deltaTime);
@@ -67,7 +67,7 @@ public class TriggerShift : MonoBehaviour
         }
         objectCount--;
         if (objectCount == 0) {
-            triggerActive = false;
+            triggerActiveButton = false;
             if (itMoves) {
                 transform.position = startingPos;
             }
@@ -80,7 +80,7 @@ public class TriggerShift : MonoBehaviour
                 return;
             }
         }
-        triggerActive = true;
+        triggerActiveButton = true;
         objectCount++;
         if (itMoves) {
             transform.position = pressedPos;
@@ -100,6 +100,6 @@ public class TriggerShift : MonoBehaviour
     }
 
     public void setTriggerActive() {
-        triggerActive = true;
+        triggerActiveButton = true;
     }
 }

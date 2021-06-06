@@ -4201,7 +4201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525304336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.06, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1159596841}
@@ -4492,9 +4492,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1408857343}
-  deltaPosition: {x: 0, y: 2}
-  openSpeed: {x: 0, y: 0.15}
-  closeSpeed: {x: 0, y: 0.15}
+  deltaPosition: {x: 0, y: -2}
+  openSpeed: {x: 0, y: 0.1}
+  closeSpeed: {x: 0, y: 0.05}
   manualMode: 0
   objectStart: {x: 0, y: 0, z: 0}
   objectEnd: {x: 0, y: 0, z: 0}
@@ -4609,8 +4609,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1592087600}
   deltaPosition: {x: 0, y: 2}
-  openSpeed: {x: 0, y: 0.5}
-  closeSpeed: {x: 0, y: 0}
+  openSpeed: {x: 0, y: 0.1}
+  closeSpeed: {x: 0, y: 0.5}
   manualMode: 0
   objectStart: {x: 0, y: 0, z: 0}
   objectEnd: {x: 0, y: 0, z: 0}
@@ -4742,7 +4742,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 6200000, guid: 7aa77f4cab9684a4c9c26edce4c7bbc6, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -17432,6 +17432,7 @@ GameObject:
   - component: {fileID: 932427172}
   - component: {fileID: 932427171}
   - component: {fileID: 932427170}
+  - component: {fileID: 932427173}
   m_Layer: 10
   m_Name: Key 1
   m_TagString: Key
@@ -17543,6 +17544,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &932427173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932427168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ecedb448415c6499752459df806ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToBeDestroyed:
+  - {fileID: 1604499493}
+  - {fileID: 1909158624}
 --- !u!1 &961144882
 GameObject:
   m_ObjectHideFlags: 0
@@ -17645,7 +17661,7 @@ MonoBehaviour:
   target: {fileID: 833243779}
   deltaPosition: {x: 0, y: 2}
   openSpeed: {x: 0, y: 0.5}
-  closeSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0.02}
   manualMode: 0
   objectStart: {x: 0, y: 0, z: 0}
   objectEnd: {x: 0, y: 0, z: 0}
@@ -17759,9 +17775,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 177306495}
-  deltaPosition: {x: 0, y: 2}
-  openSpeed: {x: 0, y: 0.15}
-  closeSpeed: {x: 0, y: 0.15}
+  deltaPosition: {x: 0, y: -2}
+  openSpeed: {x: 0, y: 0.1}
+  closeSpeed: {x: 0, y: 0.02}
   manualMode: 0
   objectStart: {x: 0, y: 0, z: 0}
   objectEnd: {x: 0, y: 0, z: 0}
@@ -19942,9 +19958,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1836987333}
-  deltaPosition: {x: 0, y: 2}
-  openSpeed: {x: 0, y: 0.15}
-  closeSpeed: {x: 0, y: 0.15}
+  deltaPosition: {x: 0, y: -2}
+  openSpeed: {x: 0, y: 0.1}
+  closeSpeed: {x: 0, y: 0.05}
   manualMode: 0
   objectStart: {x: 0, y: 0, z: 0}
   objectEnd: {x: 0, y: 0, z: 0}
@@ -20060,7 +20076,7 @@ MonoBehaviour:
   target: {fileID: 1604499493}
   deltaPosition: {x: 0, y: 2}
   openSpeed: {x: 0, y: 0.5}
-  closeSpeed: {x: 0, y: 0}
+  closeSpeed: {x: 0, y: 0.1}
   manualMode: 0
   objectStart: {x: 0, y: 0, z: 0}
   objectEnd: {x: 0, y: 0, z: 0}
@@ -20209,7 +20225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408857343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.12, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1159596841}
@@ -20544,8 +20560,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1909158624}
   deltaPosition: {x: 0, y: 2}
-  openSpeed: {x: 0, y: 0.5}
-  closeSpeed: {x: 0, y: 0}
+  openSpeed: {x: 0, y: 0.1}
+  closeSpeed: {x: 0, y: 0.02}
   manualMode: 0
   objectStart: {x: 0, y: 0, z: 0}
   objectEnd: {x: 0, y: 0, z: 0}
@@ -20565,9 +20581,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 525304336}
-  deltaPosition: {x: 0, y: 2}
-  openSpeed: {x: 0, y: 0.15}
-  closeSpeed: {x: 0, y: 0.15}
+  deltaPosition: {x: 0, y: -2}
+  openSpeed: {x: 0, y: 0.1}
+  closeSpeed: {x: 0, y: 0.05}
   manualMode: 0
   objectStart: {x: 0, y: 0, z: 0}
   objectEnd: {x: 0, y: 0, z: 0}
@@ -20637,6 +20653,7 @@ GameObject:
   - component: {fileID: 1566765044}
   - component: {fileID: 1566765043}
   - component: {fileID: 1566765042}
+  - component: {fileID: 1566765045}
   m_Layer: 10
   m_Name: Key 2
   m_TagString: Key
@@ -20748,6 +20765,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1566765045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566765040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ecedb448415c6499752459df806ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToBeDestroyed:
+  - {fileID: 833243779}
+  - {fileID: 1592087600}
 --- !u!1 &1592087600
 GameObject:
   m_ObjectHideFlags: 0
@@ -20777,7 +20809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592087600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.96, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1159596841}
@@ -21059,7 +21091,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604499493}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.98, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1159596841}
@@ -22159,7 +22191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836987333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.18, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1159596841}
