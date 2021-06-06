@@ -5412,6 +5412,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music
       objectReference: {fileID: 0}
+    - target: {fileID: 8888010805421007719, guid: a2152fdc42d8b154592c8f78bc915fe9,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8888010805421007720, guid: a2152fdc42d8b154592c8f78bc915fe9,
         type: 3}
       propertyPath: m_RootOrder
