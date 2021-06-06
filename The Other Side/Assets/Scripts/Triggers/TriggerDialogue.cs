@@ -36,6 +36,9 @@ public class TriggerDialogue : MonoBehaviour
                     case 2:
                         TutorialManager.GetComponent<Level2Tutorial>().TriggerTutorial();
                         break;
+                    case 12:
+                        TutorialManager.GetComponent<IntroFreezeTutorial>().TriggerTutorial();
+                        break;
                 }
             } else {
                 dialogueManager.GetComponent<Dialogue>().SetNewDialogues(sentences);

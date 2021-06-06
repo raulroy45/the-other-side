@@ -13646,8 +13646,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -223, y: -179.54816}
-  m_SizeDelta: {x: 796.2313, y: 127.5301}
+  m_AnchoredPosition: {x: -293.23956, y: -210.38745}
+  m_SizeDelta: {x: 337.1308, y: 98.9152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &767415364
 MonoBehaviour:
@@ -13733,7 +13733,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 126.844345, y: 15.441303, z: 280.12988, w: 28.354647}
+  m_margin: {x: 18.475243, y: 15.441303, z: 18.40833, w: 20.17897}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15915,7 +15915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -209, y: -192}
+  m_AnchoredPosition: {x: 375, y: -209.62}
   m_SizeDelta: {x: 140.6184, y: 67.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1663625408
@@ -15939,7 +15939,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_PressedColor: {r: 0.8392157, g: 0.8039216, b: 0.08235294, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
