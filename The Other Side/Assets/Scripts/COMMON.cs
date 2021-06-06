@@ -40,7 +40,12 @@ public class COMMON : MonoBehaviour
         AdaptiveState = ADAPTIVE_STATE.UNDECIDED;
     }
 
+    // can only set once
     public static void SetAdaptiveState(ADAPTIVE_STATE newState) {
+        if (AdaptiveState != ADAPTIVE_STATE.UNDECIDED) {
+            Debug.Log("Already have adaptive state " + AdaptiveState);
+            return;
+        }
         AdaptiveState = newState;
         LogAdaptiveABTestState();
     }
@@ -66,7 +71,6 @@ public class COMMON : MonoBehaviour
             Debug.Log("ADAPTIVE: have not decide @ " + lv_logger.levelNote);
             return;
         }
-        Debug.Log("Adapting lv");
         if (AdaptiveState == ADAPTIVE_STATE.DIFFICULTY_REDUCED) {
             lv_logger.StartCoroutine(AdaptiveChangeLvEasier());
         }
@@ -77,7 +81,7 @@ public class COMMON : MonoBehaviour
         // wait till all gameobjects are loaded
         yield return new WaitForSeconds(0.2f);
         FallingPlat[] platScripts = GameObject.FindObjectsOfType<FallingPlat>();
-        Debug.Log("COMMON platscripts # " + platScripts.Length);
+        Debug.Log("making lv easier");
         if (platScripts != null) {
             Debug.Log("Fixing platform delay");
             foreach (FallingPlat fallScript in platScripts) {

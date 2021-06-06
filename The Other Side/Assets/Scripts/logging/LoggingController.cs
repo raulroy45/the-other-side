@@ -52,14 +52,16 @@ public class LoggingController : MonoBehaviour
         }
         prev_complete_time = Time.timeAsDouble;
 
-        Debug.Log("LC num restart " + num_restart_in_level + " @ " + l.levelNote);
+        // Debug.Log("LC num restart " + num_restart_in_level + " @ " + l.levelNote);
         if (COMMON.ADAPTIVE_AB_TEST) {
             // make some decision here
-            if (l.levelNote == "lv3" && num_restart_in_level > 2) {
+            if (l.levelNote == "lv3") {
                 // make it easier now
-                COMMON.AdaptiveState = COMMON.ADAPTIVE_STATE.DIFFICULTY_REDUCED;
-            } else {
-                COMMON.AdaptiveState = COMMON.ADAPTIVE_STATE.DIFFICULTY_SAME;
+                if (num_restart_in_level > 1) {
+                    COMMON.SetAdaptiveState(COMMON.ADAPTIVE_STATE.DIFFICULTY_REDUCED);
+                } else if (num_restart_in_level < 2 && endLevelReason == LevelLogger.EndLevelReason.WON) {
+                    COMMON.SetAdaptiveState(COMMON.ADAPTIVE_STATE.DIFFICULTY_SAME);
+                }
             }
         }
     }
@@ -92,7 +94,11 @@ public class LoggingController : MonoBehaviour
             return null;
         } else {
             // need to return the last logger
-            return logger[logger.Length - 1];
+            // return logger[logger.Length - 1];
+            foreach (LevelLogger l in logger) {
+                Debug.Log(l + " " + l.levelNote + " | " + l.GetInstanceID());
+            }
+            return logger[0];
         }
     }
 
