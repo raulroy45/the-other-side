@@ -24,7 +24,7 @@ public class Trigger2Sprites : MonoBehaviour
         triggerState = false;
         objectCount = 0;
     }
-
+    
     void OnTriggerExit2D(Collider2D other) {
         if (!isToggle) {
             // deactivate
