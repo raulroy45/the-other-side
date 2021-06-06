@@ -59,9 +59,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level16.unity
     guid: 64e7dbf84af204945a1392f58580396f
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/EndCredits.unity
     guid: 13264efd7ead3da4b8598829ffec621c

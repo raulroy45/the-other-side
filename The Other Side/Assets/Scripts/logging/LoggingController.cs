@@ -56,10 +56,12 @@ public class LoggingController : MonoBehaviour
         if (COMMON.ADAPTIVE_AB_TEST) {
             // make some decision here
             if (l.levelNote == "lv3") {
-                // make it easier now
+                // make decision now
                 if (num_restart_in_level > 2 && endLevelReason != LevelLogger.EndLevelReason.WON) {
                     COMMON.SetAdaptiveState(COMMON.ADAPTIVE_STATE.DIFFICULTY_REDUCED);
                 } else if (num_restart_in_level < 2 && endLevelReason == LevelLogger.EndLevelReason.WON) {
+                    COMMON.SetAdaptiveState(COMMON.ADAPTIVE_STATE.DIFFICULTY_SAME);
+                } else if (endLevelReason == LevelLogger.EndLevelReason.WON) {
                     COMMON.SetAdaptiveState(COMMON.ADAPTIVE_STATE.DIFFICULTY_SAME);
                 }
             }
@@ -131,9 +133,13 @@ public class LoggingController : MonoBehaviour
             }
             // start AB Test
             if (COMMON.ADAPTIVE_AB_TEST) {
-                COMMON.InitABTest();
+                Invoke("ABTestInitWrapper", 0.5f);
             }
         }
+    }
+
+    private void ABTestInitWrapper() {
+        COMMON.InitABTest();
     }
 
     // send heart beat across scenes

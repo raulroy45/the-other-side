@@ -153,7 +153,7 @@ public class COMMON : MonoBehaviour
     ////////////////////////////////////////
 
     // WANNA SEND DATA TO SERVER? 
-    public static bool LOGGING_ACTIVE = false;
+    public static bool LOGGING_ACTIVE = true;
     
     public const int LOGGER_CATEGORY_ID = 4000;
     // prod cids
