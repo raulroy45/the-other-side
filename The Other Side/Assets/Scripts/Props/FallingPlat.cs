@@ -10,6 +10,7 @@ public class FallingPlat : MonoBehaviour
     // switches
     public float fallDelay = 0.3f;
     public bool onlyBobCanTrigger = false;
+    //public float customMass;
 
     private Rigidbody2D body2D;
 
@@ -29,7 +30,8 @@ public class FallingPlat : MonoBehaviour
         cc.geometryType = CompositeCollider2D.GeometryType.Polygons;
         body2D = cc.attachedRigidbody;
         body2D.bodyType = RigidbodyType2D.Static;
-        body2D.mass = 20;
+        body2D.useAutoMass = true;
+       // body2D.mass = customMass;
 
         // 
         isShaking = false;

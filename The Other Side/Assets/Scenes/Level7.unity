@@ -167,8 +167,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 3
+  m_UseAutoMass: 1
+  m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -7135,8 +7135,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 3
+  m_UseAutoMass: 1
+  m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -21153,8 +21153,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 3
+  m_UseAutoMass: 1
+  m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -24901,7 +24901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490d2c61e30b083449384ef5fee27502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 5
   jumpSpeed: 12
   groundCheckRadius: 0.1
   wallCheckRadius: 0.3
@@ -24916,7 +24916,7 @@ MonoBehaviour:
   isGrabbing: 0
   isRight: 0
   isPaused: 0
-  factor: 25
+  factor: 35
   jumpEnabled: 1
   wallMergeEnabled: 1
 --- !u!212 &1687356506
