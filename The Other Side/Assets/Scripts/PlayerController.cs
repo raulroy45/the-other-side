@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb2d;
     private Animator animator;
-    public float moveSpeed = 6;
+    public float moveSpeed = 5;
     public float jumpSpeed = 12;
     public float groundCheckRadius = 0.1f;
     public float wallCheckRadius = 0.3f;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
     public bool isPaused;
     private bool jumpWait;
     private bool canGrab;
-    public float factor = 25f;
+    public float factor = 35f;
     public bool jumpEnabled = true;
     public bool wallMergeEnabled = true;
     private Transform groundCheck;
