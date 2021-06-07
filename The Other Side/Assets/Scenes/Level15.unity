@@ -15511,6 +15511,7 @@ GameObject:
   - component: {fileID: 1226449135}
   - component: {fileID: 1226449134}
   - component: {fileID: 1226449133}
+  - component: {fileID: 1226449130}
   m_Layer: 13
   m_Name: Tilemap_RW_WallJump
   m_TagString: Untagged
@@ -15532,6 +15533,32 @@ Transform:
   m_Father: {fileID: 961144884}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1226449130
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226449128}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 8.501675, y: 8.486993}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0268669, y: 8.989093}
+  m_EdgeRadius: 0
 --- !u!483693784 &1226449131
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -16058,48 +16085,40 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1226449135}
     m_ColliderPaths:
-    - - X: 70000100
-        Y: -41
-      - X: 70000100
-        Y: 95000041
-      - X: 70000041
-        Y: 95000100
-      - X: 64999959
-        Y: 95000100
-      - X: 64999900
-        Y: 95000041
-      - X: 64999900
-        Y: -41
-      - X: 64999959
-        Y: -100
-      - X: 70000041
-        Y: -100
-    - - X: 45000100
-        Y: 19999959
-      - X: 45000100
-        Y: 60000041
-      - X: 45000041
-        Y: 60000100
-      - X: 34999959
-        Y: 60000100
-      - X: 34999900
-        Y: 60000041
-      - X: 34999900
-        Y: 19999959
-      - X: 34999959
-        Y: 19999900
-      - X: 45000041
-        Y: 19999900
+    - - X: 70000000
+        Y: 95000000
+      - X: 65000000
+        Y: 95000000
+      - X: 65000000
+        Y: 5000000
+      - X: 70000000
+        Y: 5000000
+    - - X: 45000000
+        Y: 60000000
+      - X: 35000000
+        Y: 60000000
+      - X: 35000000
+        Y: 20000000
+      - X: 45000000
+        Y: 20000000
+    - - X: 70000000
+        Y: 4999999
+      - X: 65000000
+        Y: 5000000
+      - X: 65000000
+        Y: 0
+      - X: 70000000
+        Y: 0
   m_CompositePaths:
     m_Paths:
-    - - {x: 6.9999743, y: -0.00001}
-      - {x: 6.9999743, y: 9.50001}
-      - {x: 6.49999, y: 9.499974}
-      - {x: 6.5000253, y: -0.00001}
-    - - {x: 4.4999747, y: 1.99999}
-      - {x: 4.4999747, y: 6.00001}
-      - {x: 3.49999, y: 5.9999747}
-      - {x: 3.5000253, y: 1.99999}
+    - - {x: 6.9999704, y: 0}
+      - {x: 6.9999704, y: 9.5}
+      - {x: 6.5, y: 9.49997}
+      - {x: 6.500029, y: 0}
+    - - {x: 4.499971, y: 2}
+      - {x: 4.499971, y: 6}
+      - {x: 3.5, y: 5.999971}
+      - {x: 3.5000293, y: 2}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &1226449134
@@ -16336,6 +16355,7 @@ MonoBehaviour:
   isGrabbing: 0
   isRight: 0
   isPaused: 0
+  factor: 25
   jumpEnabled: 1
   wallMergeEnabled: 1
 --- !u!212 &1260216923

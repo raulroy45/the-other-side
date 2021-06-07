@@ -3841,7 +3841,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 1
   m_AngularDrag: 0.1
   m_GravityScale: 1
@@ -17811,6 +17811,7 @@ MonoBehaviour:
   isGrabbing: 0
   isRight: 0
   isPaused: 0
+  factor: 25
   jumpEnabled: 1
   wallMergeEnabled: 1
 --- !u!212 &1687356506
