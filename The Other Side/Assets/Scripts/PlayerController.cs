@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
     public bool isPaused;
     private bool jumpWait;
     private bool canGrab;
+    public float factor = 25f;
     public bool jumpEnabled = true;
     public bool wallMergeEnabled = true;
     private Transform groundCheck;
@@ -192,6 +193,7 @@ public class PlayerController : MonoBehaviour {
             // on ground
             GroundMovement();
         }
+        // GroundMovement();
         // v is updated, now possibly need to flip sprite
         // OptionalFlipOnXVelocity();
     }
@@ -262,6 +264,55 @@ public class PlayerController : MonoBehaviour {
 
     private void GroundMovement() {
         if (Input.GetAxisRaw("Horizontal") > 0f) {
+            if (rb2d.velocity.x < 0f) {
+                rb2d.velocity = Vector2.MoveTowards(new Vector2(0,0), new Vector2(moveSpeed, rb2d.velocity.y), factor * Time.deltaTime);
+            } else {
+                rb2d.velocity = Vector2.MoveTowards(rb2d.velocity, new Vector2(moveSpeed, rb2d.velocity.y), factor * Time.deltaTime);
+            }
+            // rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
+
+            if (!isRight) {
+                Flip();
+            }
+        } else if (Input.GetAxisRaw("Horizontal") < 0f) {
+            if (rb2d.velocity.x > 0f) {
+                rb2d.velocity = Vector2.MoveTowards(new Vector2(0,0), new Vector2(-moveSpeed, rb2d.velocity.y), factor * Time.deltaTime);
+            } else {
+                rb2d.velocity = Vector2.MoveTowards(rb2d.velocity, new Vector2(-moveSpeed, rb2d.velocity.y), factor * Time.deltaTime);
+                // rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
+            }
+            if (isRight) {
+                Flip();
+            }
+        } else {
+            // is grounded & no input
+            isGrabbing = false;
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+        }
+        UnityEngine.Debug.Log(rb2d.velocity);
+    }
+
+    private float airSpeedDivider = 20;
+    private float airDragMultiplier = 0.15f;
+    private float airDragMax = 0.1f;
+    private void AirMovement() {
+        // mid air, FIXED: arbitrary divide by 10 (make it a param?)
+        // FIXED: arbitrary 0.1f (make it a param?)
+        // float desiredDeltaSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        // if (isRight && desiredDeltaSpeed < 0f || !isRight && desiredDeltaSpeed > 0f) {
+        //     Flip();
+        // }
+        // float vX = rb2d.velocity.x;
+        // float vY = rb2d.velocity.y;
+        // vX += desiredDeltaSpeed / airSpeedDivider;
+
+
+        // vX = Mathf.Clamp(vX, -moveSpeed, moveSpeed);
+        // rb2d.velocity = new Vector2(vX, vY);
+        // // air drag
+        // float deltaVx = - Mathf.Sign(rb2d.velocity.x) * Mathf.Min(airDragMax, Mathf.Abs(rb2d.velocity.x * airDragMultiplier));
+        // rb2d.velocity = new Vector2(rb2d.velocity.x + deltaVx , rb2d.velocity.y);
+        if (Input.GetAxisRaw("Horizontal") > 0f) {
             rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
             if (!isRight) {
                 Flip();
@@ -271,33 +322,10 @@ public class PlayerController : MonoBehaviour {
             if (isRight) {
                 Flip();
             }
-        } else {
-            // is grounded & no input
-            isGrabbing = false;
+        } else if (rb2d.velocity.y <= 0f) {
+        //     rb2d.velocity =new Vector2(0, rb2d.velocity.y);
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
-    }
-
-    private float airSpeedDivider = 20;
-    private float airDragMultiplier = 0.15f;
-    private float airDragMax = 0.1f;
-    private void AirMovement() {
-        // mid air, FIXED: arbitrary divide by 10 (make it a param?)
-        // FIXED: arbitrary 0.1f (make it a param?)
-        float desiredDeltaSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        if (isRight && desiredDeltaSpeed < 0f || !isRight && desiredDeltaSpeed > 0f) {
-            Flip();
-        }
-        float vX = rb2d.velocity.x;
-        float vY = rb2d.velocity.y;
-        vX += desiredDeltaSpeed / airSpeedDivider;
-
-
-        vX = Mathf.Clamp(vX, -moveSpeed, moveSpeed);
-        rb2d.velocity = new Vector2(vX, vY);
-        // air drag
-        float deltaVx = - Mathf.Sign(rb2d.velocity.x) * Mathf.Min(airDragMax, Mathf.Abs(rb2d.velocity.x * airDragMultiplier));
-        rb2d.velocity = new Vector2(rb2d.velocity.x + deltaVx , rb2d.velocity.y);
     }
 
     public void pauseMovement() {
