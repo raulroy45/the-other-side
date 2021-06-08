@@ -14762,7 +14762,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEVEL 2 - THE WALL WORLD
+  m_Text: LEVEL 2 - FALLING PLATFORMS I
 --- !u!222 &1046441999
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16136,7 +16136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490d2c61e30b083449384ef5fee27502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 5
   jumpSpeed: 12
   groundCheckRadius: 0.1
   wallCheckRadius: 0.3
@@ -16151,6 +16151,7 @@ MonoBehaviour:
   isGrabbing: 0
   isRight: 0
   isPaused: 0
+  factor: 35
   jumpEnabled: 1
   wallMergeEnabled: 1
 --- !u!212 &1687356506
