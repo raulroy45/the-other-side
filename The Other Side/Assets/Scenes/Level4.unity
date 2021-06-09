@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpSpeed: 12
-  groundCheckRadius: 0.1
+  groundCheckRadius: 0.05
   wallCheckRadius: 0.1
   wallJumpTime: 0.2
   grabTime: 0.2

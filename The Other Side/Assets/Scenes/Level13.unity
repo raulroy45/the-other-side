@@ -15121,7 +15121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpSpeed: 12
-  groundCheckRadius: 0.1
+  groundCheckRadius: 0.05
   wallCheckRadius: 0.1
   wallJumpTime: 0.2
   grabTime: 0.2
@@ -15221,7 +15221,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3.5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4d899ff435451084385bdbccbd7179ef, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
