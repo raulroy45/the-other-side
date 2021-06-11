@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3953d2c86e3d64f93e9ad997e04800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.4
+  fallDelay: 0.5
   onlyBobCanTrigger: 0
 --- !u!483693784 &245638855
 TilemapRenderer:
@@ -2414,7 +2414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3953d2c86e3d64f93e9ad997e04800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.2
+  fallDelay: 0.5
   onlyBobCanTrigger: 0
 --- !u!483693784 &490970817
 TilemapRenderer:
@@ -14302,7 +14302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3953d2c86e3d64f93e9ad997e04800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.2
+  fallDelay: 0.5
   onlyBobCanTrigger: 0
 --- !u!483693784 &756393829
 TilemapRenderer:
@@ -16016,7 +16016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3953d2c86e3d64f93e9ad997e04800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.4
+  fallDelay: 0.5
   onlyBobCanTrigger: 0
 --- !u!483693784 &1188581395
 TilemapRenderer:
@@ -16611,7 +16611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3953d2c86e3d64f93e9ad997e04800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.4
+  fallDelay: 0.5
   onlyBobCanTrigger: 0
 --- !u!483693784 &1261351781
 TilemapRenderer:
@@ -18401,7 +18401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490d2c61e30b083449384ef5fee27502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 6.5
   jumpSpeed: 12
   groundCheckRadius: 0.05
   wallCheckRadius: 0.3
@@ -21630,7 +21630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3953d2c86e3d64f93e9ad997e04800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDelay: 0.2
+  fallDelay: 0.5
   onlyBobCanTrigger: 0
 --- !u!483693784 &2104718169
 TilemapRenderer:

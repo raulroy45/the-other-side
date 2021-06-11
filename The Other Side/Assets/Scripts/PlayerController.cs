@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void HandleWallMerging() {   
-        if (wallMergesLeft == 0 || !wallMergeEnabled) {
+        if (wallMergesLeft == 0 || !wallMergeEnabled || isGrabbing) {
             // ooh no more merges
             return;
         }
@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour {
 
     private void HandleMovement() {
         if (wallJumpCount <= 0) {
-            rb2d.gravityScale = gravityScale;
+            // rb2d.gravityScale = gravityScale;
             if (!isGrounded) {
                 AirMovement();
             } else {
@@ -231,6 +231,7 @@ public class PlayerController : MonoBehaviour {
                 rb2d.velocity = new Vector2(0f, 0f);
                 rb2d.gravityScale = 0f;
             } else {
+                rb2d.gravityScale = gravityScale;
                 if (grabCount <= 0) {
                     isGrabbing = false;
                 } else {

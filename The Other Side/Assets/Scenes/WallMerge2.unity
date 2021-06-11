@@ -286,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 201687817}
   sentences: []
+  endCredits: 0
   finish: 1
   stay: 0
   typingSpeed: 0.02
@@ -6191,6 +6192,7 @@ MonoBehaviour:
   wallCheckRadius: 0.1
   wallJumpTime: 0.2
   grabTime: 0.2
+  bufferTime: 0.15
   wallMergesLeft: 0
   wallJumpCount: 0
   grabCount: 0
@@ -6200,6 +6202,7 @@ MonoBehaviour:
   isGrabbing: 0
   isRight: 0
   isPaused: 0
+  factor: 35
   jumpEnabled: 1
   wallMergeEnabled: 1
 --- !u!212 &134166036
@@ -6302,7 +6305,6 @@ MonoBehaviour:
   follows: 1
   trigger2: 0
   trigger3: 0
-  player: {fileID: 134166031}
   startPos: {x: 0, y: 0, z: 0}
 --- !u!4 &175125901
 Transform:
