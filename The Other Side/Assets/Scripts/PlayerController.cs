@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public float wallCheckRadius = 0.3f;
     public float wallJumpTime = 0.2f;
     public float grabTime = 0.33f;
+    public float bufferTime = 0.15f;
     public static int wallMergesLimit = -1; // infinite wall merges
     public int wallMergesLeft;
     public float wallJumpCount;
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour {
     private LayerMask WW_WallJump;
     private LayerMask RW_Objects, WW_Objects, RW_WW_Object;
     private Vector3 Scale;
+    Tuple<bool, float> jumpBuffer;
     private SpriteRenderer bobRenderer;
 
     // Start is called before the first frame update
@@ -53,6 +56,7 @@ public class PlayerController : MonoBehaviour {
         gravityScale = rb2d.gravityScale;
         jumpWait = false;
         canGrab = false;
+        jumpBuffer = new Tuple<bool, float>(false, 0f);
         // set layer automatically
         gameObject.layer = LayerMask.NameToLayer("RW_Bob");
         bobRenderer.sortingLayerName = "Real_Bob";
@@ -100,8 +104,13 @@ public class PlayerController : MonoBehaviour {
         }
         SetParameters();
         if (!isPaused) {
-            if (Input.GetButtonDown("Jump")) {
+            if (isGrounded && jumpBuffer.Item1 && (Time.realtimeSinceStartup - jumpBuffer.Item2) < bufferTime) {
+                jumpBuffer = new Tuple<bool, float>(false, 0f);
                 HandleJump();
+                HandleMovement();
+            } else if (Input.GetButtonDown("Jump")) {
+                HandleJump();
+                HandleMovement();
             } else if (Input.GetButtonUp("Jump")) {
                 // short hop, unrelated to time
                 // cut vY in half when release "space key"
@@ -109,15 +118,11 @@ public class PlayerController : MonoBehaviour {
                 if (rb2d.velocity.y > 0) {
                     rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.y / 2);
                 }
-            }
-            if (isGrabbing) {
+            } else if (isGrabbing) {
                 HandleWallJump();
+                HandleMovement();
             } else {
-                if (wallJumpCount <= 0) {
-                    HandleMovement();
-                } else {
-                    wallJumpCount -= Time.deltaTime;
-                }
+                HandleMovement();
             }
         }
         SetAnimParameters();
@@ -186,12 +191,16 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HandleMovement() {
-        rb2d.gravityScale = gravityScale;
-        if (!isGrounded) {
-            AirMovement();
+        if (wallJumpCount <= 0) {
+            rb2d.gravityScale = gravityScale;
+            if (!isGrounded) {
+                AirMovement();
+            } else {
+                // on ground
+                GroundMovement();
+            }
         } else {
-            // on ground
-            GroundMovement();
+            wallJumpCount -= Time.deltaTime;
         }
         // GroundMovement();
         // v is updated, now possibly need to flip sprite
@@ -238,6 +247,8 @@ public class PlayerController : MonoBehaviour {
         if (isGrounded) {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
             LoggingController.LevelJump();
+        } else {
+            jumpBuffer = new Tuple<bool, float>(true, Time.realtimeSinceStartup);
         }
     }
 

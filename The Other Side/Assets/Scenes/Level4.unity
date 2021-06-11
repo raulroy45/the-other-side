@@ -1103,6 +1103,7 @@ MonoBehaviour:
   wallCheckRadius: 0.1
   wallJumpTime: 0.2
   grabTime: 0.2
+  bufferTime: 0.15
   wallMergesLeft: 0
   wallJumpCount: 0
   grabCount: 0
